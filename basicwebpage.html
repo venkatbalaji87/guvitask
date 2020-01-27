@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Web Page | HTML AND CSS IS HARD </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+<body>
+    
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <!--Basic Web Page-->
+
+    <div class="home-style" style="margin-top: 100px;">
+        <div class="home-panel">
+            <div>
+                <h1 id="introh1">BASIC WEB PAGE</h1>
+            </div>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 2. OF <a href="./htmlcss.html"> HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <h4>A friendly tutorial for making (really) simple web pages</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <!--HTML DEFINES-->
+
+    <div id="comprehensive-style-html">
+        <div id="html-content-comprehensive-html">
+            <p style="text-align: justify;">
+                HTML defines the content of every web page on the Internet. By 
+                “marking up” your raw content with HTML tags, you’re able to tell 
+                web browsers how you want different parts of your content to be displayed. 
+                Creating an HTML document with properly marked up content is the 
+                first step of developing a web page.
+            </p>
+        </div>
+
+        <div style="padding-left: 150px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-markup.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;padding-right: 200px;">
+                In this chapter, we’ll build our first web page. It’ll look like crap because it won’t 
+                have any CSS attached to it, but it will serve as a thorough  introduction to the HTML elements 
+                that web developers work with on a daily basis.
+
+                As you work your way through the examples, try to approach them as a more hands-on 
+                version of a WYSIWYG editor like Google Docs or Microsoft Word. We’ll be working with 
+                all the same types of content (headings, paragraphs, lists, etc), we’ll just be defining 
+                them a little bit more explicitly with HTML.
+            </p>
+        </div>
+    </div>
+
+    <!--SETUP-->
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                SETUP
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="html-content-comprehensive">
+            <p style="padding-left: 10px">
+                Let’s get started by creating a new project with Atom called basic-web-pages. 
+                Then, make a new file called basics.html in that folder. This HTML file represents 
+                a single web page, and it’s where we’ll put all our code for this chapter. If you’re 
+                not already set up with Atom, be sure to read the <a href="./introduction.html">Introduction </a> for this tutorial series.
+            </p>
+        </div>
+
+        <div style="padding-left: 240px; margin-top: 50px;">
+            <img src="./img/introduction/outside-of-the-atom.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;">
+                Remember that the basic workflow for web developers is to edit HTML in their text editor 
+                and view those changes in a web browser, so this is exactly what you should be doing for each section of this chapter.
+            </p>
+        </div>
+    </div>
+
+    <!--Structural of Web Page-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                STRUCTURE OF A WEB PAGE
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="html-content-comprehensive" style="padding-left: 50px">
+            <p style="text-align:justify;">
+                Add the following HTML markup to our basics.html file. This is what you’ll start 
+                with for every single web page you’ll ever produce. Typically, you would use a templating 
+                engine of some sort to avoid re-typing the redundant parts, but for this tutorial, we’ll be focusing on the raw HTML.
+            </p>
+        </div>
+
+        <div style="padding-left: 60px; margin-top: 50px;">
+            <p> 
+                <pre class='highlight' style="line-height: 1.2em;"><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Metadata goes here --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Content goes here --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+                    </code></pre>
+            </p>
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;padding-right: 130px;">
+                Remember that the basic workflow for web developers is to edit HTML in their text editor 
+                and view those changes in a web browser, so this is exactly what you should be doing for each section of this chapter.
+            </p>
+        </div>
+
+        <div>
+            <p style="white-space: pre;padding-left: 4px;">
+                First, we need to tell browsers that this is an HTML5 web page with the <!DOCTYPE html> line. 
+                This is just a special string that browsers look for when they try to display our web page, 
+                and it always needs to look exactly like it does above.
+
+                Then, our entire web page needs to be wrapped in <html> tags. The actual <html> text is called an 
+                “opening tag”, while </html> is called a “closing tag”. Everything inside of these tags are considered 
+                part of the <html> “element”, which is this ethereal thing that gets created when a web browser parses your HTML tags.
+            </p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-tags-elements.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre;padding-left: 4px;">
+                Inside of the <html> element, we have two more elements called <head> and <body>. A web 
+                page’s head contains all of its metadata, like the page title, any CSS stylesheets, and other 
+                things that are required to render the page but you don’t necessarily want the user to see. The 
+                bulk of our HTML markup will live in the <body> element, which represents the visible content of 
+                the page. Note that opening up our page in a web browser won’t display anything, since it has an empty <body>.
+            </p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-head-body.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre;padding-left: 4px;">
+                The purpose of this <head>/<body> split will become clearer in a few chapters after we start 
+                working with CSS.
+
+                Also notice the HTML comment syntax in the above snippet. Anything that starts with <!-- and ends with --> will 
+                be completely ignored by the browser. This is useful for documenting your code and making notes to yourself.
+            </p>
+        </div>      
+    </div>
+
+    <!--Page Title-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                PAGE TITLE
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="html-content-comprehensive" style="padding-left: 50px">
+            <p style="text-align: justify;margin-top: 0px;;">
+                One of the most important pieces of metadata is the title of your web page, defined by the aptly 
+                named <title> element. Browsers display this in the tab for your page, and Google displays it in 
+                search engine results.
+
+                Try updating our basic.html file’s <head> to match the following:
+            </p>
+        </div>
+
+        <div style="padding-left: 60px; margin-top: 50px;">
+            <p> 
+                <pre class='highlight' style="line-height: 1.2em;"><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                        <span class="hljs-comment">&lt;<title>First Title</title> --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Content goes here --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+                    </code></pre>
+            </p>
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;padding-right: 130px;">
+                When you reload the page in your browser, you should still see an empty page, but you’ll also 
+                see Interneting Is Easy! in the browser tab:
+            </p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-title-element.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre;padding-left: 4px;">
+                Notice how all the HTML tags in our web page are neatly nested. It’s very important 
+                to ensure that there are no overlapping elements. For instance, the <title> element 
+                is supposed to be inside of the <head>, so you’d never want to add the closing </head> tag 
+                before the closing </title> tag:
+            </p>
+        </div>
+
+        <div style="padding-left: 60px; margin-top: 50px;">
+            <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (Don't ever do this) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Interneting Is Easy!<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+            </code></pre>
+        </div>     
+    </div>
+
+    <!--Paragraphs-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                PARAGRAPHS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="html-content-comprehensive" style="padding-left: 50px">
+            <p style="text-align-justify">
+                One of the most important pieces of metadata is the title of your web page, defined by the aptly 
+                named <title> element. Browsers display this in the tab for your page, and Google displays it in 
+                search engine results.
+
+                Try updating our basic.html file’s <head> to match the following:
+            </p>
+        </div>
+
+        <div style="padding-left: 60px; margin-top: 50px;">
+            <p> 
+                <pre class='highlight' style="line-height: 1.2em;"><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                        <span class="hljs-comment">&lt;<title>First Title</title> --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Content goes here --&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+                    </code></pre>
+            </p>
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;padding-right: 130px;">
+                When you reload the page in your browser, you should still see an empty page, but you’ll also 
+                see Interneting Is Easy! in the browser tab:
+            </p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-title-element.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre;padding-left: 4px;">
+                Notice how all the HTML tags in our web page are neatly nested. It’s very important 
+                to ensure that there are no overlapping elements. For instance, the <title> element 
+                is supposed to be inside of the <head>, so you’d never want to add the closing </head> tag 
+                before the closing </title> tag:
+            </p>
+        </div>
+
+        <div style="padding-left: 60px; margin-top: 50px;">
+            <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (Don't ever do this) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Interneting Is Easy!<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+            </code></pre>
+        </div>    
+        
+        <div>
+            <p style="text-align: justify;">
+                You should now be able to see some content on the page. Again, since this is content we want to display, 
+                it needs to go in the <body> element, not <head>.
+            </p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-paragraph-element.png" alt="htmlmarkup" />
+        </div>
+
+        <!-- <div>
+            <p style="text-align: justify;">
+                Also note how the <code><p></code> and <code><title></code> elements are indented twice, while <code><body></code> and <code><head></code> are indented once. 
+                Indenting nested elements like this is an important best practice that makes your HTML easier to read for other 
+                developers (or for yourself if you come back 5 months from now and want to change some stuff).
+            </p>
+        </div> -->
+
+        <div>
+            <p style="text-align: justify; padding-top: 10px;">
+                It’s up to you and your development team to decide if you want to use spaces or tab characters for indents. 
+                You can set this preference in your text editor under <bold>Atom > Preferences > Editor</bold> and scrolling down to the 
+                Tab Type setting.
+            </p>
+        </div>
+
+    </div>
+
+    <!--Headings-->
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                HEADINGS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">
+                Headings are like titles, but they’re actually displayed on the page. HTML provides six 
+                levels of headings, and the corresponding elements are: <code> &lt;h1, h2, h3, … , h6 &gt;</code>. The 
+                higher the number, the less prominent the heading.
+            </p>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">
+                The first heading on a page should typically be an" <code>&lt;h1&gt;</code>, so let’s insert one above our 
+                existing <code>&lt;p&gt;</code> element. It’s very common for the first"<code>&lt;h1&gt;</code> element to match the <code>&lt;title&gt;</code> "of 
+                the document, as it does here:
+            </p>
+        </div>
+
+        <div style="padding-top:30px">
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Interneting Is Easy!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>First, we need to learn some basic HTML.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+              </code></pre>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">
+                By default, browsers render less important headings in smaller fonts. For example, let’s include a second-level 
+                heading and see what happens:
+            </p>
+        </div>
+
+        <div>
+            <pre class='highlight'><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Interneting Is Easy!<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Interneting Is Easy!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>First, we need to learn some basic HTML.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Headings<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Headings define the outline of your site. There are six levels of
+                    headings.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+                </code></pre>
+                
+                <p style="padding-top: 30px;">This should result in a web page that looks something like this:</p>
+        </div>
+
+        <div style="padding-left: 180px; margin-top: 50px;">
+            <img src="./img/basicwebpage/html-heading-elements.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                Headings are the primary way you mark up different sections of your content. They define the outline of your 
+                web page as both humans and search engines see it, which makes selecting relevant headings essential for a 
+                high-quality web page.
+            </p>
+        </div>
+
+    </div>
+
+    <!--Unordered Lists-->
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                UNORDERED LISTS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                Whenever you surround a piece of text with HTML tags, you’re adding new meaning to that text. 
+                Wrapping content in <code>&lt;ul&gt;</code> tags tells a browser that whatever is inside should 
+                be rendered as an “unordered list”. To denote individual items in that list, you wrap them in <code>&lt;li&gt;</code> tags, like so:
+            </p>
+        </div>
+
+        <div>
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Lists<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is how you make an unordered list:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Add a "ul" element (it stands for unordered list)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Add each item in its own "li" element<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>They don't need to be in any particular order<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                </code>
+            </pre>
+        </div>
+
+        <div>
+            <p>After adding this markup to the <code>&lt;body&gt;</code> element
+                (underneath the existing content), you should see a bulleted list with a
+                dedicated bullet for each <code>&lt;li&gt;</code> element:</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 516px'><div class='diagram__padding'><img class='diagram__image' alt='Web page showing a &lt;ul&gt; with &lt;li&gt; elements inside of it' src='./img/basicwebpage/html-unordered-lists.png' width='516' height='263'/></div></div></figure>
+                
+                <p>The HTML specification defines strict rules about what elements can go
+                inside other elements. In this case, <code>&lt;ul&gt;</code> elements should
+                only contain <code>&lt;li&gt;</code> elements, which means you should never
+                ever write something like this:</p>
+                
+                <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (This is bad!) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Add a "ul" element (it stands for unordered list)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                </code></pre>
+                
+                <p>Instead, you should wrap that paragraph with <code>&lt;li&gt;</code>
+                tags:</p>
+                
+                <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (Do this instead) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Add a "ul" element (it stands for unordered list)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                </code></pre>
+                
+                <p>How do we know that <code>&lt;ul&gt;</code> only accepts
+                <code>&lt;li&gt;</code> elements and that <code>&lt;li&gt;</code> allows nested
+                  paragraphs? Because the <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul'>Mozilla
+                    Developer Network</a> (MDN) says so. MDN is a superb HTML element
+                  reference. We’ll try to cover as much as we can about how to use basic
+                  HTML elements in this tutorial, but whenever you’re not sure about a
+                  particular element, do a quick Google search for <strong>“MDN
+                  &lt;some-element&gt;”</strong>.</p>
+        </div>
+    </div>
+
+    <!--Ordered Lists-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                ORDERED LISTS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                With an unordered list, rearranging the <code>&lt;li&gt;</code> elements shouldn’t change the meaning of the list. 
+                If the sequence of list items does matter, you should use an “ordered list” instead. To create an 
+                ordered list, simply change the parent <code>&lt;ul&gt;</code> element to <code>&lt;ol&gt;</code>. Append the following content to the Lists section of basics.html:
+            </p>
+        </div>
+
+        <div>
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is what an ordered list looks like:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Notice the new "ol" element wrapping everything<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>But, the list item elements are the same<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Also note how the numbers increment on their own<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>You should be noticing things is this precise order, because this is
+                      an ordered list<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+                </code></pre>
+                
+                <p style="padding-top: 30px;">When you reload the page in your browser, you’ll notice that the
+                browser automatically incremented the count for each <code>&lt;li&gt;</code>
+                element. In <a href='/html-and-css/hello-css/'>Hello, CSS</a>, we’ll
+                learn how to change what type of numbers get displayed.</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 516px'><div class='diagram__padding'><img class='diagram__image' alt='Web page showing a &lt;ol&gt; with &lt;li&gt; elements inside of it' src='./img/basicwebpage/html-unordered-lists.png' width='516' height='388'/></div></div></figure>
+                
+                <p>The difference between an unordered list and an ordered list might seem
+                silly, but it really does have significance to web browsers, search engines,
+                and, of course, human readers. It’s also easier than manually numbering
+                each list item.</p>
+                
+                <p>Step-by-step procedures like recipes, instructions, and even tables of
+                contents are good candidates for ordered lists, while <code>&lt;ul&gt;</code>
+                lists are better for representing item inventories, product features, pro/con
+                comparisons, and navigational menus.</p>
+        </div>
+    </div>
+
+    <!--EMPHASIS-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                EMPHASIS (ITALIC) ELEMENTS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                So far, we’ve only been working with “block-level elements” (also called “flow content”). 
+                The other major type of content is “inline elements” or “phrasing content”, which are treated 
+                a little bit differently. Block-level elements are always drawn on a new line, while inline elements 
+                can affect sections of text anywhere within a line.
+            </p>
+        </div>
+
+        <div>
+            <img style="padding-top: 30px;" src="./img/basicwebpage/inline-vs-block-elements.png" alt="inlinevsblockelements" />
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                For instance, <code>&lt;p&gt;</code> is a block-level element, while <code>&lt;em &gt;</code> is an inline element that affects a span of text 
+                inside of a paragraph. It stands for “emphasis”, and it’s typically displayed as italicized text. Try adding 
+                a new section demonstrating emphasized text to our example web page:
+            <p>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Inline Elements<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Sometimes<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>, you need to draw attention to a particular word or
+                phrase.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <p>
+                The part wrapped in <em> tags should render as italics, as shown below. Notice how only part of a line has 
+                been affected, which is characteristic of inline elements. In the <a href="/">CSS Box Model</a> chapter, we’ll discover how 
+                inline and block elements can have a dramatic impact on the layout of a page.
+            </p>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <img src="img/basicwebpage/html-emphasis-element.png" alt="emphasis element" />
+        </div>
+
+        <div>
+
+            <p style="padding-top: 30px;" >Just in case it hasn’t sunk in yet, it’s <em>really</em>
+                important that you properly nest your HTML elements. It’s easier to mess
+                up the order of tags when you’re using multiple inline elements, so make
+                sure to double-check that your markup never looks like this:</p>
+                
+                <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (Again, don't ever do this) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is some <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>emphasized text<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+                </code>
+                </pre>
+
+        </div>
+    </div>
+
+    <!--Strong (Bold) Elements-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                STRONG (BOLD) ELEMENTS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <p>
+                If you want to be more emphatic than an <code>&lt;em &gt;</code> tag, you can use <code>&lt;strong&gt;</code>. It’s an inline 
+                element just like <code> &lt; em &gt;</code>, and looks like this:
+            </p>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Other times you need to <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>strong<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>ly emphasize the importance
+                of a word or phrase.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                </code></pre>
+        </div>
+    </div>
+
+    <!--Structure vs presentation-->
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                STRUCTURES VERSUS PRESENTATION
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                You might be wondering why we’re using the terms “emphasis” and “strong” instead of “italic” and “bold”. 
+                That brings us to an important distinction between HTML and CSS. HTML markup should provide semantic information 
+                about your content—not presentational information. In other words, HTML should define the structure of your document, 
+                leaving its appearance to CSS.
+            </p>
+        </div>
+
+        <div style="padding-left: 150px;">
+            <img src="./img/basicwebpage/structure-vs-presentation.png" alt="structures versus presentation--" />
+        </div>
+
+        <div>
+            <p style="font-style: normal;">
+                The pseudo-obsolete <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> elements are classic examples of this. 
+                They used to stand for “bold” and “italic”, respectively, but HTML5 attempted to create a clear separation between 
+                a document’s structure and its presentation. Thus, <code>&lt;i&gt;</code> was replaced with <code>&lt;em&gt;</code>, 
+                since emphasized text can be displayed in all sorts of ways aside from being italicized (e.g., in a different font, 
+                a different color, or a bigger size). Same for <code>&lt;b&gt;</code> and <code>&lt;strong&gt;</code>.
+
+                As we’ll discover in Hello, CSS, we can alter the browser’s default rendering of the <code>&lt;strong&gt;</code> and <code> &lt;em &gt;</code> 
+                elements. This furthers the point that we shouldn’t call it out as italicized or bold text in the HTML—that’s something for CSS to decide.
+
+            </p>
+        </div>
+    <hr> </hr>
+    </div>
+
+    <!--Empty html elements-->
+
+    <div class="comprehensive-style" style="font-style: normal;">
+
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+               EMPTY HTML ELEMENTS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+
+        <p style="padding-top: 30px;">The HTML tags we’ve encountered so far either wrap text content (e.g.,
+            <code>&lt;p&gt;</code>) or other HTML elements (e.g., <code>&lt;ol&gt;</code>).
+            That’s not the case for all HTML elements. Some of them can be “empty“ or
+            “self-closing”. Line breaks and horizontal rules are the most common empty
+            elements you’ll find.</p>
+            
+            <div class='subsubheading content__subsubheading'><h3 class='subsubheading__heading' id='line-breaks'>Line Breaks</h3></div>
+            
+            <p>HTML condenses consecutive spaces, tabs, or newlines (together known as
+            “whitespace”) into a single space. To see what we’re talking
+            about, add the following section to our <code>basics.html</code> file:</p>
+            
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Empty Elements<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Thanks for reading! Interneting should be getting easier now.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Regards,
+            The Authors<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+            
+            <p>The newline after <code>Regards</code> in the above snippet will be
+            transformed into a space instead of displaying as a line break:</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 410px'><div class='diagram__padding' style='padding-bottom: 64.14634146341463%'><img class='diagram__image' alt='Web page showing a plaintext line break collapsing into a space in the rendered page' src='./img/basicwebpage/html-collapsing-whitespace.png' width='410' height='263'/></div></div></figure>
+            
+            <p>This behavior may seem counter intuitive, but web developers often set their
+            text editor to limit line length to around 80 characters. As a programmer,
+            it’s easier to manage code this way, but having each of the newlines show
+            up in the rendered page would severely mess up the intended page layout.</p>
+            
+            <p>To tell the browser that we want a hard line break, we need to use an
+            explicit <code>&lt;br/&gt;</code> element, like this:</p>
+            
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Regards,<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+            The Authors<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+            
+            <p>The <code>&lt;br/&gt;</code> element is useful anywhere text formatting
+            matters. Haiku, music lyrics, and signatures are just a few examples where it
+            might come in handy.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 410px'><div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image' alt='Web page highlighting an actual line break with the &lt;br/&gt; element' src='./img/basicwebpage/html-line-break-element.png' width='410' height='163'/></div></div></figure>
+            
+            <p>However, be very careful not to abuse the <code>&lt;br/&gt;</code> tag. Each
+            one you use should still convey <em>meaning</em>&mdash;you shouldn’t use
+            it to, say, add a bunch of space between paragraphs:</p>
+            
+            <pre class='highlight'><code><span class="hljs-comment">&lt;!-- (You will be shunned for this) --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This paragraph needs some space below it...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>So, I added some hard line breaks.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+            
+            <p>As discussed in the previous section, this kind of presentational
+            information should be defined in your CSS instead of your HTML.</p>
+            
+            
+            <div class='subsubheading content__subsubheading'><h3 class='subsubheading__heading' id='horizontal-rules'>Horizontal Rules</h3></div>
+            
+            <p>The <code>&lt;hr/&gt;</code> element is a “horizontal rule”,
+            which represents a thematic break. The transition from one scene of a
+            story into the next or between the end of a letter and a postscript are good
+            examples of when a horizontal rule may be appropriate. For instance:</p>
+            
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Empty Elements<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Thanks for reading! Interneting should be getting easier now.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Regards,<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+            The Authors<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>P.S. This page might look like crap, but we'll fix that with some CSS
+            soon.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+            
+            <p>One of the themes for this chapter has been the separation of content (HTML)
+            from presentation (CSS), and <code>&lt;hr/&gt;</code> is no different. Like
+            <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code>, it has a default
+            appearance (a horizontal line), but once we start working with CSS, we’ll
+            be able to render it as more space between sections, a decorative accent
+            character, or pretty much anything else we want.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 474px'><div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image' alt='Web page demonstrating an &lt;hr/&gt; element' src='./img/basicwebpage/html-horizontal-rule-element.png' width='474' height='285'/></div></div></figure>
+            
+            <p>Like <code>&lt;br/&gt;</code>, <code>&lt;hr/&gt;</code> should carry
+            meaning&mdash;don’t use it when you just want to display a line for the
+            sake of aesthetics. For that, you’ll want to use the CSS
+            <code>border</code> property, which we’ll discuss in a few chapters.</p>
+            
+            <p>Another way to think about the <code>&lt;hr/&gt;</code> element is that it
+            carries <em>less</em> significance than the separation created by a new heading
+            element, but <em>more</em> significance than a new paragraph.</p>
+            
+            
+            <div class='subsubheading content__subsubheading'><h3 class='subsubheading__heading' id='optional-trailing-slash'>Optional Trailing Slash</h3></div>
+            
+            <p>The trailing slash (<code>/</code>) in all empty HTML elements is entirely
+            optional. The above snippet could also be marked up like this (note the lack of
+            <code>/</code> in the <code>&lt;br&gt;</code> and <code>&lt;hr&gt;</code>
+            tags):</p>
+            
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Regards,<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            The Authors<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+            </code></pre>
+            
+            <p>It doesn’t really make a difference which convention you choose, but pick
+            one and stick to it for the sake of consistency. In this tutorial, we’ll be
+            including the trailing <code>/</code> character because it clearly shows that
+            it’s a self-closing element. This will help prevent your eyes from searching
+            for the closing tag elsewhere in the document.</p>
+    </div>
+
+    <!--Summary-->
+
+    <div class="comprehensive-style" style="font-style: normal;"> 
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+               SUMMARY
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <p>This chapter may have seemed like an endless list of HTML elements, and,
+            well, it basically was. HTML is pretty simple when it comes right down to it.
+            Web pages are made up of HTML elements, each element adds a different meaning
+            to the text it contains, and elements can be nested inside of each other.</p>
+            
+            <p>What we did in this chapter is always the first step in the web development
+            process&mdash;you need to define <em>what</em> you want to say (HTML) before
+            defining <em>how</em> you want to say it (CSS). Hopefully, the
+            <code>basics.html</code> file we created in this chapter will serve as a useful
+            quick-reference of core HTML elements. If you ever happen to misplace it,
+            here’s what it should look like:</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 541px'><div class='diagram__padding' style='padding-bottom: 30px'><img class='diagram__image' alt='Web page showing &lt;title&gt;, &lt;p&gt;, &lt;h1&gt;, &lt;ol&gt;, and other basic HTML elements' src='./img/basicwebpage/basic-web-pages.png' width='541' height='836'/></div></div></figure>
+            
+            <p>We talked about how writing HTML is sort of like manipulating content in a
+            WYSIWYG document editor. HTML is obviously a much more manual process, but the
+            trade off is its incredible flexibility. You can display it in a web page, a
+            mobile device, a tablet, or a printed piece of paper, each with different
+            layouts. You can even re-style multiple documents just by changing a single
+            line of CSS. Microsoft Word doesn’t come close to the potential of HTML
+            and CSS as a content medium.</p>
+            
+            <p>In the next chapter, we’ll round out our HTML education with the remaining
+            elements that you’ll encounter on a daily basis: links and images. For the more
+            obscure elements, we’ll leave you to explore MDN’s <a
+            href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element'>HTML
+            Element Reference</a> on your own.</p>
+            
+            <div class='next-chapter'>
+              <a href='/html-and-css/links-and-images/'>Next Chapter &gt;</a>
+            </div>
+    </div>
+
+    <!--Footer-->
+
+    <footer style="font-style: normal;">
+        <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                 <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize"/>
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+    <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+        <div class="beautiful-diagrams-column" style="width: 50%;">
+            <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+        </div>
+        <div class="beautiful-diagrams-column" style="width:50%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                InternetingIsHard.com is an independent publisher of premium 
+                web development tutorials. All content is authored and maintained by Oliver James. 
+                He loves hearing from readers, so come say hello!
+            </p>
+        </div>
+
+        <div class="beautiful-diagrams-row">
+            <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+           <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+        </div>
+
+        <div class="beautiful-diagrams-column" style="width:100%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know when they get here.
+            </p>
+        </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="footer-content" style="font-size: 13px;">
+    <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+    <a href="/">CONTACT</a>
+    <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+</div>
+</footer>
+
+
+
+
+</body>
+</html>

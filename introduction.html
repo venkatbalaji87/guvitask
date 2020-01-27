@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduction | HTML AND CSS IS HARD </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <!--Introduction-->
+    <div class="home-style" style="margin-top: 100px;">
+        <div class="home-panel">
+            <div>
+                <h1 id="introh1">INTRODUCTION</h1>
+            </div>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 1. OF <a href="./htmlcss.html">HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <h4>The friendliest first encounter you’ll ever have with web development </h4>
+            </div>
+        </div>
+    </div>
+
+    <!--Learning-->
+
+    <div id="comprehensive-style">
+        <div id="html-content-comprehensive">
+            <p>
+                Learning HTML and CSS is hard, but it doesn’t have to be. This 14-chapter
+                tutorial is one of the friendliest HTML and CSS guides on the Internet. We’ll
+                walk you through everything from selecting a good text editor (which is surprisingly important)
+                to building full-fledged, professional-quality web pages from scratch.
+            </p>
+        </div>
+
+        <div style="padding-left: 100px; margin-top: 50px;">
+            <img src="./img/introduction/html-markup.png" alt="htmlintroduction" />
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;padding-right: 130px;">
+                We designed <a href="./htmlcss.html"> HTML & CSS Is Hard </a> to be the only introduction to
+                HTML and CSS that you’ll ever need. If you put in the effort to
+                read every section and write every code snippet, this tutorial has the
+                potential to replace hundreds or even thousand of dollars worth of online courses and live training.
+
+                Our goal is to make it as easy as possible for complete beginners to become professional web developers,
+                so if you’ve never written a line of HTML or CSS, but you’re contemplating a
+                career shift, grab a cup of coffee, take a seat, and let’s get to work.
+            </p>
+        </div>
+    </div>
+
+    <!--HTML CSS Javascript-->
+        <div class="beautiful-diagrams-row" style="padding-left: 330px;" class=".list-item-1">
+            <div class="beautiful-diagrams-column" style="width: 60%;">
+                    <div class="line-rule">
+                        <div class="rule-line-before"> </div>
+                        <div class="comprehensive-curriculum">
+                            HTML, CSS AND JAVASCRIPT
+                        </div>
+                        <div class="rule-line-after"> </div>
+                    </div> 
+    
+                     <div class="html-content-beautiful" style="padding-left: 30px;" id="#list-item-1">
+                        <p>
+                            HyperText Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript
+                            are the languages that run the web. They’re very closely related, but they’re
+                            also designed for very specific tasks. Understanding how they interact will go
+                            a long way towards becoming a web developer. We’ll be expanding on this throughout
+                            the tutorial, but the gist of it is:
+                        </p>
+                    </div> -->
+    
+                     <div style="padding-left: 30px;">
+                        <li>HTML is for adding meaning to raw content by marking it up.</li>
+                        <li>CSS is for formatting that marked up content.</li>
+                        <li>JavaScript is for making that content and formatting interactive.</li>
+                    </div> 
+    
+                     <div class="html-content-beautiful" style="padding-left: 30px;">
+                        <p>
+                            Think of HTML as the abstract text and images behind a web page, CSS as
+                            the page that actually gets displayed, and JavaScript as the behaviors
+                            that can manipulate both HTML and CSS.
+                        </p>
+                    </div> 
+    
+                     <div>
+                        <img src="./img/introduction/web-tech-employed.png" alt="web tech employed"
+                            style="padding-left: 150px;" />
+                    </div> 
+    
+                     <div>
+                        <p>For example, you might mark some particular run of text as a
+                            paragraph with this HTML:</p>
+                        <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'some-paragraph'</span>&gt;</span>This is a paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                        </code></pre>
+                        <p>Then, you can set the size and color of that paragraph with some CSS:</p>
+    
+                        <pre>
+                            <code><span class="hljs-selector-tag">p</span> {
+                            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
+                            <span class="hljs-attribute">color</span>: blue;
+                            }
+                        </code></pre>
+    
+                        <p>And, if you want to get fancy, you can re-write that paragraph when the user
+                            clicks it with some JavaScript (we’ll save the fancy stuff for a future
+                            tutorial):</p>
+    
+                        <pre>
+                            <code>
+                                <span class="hljs-keyword">var</span> p = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'some-paragraph'</span>);
+    p.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+      p.innerHTML = <span class="hljs-string">'You clicked it!'</span>;
+    });
+                            </code>
+                        </pre>
+    
+                        <p>As you can see, HTML, CSS, and JavaScript are totally different languages,
+                            but they all refer to one another in some way. Most websites rely on all three,
+                            but the appearance of <em>every</em> website is determined by HTML and CSS.
+                            That makes this tutorial a great starting point for your web development
+                            journey.</p>
+                    </div> 
+            </div>
+
+            <div class="beautiful-diagrams-column" style="padding-left: 40px;">
+                <div id="list-example" class="list-group" style="font-size: 14px;">
+                    <a class="list-group-item list-group-item-action" href=".list-item-1">HTML, CSS and Javascript</a> <br>
+                    <a class="list-group-item list-group-item-action" href=".list-item-2">Languages vs “web dev”</a><br>
+                    <a class="list-group-item list-group-item-action" href=".list-item-3">Web publishing</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-4">Not frameworks</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-5">Hands-on learning</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-6">Tools of the trade</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-7">Atom text editor</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-8">Creating a project</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-9">Creating files</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-10">Nav’ing file system</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-11">Multiple panes</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-12">Outside of atom</a><br>
+                    <a class="list-group-item list-group-item-action" href="#list-item-13">Summary</a><br>
+                </div>
+            </div>
+            </div>
+       
+        
+
+        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+            <!--Language Vs Web Development-->
+
+            <div class="comprehensive-style" class=".list-item-2">
+                <h1 style="padding-right: 10px;">LANGUAGE VERSUS</h1>
+                <div class="line-rule">
+                    <div class="rule-line-before"> </div>
+                    <div class="comprehensive-curriculum">
+                        "WEB DEVELOPMENT"
+                    </div>
+                    <div class="rule-line-after"> </div>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        Unfortunately, mastering HTML, CSS, and JavaScript is only a <i>prerequisite</i>
+                        for becoming a professional web developer. There are a bunch of other 
+                        practical skills that you need to run a website:
+                    </p>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <ul>
+                        <li>Organizing HTML into reusable templates.</li>
+                        <li>Standing up a web server.</li>
+                        <li>Moving files from your local computer to your web server.</li>
+                        <li>Reverting to a previous version when you screw something up.</li>
+                        <li>Pointing a domain name at your server.</li>
+                    </ul>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        Dealing with these complexities involves setting up various “environments” to 
+                        organize your files and handle the building/deploying of your website. All of 
+                        this is orthogonal to the actual HTML, CSS, and JavaScript code that make up a website. 
+                        This tutorial focuses entirely on the languages of HTML and CSS—not setting up those underlying environments.
+                    </p>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <img style="padding-left: 190px;" src="./img/introduction/languages-vs-web-dev.png" alt="language versus web development"/>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        But, don’t be overwhelmed. Gaining fluency in HTML and CSS is a significant first step 
+                        towards becoming a real web developer. We just don’t want you to walk away from this 
+                        tutorial thinking that you’ll be able to launch a full website on your own. You will, 
+                        however, have the skills to recreate the vast majority of web pages on the Internet.
+                    </p>
+                </div>
+            
+            </div>
+
+            <!--Web publishing-->
+            <div class="comprehensive-style" class=".list-item-2">
+                <div class="line-rule">
+                    <div class="rule-line-before"> </div>
+                    <div class="comprehensive-curriculum">
+                        WEB PUBLISHING
+                    </div>
+                    <div class="rule-line-after"> </div>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        So, what is it to “learn” HTML and CSS? We like to look at it through 
+                        a historical lens into the printing industry. Back in the days of the 
+                        original printing press, printers created documents by arranging metal 
+                        characters, dipping them in ink, and pressing them onto a piece of paper.
+                    </p>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        In a lot of ways, that’s exactly what web developers do, except instead 
+                        of arranging moveable type, they write HTML and CSS. We’re concerned with 
+                        the same task as they were: conveying content in meaningful ways. We even deal 
+                        with the same presentational issues they did, like selecting the font to use, setting 
+                        the size of headings, and determining the space between lines of text.
+                    </p>
+                </div>            
+            
+                <div class="html-content-beautiful">
+                    <img style="padding-left: 190px;"src="./img/introduction/web-publishing.png" alt="language versus web development"/>
+                </div>
+            
+                <div class="html-content-beautiful">
+                    <p>
+                        Printers used to print a bunch of pages and bind them into a book. Nowadays, 
+                        we create a bunch of HTML files and link them together into a website. Learning 
+                        HTML and CSS is a matter of understanding the available HTML markup and CSS rules 
+                        to make a browser render those files exactly how they’re supposed to.
+                    </p>
+                </div>           
+            </div>
+
+        <!--Fundamentals, not frameworks-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FUNDAMENTALS, NOT FRAMEWORKS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    There’s all sorts of front-end web development frameworks out there 
+                    (<a href="https://www.getbootstrap.com">Bootstrap</a>,<a href="https://foundation.zurb.com/"> ZURB foundation</a>, and <a href="https://purecss.io/">Pure CSS</a>, just to name a few). The goal 
+                    of every single one of them is to abstract away some of the redundant aspects 
+                    of creating web pages from scratch. These kinds of frameworks are an important 
+                    part of real-world web development, and they’re definitely worth exploring—but 
+                    only after mastering the basics with <a href="htmlcss.html">HTML & CSS Is Hard</a>
+                </p>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    This tutorial is about HTML and CSS fundamentals. You’ll walk away with the 
+                    ability build pretty much anything you’ll ever need as a web developer with 
+                    raw HTML and CSS. This is stuff that stays with you forever, in spite of shiny 
+                    new additions to the HTML and CSS standards or trendy new frameworks that help you do things faster.
+                </p>
+            </div>                      
+        </div>
+
+        <!--Hands-On--Learning-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    HANDS-ON-LEARNING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    <a href="htmlcss.html">Interneting Is Hard</a> is all about hands-on education. With the exception 
+                    of what you’ve already read, the entirety of this tutorial revolves around 
+                    concrete examples, explaining the conceptual aspects of HTML and CSS along the way.
+                </p>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    To get the most of out this tutorial, you should be actively creating web pages 
+                    and following along with every single step of each chapter. If you’re serious 
+                    about becoming a web developer, you should be typing each code snippet character-by-character 
+                    instead of copy-and-pasting them into your text editor.
+                </p>
+            </div>   
+            
+            <div class="html-content-beautiful">
+                <p>
+                    Why? Because this is what you’ll actually be doing as a real web developer. Typing out code 
+                    examples ingrains the muscle memory that will serve you well once you’re out in the wild and 
+                    marking up content for real websites.
+                </p>
+            </div> 
+        </div>
+
+        <!--Tools On Trade-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   TOOLS OF THE TRADE
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    For this tutorial, a decent text editor and web browser is all you need. 
+                    Your basic workflow is to write code in your text editor, then open it up 
+                    in a web browser to see how it looks. As you start creating your own websites, 
+                    you’ll eventually add more tools to your toolbox, but it’s important to start 
+                    out minimal and thoroughly learn the fundamentals of HTML and CSS.
+                </p>
+            </div>
+            
+            <div class="html-content-beautiful">
+                <img src="img/introduction/tools-of-the-trade.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    That said, take the time to get really good at using your text editor. 
+                    Decent ones come with features that let you write code faster than you normally 
+                    could, like auto-completing tags, jumping around your text, and navigating your 
+                    file system. Fully leveraging your text editor is the craftsmanship part of learning HTML and CSS.
+                </p>
+            </div>   
+            
+            <div class="html-content-beautiful">
+                <p>
+                    The only real prerequisite for a good web browser is that it’s up to date and in 
+                    mainstream usage. <a href="https://www.google.com/chrome/">Chrome</a> and <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> are favorites 
+                    amongst web developers. Safari is alright if you’re running OS X, too. We strongly 
+                    suggest not creating websites with Internet Explorer. Professional web development 
+                    often requires an efficient way to test code on all of these browsers, but that’s a 
+                    little more complicated than what we need right now.
+                </p>
+            </div> 
+        </div>
+
+        <!--Atom Text Editor-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   ATOM TEXT EDITOR
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    We recommend the <a href="https://atom.io/">Atom </a> text editor. It’s user friendly even for beginners, provides all 
+                    the useful features we mentioned above, and is available for all major operating systems. 
+                    It’s also infinitely configurable, which will become important as you identify repetitive tasks that you can automate.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    If you don’t already have Atom, go ahead and <a href="https://atom.io/">download it now </a>, since you’ll be 
+                    needing it for the next chapter. Once you’ve downloaded it, open it up so we can 
+                    take a brief tour of its major features. You should see two panes with different welcome screens:
+                </p>
+            </div>   
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/atom-welcome-screen.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    We don’t need either of these welcome screens, so close both of them by clicking the x icon 
+                    in their corresponding tabs. You can also use the Cmd+W (Mac) or Ctrl+W (Windows/Linux) shortcut 
+                    to close them (shortcuts are great, use them whenever you can). You should be left with a single untitled tab.
+                </p>
+            </div>
+        </div>
+
+        <!--Creating a Project-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   CREATING A PROJECT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    Each website you work on in Atom is a “project,” which is essentially just 
+                    a folder on your file system that contains a bunch of HTML and CSS files. Let’s 
+                    explore Atom by creating a fake project and adding a few text files to it. Click 
+                    File > Open in the menu bar to open a file dialog window, then select New Folder 
+                    to create a new folder. Call it hello-atom, and click Open.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/file-browser.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    You should now see a sidebar on the left of the interface that says hello-atom at the top 
+                    next to a little folder icon. This is our file browser. Of course, it won’t show anything 
+                    until we add some files, so let’s do that next.
+                </p>
+            </div>
+        </div>
+
+        <!--Creating Files-->
+
+        
+        <div class="comprehensive-style" class=".list-item-2">
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   CREATING FILES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    Add some arbitrary text to that untitled tab, then hit Cmd+S (Mac) or 
+                    Ctrl+S (Windows, Linux) to save the file. Call it page-one.html. After 
+                    saving it, you should see it appear in Atom’s file browser.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    Let’s make one more file by hitting Cmd+N (Mac) or Ctrl+N (Windows, Linux). 
+                    This will create another untitled tab. As with our last file, add whatever 
+                    text you want, then save it as page-two.html.
+                </p>
+            </div>
+        </div>
+
+        <!--Navigating File System-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   NAVIGATING THE FILE SYSTEM
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+
+                <p>
+                    Again, one of the most important aspects of a proper text editor is to let you 
+                    efficiently navigate all the files in your project. In Atom, you can select the 
+                    tab of the file you want to work on or find it in the file browser on the left side 
+                    of the interface. You can also use Ctrl+Tab to switch between open tabs.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/creating-html-files.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    That’s all fine and dandy for browsing files, but there are a lot of times when 
+                    you’re searching for a specific file. For instance, imagine discovering a broken 
+                    link on your website while you’re doing some quality assurance. You want to be able 
+                    to jump into that file with Atom to fix the link as quickly as possible.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/atom-command-t.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    For that, you need Atom’s fuzzy finder, which is accessible via Cmd+T (Mac) or 
+                    Ctrl+T (Windows, Linux). When you press this, Atom will open up a search bar and 
+                    let you type any part of the filename you’re looking for. Try closing both tabs, 
+                    hitting Cmd+T or Ctrl+T, and entering “one”. The page-one.html file should pop up, 
+                    and you can hit Enter to edit it. This functionality is indispensable once your project 
+                    grows to a few dozen files spread across several folders.
+                </p>
+            </div>
+        </div>
+
+        <!--Multiple File Systems-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   NAVIGATING THE FILE SYSTEM
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+
+                <p>
+                    Atom not only lets you have multiple tabs, but multiple panes as well. To see 
+                    what we’re talking about, try right-clicking one of the files in the file browser 
+                    and selecting Split Right. This will open that file in a new pane, allowing you to 
+                    see multiple files at the same time.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/atom-split-panes.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    Multiple panes are really useful for examining a CSS file and its related HTML file at the same time.
+                </p>
+            </div>
+
+        </div>
+
+        <!--Outside Of Atom-->
+
+        <div class="comprehensive-style" class=".list-item-2">
+
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   OUTSIDE OF ATOM
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    Finally, we’ll occasionally need to work with files outside of the 
+                    Atom interface (e.g., when we want to copy image files into our website). 
+                    We can use the operating system’s built-in file browser for this. Right-click 
+                    a file in Atom’s file browser, then select Show in Finder/Explorer/Some Other 
+                    File Browser to open it up in your system’s default file browser.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    From here, you can add new files, create folders, or open up HTML files in a 
+                    web browser. That last one is going to become a common task for the rest of this 
+                    tutorial, so let’s give it a shot with our page-one.html file. Right-click it in 
+                    your system’s default file browser and select Open With > Chrome/Firefox/Safari. 
+                    You should see whatever text you added to the file rendered as a web page in your default web browser.
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <img src="img/introduction/outside-of-the-atom.png" alt="Tool of the trade" />
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    Now, you can edit the contents of page-one.html in Atom, save it, and reload 
+                    it in your web browser by pressing Cmd+R (Mac) or Ctrl+R (Windows, Linux). This is 
+                    the basic editing workflow for all web developers, and you’ll become very, very 
+                    accustomed to it by the time you’re done working through the next 13 chapters.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!--Summary-->
+
+        
+        <div class="comprehensive-style" class=".list-item-2">
+
+            
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                   SUMMARY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        
+            <div class="html-content-beautiful">
+                <p>
+                    Congratulations! You’ve completed your first step towards becoming a 
+                    professional web developer. Hopefully, this chapter has given you a basic 
+                    understanding of how HTML and CSS fit into the broader industry of web development 
+                    and the general philosophy behind <a href="htmlcss.html">HTML and CSS Is Hard.</a>
+                </p>
+            </div>
+
+            <div class="html-content-beautiful">
+                <p>
+                    The Atom stuff we just covered is going to become part of our daily routine, so make sure 
+                    you’re comfortable with everything before moving on. We encourage you to play with the example 
+                    project a bit, adding more files and practicing navigating from one to the other. Mastering 
+                    the craft of writing HTML and CSS is what distinguishes amazingly productive developers from average ones.
+                </p>
+            </div>
+
+
+            <div class="html-content-beautiful">
+                <p>
+                    Now that we’ve got a proper text editor, we’re ready to start coding up some real 
+                    web pages. We’ll start by exploring the most common HTML elements over the next two chapters, 
+                    then we’ll add some CSS to the mix.
+                </p>
+            </div>
+
+            <div class='next-chapter'>
+                <a href='./basicwebpage.html'>Next Chapter &gt;</a>
+            </div>
+
+            <!--Footer-->
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                 <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize"/>
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+    <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+        <div class="beautiful-diagrams-column" style="width: 50%;">
+            <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+        </div>
+        <div class="beautiful-diagrams-column" style="width:50%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                InternetingIsHard.com is an independent publisher of premium 
+                web development tutorials. All content is authored and maintained by Oliver James. 
+                He loves hearing from readers, so come say hello!
+            </p>
+        </div>
+
+        <div class="beautiful-diagrams-row">
+            <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+           <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+        </div>
+
+        <div class="beautiful-diagrams-column" style="width:100%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know when they get here.
+            </p>
+        </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="footer-content" style="font-size: 13px;">
+    <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+    <a href="/">CONTACT</a>
+    <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+</div>
+</footer>
+
+            
+</body>
+
+</html>
