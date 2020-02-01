@@ -211,6 +211,7 @@ h4 {
 
 p {
   text-align: justify;
+  padding-top: 30px;
 }
 
 .html-content {
@@ -468,3 +469,4 @@ input[type=text] {
   /* Need this because it's a block */
   padding-bottom: 0px;
 }
+

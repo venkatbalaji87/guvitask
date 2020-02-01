@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Typography Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 200px;">WEB TYPOGRAPHY</h1>
+            </div>
+            <div class="line-rule" style="margin-top: 30px;">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 14. OF <a href="./htmlcss.html"> HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px;">
+                <h4 style="font-style: italic;">A friendly web development tutorial for capturing user input</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+        <p>“Web typography” refers to the appearance of all the text on
+            your website. It includes <a href='/html-and-css/hello-css/#more-text-styles'>basic CSS text properties</a>
+            like what font to use and whether it should be italic or not, but typography
+            is much more than that. It’s about the space between and around letters,
+            words, and lines. It’s the size of different runs of text in relation to
+            one another, and the history behind each font family.</p>
+
+        <figure>
+            <div style='max-width: 580px'>
+                <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                        alt='Diagram: examples of font families, relative font sizes, indent styles, text alignment, vertical spacing, and line length'
+                        src='./img/web typography/web-typography-terminology.png' width='580' height='551' /></div>
+            </div>
+        </figure>
+
+        <p>A lot of your typography decisions will come from a designer. The only
+            problem is that typography is an invisible art. To actually understand what
+            your designer is asking for, you need to be able to <em>see</em> typography the
+            same way they do.</p>
+
+        <p>This chapter isn’t just about the mechanics of adding web fonts to
+            your site or the CSS properties to move your text around. We’ll also
+            explain how to properly leverage all these tools to make beautiful,
+            professional websites. By the end of the chapter, you should not only
+            know what your designer is talking about when they say something like,
+            “Can we increase the leading of that paragraph?”, but also
+            understand <em>why</em> they want you to increase it.</p>
+
+        <p>You may forget the specific CSS properties, but the typographic concepts
+            we’re going to cover will stay with you for the rest of your life because
+            they aren’t arbitrary rules&mdash;they’re grounded in function.
+            They make your content more readable and help you communicate your message more
+            effectively.</p>
+    </div>
+
+    <!--A brief history of web fonts-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    A BRIEF HISTORY OF WEB FONTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>We’re going to start this chapter by learning how to display your web
+                pages in a custom font because that’s the most exciting aspect of modern
+                web typography. However, web fonts have changed a lot over the last few years,
+                so before we can start building out our example, we need a little primer on the
+                various font formats floating around the Internet.</p>
+
+            <div>
+                <h3>Web Safe Fonts</h3>
+            </div>
+
+            <p>Long, long ago, web developers only had “web safe fonts” at
+                their disposal. These were a collection of a dozen or so fonts that were
+                pre-installed on most computers. There was no such thing as a custom font file
+                that you could send to browsers to use on your website.</p>
+
+            <figure>
+                <div style='max-width: 509px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: web server asking user’s computer to display text in Georgia font, user’s computer checking its system for that font'
+                            src='./img/web typography/web-safe-fonts.png' width='509' height='358' /></div>
+                </div>
+            </figure>
+
+            <p>If you <em>needed</em> a special font, your only option was to export an
+                image of the text you wanted to display and include it in your web page with an
+                <code>&lt;img/&gt;</code> element. This was ridiculously limiting for web
+                designers and resulted in some pretty hacky situations for developers.
+                Honestly, we don’t know how everybody survived through that era of HTML
+                and CSS.</p>
+
+
+            <div>
+                <h3>Custom Web Fonts</h3>
+            </div>
+
+            <p>Around 2010, browsers began supporting custom web fonts, which was great,
+                except for the fact that each browser and device required a different file
+                format. Accordingly, most websites provided 4 different web font files:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Format</th>
+                        <th>Browser/Device</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>.svg</code></td>
+                        <td>Very old Safari (iOS and Desktop)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.eot</code></td>
+                        <td>Internet Explorer</td>
+                    </tr>
+                    <tr>
+                        <td><code>.ttf</code></td>
+                        <td>Everything except Internet Explorer</td>
+                    </tr>
+                    <tr>
+                        <td><code>.woff</code></td>
+                        <td>Newer browsers</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>This resulted in the <a target='_blank'
+                    href='https://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax/'>“Bulletproof
+                    <code>@font-face</code> syntax”</a>, which you’ll likely
+                encounter at some point in your web development career.</p>
+
+            <figure>
+                <div style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: web server providing .svg, .eot, .ttf, and .woff fonts for the browser to use'
+                            src='./img/web typography/bulletproof-font-face.png' width='580' height='416' /></div>
+                </div>
+            </figure>
+
+
+            <div>
+                <h3>WOFF Fonts</h3>
+            </div>
+
+            <p>Recently, the industry has standardized on the Web Open Font Format (WOFF),
+                so things have gotten a little bit simpler for us. <a target='_blank'
+                    href='http://caniuse.com/#search=woff'>Over 90%</a> of modern browsers support
+                <code>.woff</code> fonts, and support for its next evolution,
+                <code>.woff2</code>, is growing. WOFF2 is similar to the original WOFF format,
+                but offers a significant reduction in file size (which means better
+                performance).</p>
+
+            <figure>
+                <div style='max-width: 345px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: web server providing only .woff and .woff2 fonts for the browser to use'
+                            src='./img/web typography/woff-and-woff-2-fonts.png' width='345' height='416' /></div>
+                </div>
+            </figure>
+
+            <p>Eventually, you’ll only need to support WOFF2, but right now, we
+                suggest providing both WOFF and WOFF2 web fonts to get decent coverage for
+                older browsers and improved performance on modern ones. Unless legacy browsers
+                make up a large chunk of your target audience, <code>.ttf</code>,
+                <code>.svg</code>, and <code>.eot</code> fonts are a thing of the past.</p>
+        </div>
+    </div>
+
+    <!--WHERE TO FIND WEB FONTS-->
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    WHERE TO FIND WEB FONTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>There’s a ton of places on the web where you can download both free
+                and premium web fonts, but our three favorites are listed below. Again, which
+                font to use is usually up to your designer (and their budget), but as a
+                developer, it’s still good to know the trade-offs between these
+                options.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Website</th>
+                        <th>Price</th>
+                        <th>Quality</th>
+                        <th>Selection</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href='https://www.fontsquirrel.com/'>Font Squirrel</a></td>
+                        <td>Free</td>
+                        <td>Hit-or-Miss</td>
+                        <td>Huge</td>
+                    </tr>
+                    <tr>
+                        <td><a href='https://fonts.google.com/'>Google Fonts</a></td>
+                        <td>Free</td>
+                        <td>Good</td>
+                        <td>Decent</td>
+                    </tr>
+                    <tr>
+                        <td><a href='https://www.fontspring.com/'>Fontspring</a></td>
+                        <td>Expensive</td>
+                        <td>Excellent</td>
+                        <td>Huge</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Note that Font Squirrel and Fontspring offer both web fonts and desktop
+                fonts (<code>.otf</code> and <code>.ttf</code> files). WOFF is designed
+                specifically for the needs of the modern web, while desktop fonts contain extra
+                functionality useful for graphics editing programs like Adobe Illustrator. Be
+                sure to download or purchase the web font version of the fonts you want to
+                use&mdash;not just the desktop version.</p>
+
+        </div>
+
+    </div>
+
+    <!--setup-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Ok! We’re ready to experiment with web fonts. We’re going to be building
+                this <a href='/html-and-css/web-typography/example/final/web-fonts.html' target='_blank'>example
+                    website</a>. We figured you probably don’t want to
+                start this one from scratch, so go ahead and <a
+                    href='/html-and-css/web-typography/web-typography-338d1d.zip'>download the initial project</a>.
+                Unzip it and open
+                up the <code>web-typography</code> folder with your favorite text editor. If
+                you don’t have a favorite text editor, you might want to check out <a
+                    href='/html-and-css/introduction/#atom-text-editor'>Atom</a>.</p>
+
+            <figure>
+                <div class='diagram__wrapper' style='max-width: 210px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Screenshot: Atom’s file browser after unzipping the example project'
+                            src="./img/web typography/project-files.png" width='210' height='265' /></div>
+                </div>
+            </figure>
+
+            <p>We’ve got 6 HTML documents all using the same <code>typo.css</code>
+                stylesheet. We’ll be demonstrating various typographic principles by adding
+                some <a href='/html-and-css/hello-css/#the-cascade'>page-specific styles</a> to
+                each of these HTML files.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 518px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Web page with web fonts versus system fonts example (before adding web fonts)'
+                            src='./img/web typography/web-typography-screenshot.png' width='518' height='634' /></div>
+                </div>
+            </figure>
+
+            <p>Open up one of the HTML files with a web browser, and you’ll find that our
+                initial project is pretty close to the final example, minus all the web fonts
+                and other CSS typography properties.</p>
+        </div>
+    </div>
+
+    <!--Locally hosted web fonts-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    LOCALLY HOSTED WEB FONTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>There are two distinct methods of adding web fonts to your website:
+                locally hosted or externally hosted. We’ll take a look at both in this
+                chapter. First, we’ll be adding a locally hosted web font to our example
+                project. This is a three-step process:</p>
+
+            <ol>
+                <li>Download a web font and add it to your project.</li>
+                <li>Embed the web font in your stylesheet.</li>
+                <li>Use the font elsewhere in your stylesheet.</li>
+            </ol>
+
+            <p>We’ll be experimenting in the <code>web-fonts.html</code> and
+                <code>typo.css</code> files. Go ahead and open those up in your text editor
+                if you haven’t already.</p>
+
+            <div>
+                <h3>Hosting a WOFF File</h3>
+            </div>
+
+            <p>So, we need to get our hands on a web font. Our example uses the free Roboto
+                font, which you should <a target='_blank' href='https://www.fontsquirrel.com/fonts/roboto'>download from
+                    Font
+                    Squirrel</a>. Make sure to click the <strong>Webfont Kit</strong> tab, not the
+                <strong>Download TTF</strong> button. Unclick all the formats except
+                <strong>WOFF</strong>, since that’s the only one we’ll be using, then click the
+                <strong>Download @font-face Kit</strong> button.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 600px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Screenshot: downloading the Roboto font family from Font Squirrel'
+                            src='./img/web typography/download-roboto-screenshot-.png' width='600' height='426' /></div>
+                </div>
+            </figure>
+
+            <p>This will give you a ZIP file with a license, some instructions, and a
+                <code>web&nbsp;fonts</code> folder containing a ton of subdirectories. The
+                Roboto font comes in a bunch of different <a href='#font-families-and-font-faces'>font faces</a> like
+                light, regular, bold,
+                italic, and condensed. Each of those folders contains a different face. The one
+                we want is called <code>roboto_light_macroman</code>. Open up that folder and
+                copy the <code>Roboto-Light-webfont.woff</code> file into our
+                <code>web-typography</code> project.</p>
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='embedding-a-web-font'>Embedding a Web Font</h3>
+            </div>
+
+            <p>Sweet. We’ve got a WOFF file. To actually use it in our web page, we
+                need to embed it into our stylesheet with the <code>@font-face</code>
+                “at-rule”. Web fonts must always be included at the <em>top</em> of
+                a stylesheet, so add the following to the very beginning of
+                <code>typo.css</code>:</p>
+
+            <pre class='highlight'><code>@<span class="hljs-keyword">font-face</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>;
+              <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'Roboto-Light-webfont.woff'</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>);
+            }
+            </code></pre>
+
+            <p>The <code>font-family</code> property defines how we’ll refer to this
+                font later on. This operates as an internal label, so it can be anything you
+                want. It doesn’t <em>need</em> to relate to the official name of the
+                font, but it’s usually more intuitive if it does. As we’ll see in a
+                moment, it’s a good idea to keep the name as generic as possible (e.g.,
+                <code>Roboto</code> instead of <code>Roboto Light</code>).</p>
+
+            <p>Next, we have the <code>src</code> property, which defines the path to the
+                <code>.woff</code> file via the <code>url()</code> notation. The path can be <a
+                    href='/html-and-css/links-and-images/#absolute-relative-and-root-relative-links'>absolute,
+                    relative, or root-relative</a>. If you use a relative path like we did here, it
+                will always be relative to the <code>.css</code> file&mdash;not the HTML
+                document. The <code>format()</code> notation lets browsers know which web font
+                file format it is.</p>
+
+            <p>If you reload <code>web-fonts.html</code> page, you won’t see any
+                change because <code>@font-face</code> only gave us <em>access</em> to our
+                <code>.woff</code> file. We still need to <em>use</em> it somewhere else in our
+                stylesheet.</p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='using-a-web-font'>Using a Web Font</h3>
+            </div>
+
+            <p>Remember from <a href='/html-and-css/hello-css/#defining-fonts'>Defining
+                    Fonts</a> that the CSS <code>font-family</code> property defines which font a
+                particular HTML element uses. After adding our <code>@font-face</code> at-rule,
+                we can use <code>Roboto</code> as a valid value for <code>font-family</code>
+                anywhere else in our stylesheet.</p>
+
+            <p>Let’s make Roboto Light the default font for our entire example project
+                by changing the <code>font-family</code> in the <code>body</code> selector of
+                <code>typo.css</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">body</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>, sans-serif;   <span class="hljs-comment">/* Add 'Roboto' here */</span>
+              <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+              <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.8em</span>;
+              <span class="hljs-attribute">color</span>: <span class="hljs-number">#5D6063</span>;
+            }
+            </code></pre>
+
+            <p><em>Everything</em> should now render as Roboto Light, which means we lost
+                our comparison with the sans-serif system font in <code>web-fonts.html</code>.
+                Fix this by adding a <a href='/html-and-css/hello-css/#page-specific-styles'>page-specific style</a> to
+                the <code>&lt;head&gt;</code> of our <code>web-fonts.html</code> file:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              <span class="hljs-selector-class">.system-fonts</span> {
+                <span class="hljs-attribute">font-family</span>: sans-serif;
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>The <code>.system-fonts</code> class is applied to the second box in
+                <code>web-fonts.html</code>. The above rule takes precedence over the
+                <code>body</code> rule in <code>typo.css</code>, so when you open up
+                <code>web-fonts.html</code> in a browser, you should see our Roboto Light web
+                font on the top and the default system font on the bottom:</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Web page with web fonts versus system fonts example (after adding web fonts)'
+                            src='./img/web typography/custom-web-font-vs-system-font.png' width='580' height='573' />
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <!--Externally hosted web fonts-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    EXTERNALLY HOSTED WEB FONTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Ok! That was complicated. Next, we’re going to explore the easier
+                method of using web fonts: externally hosted via <a href='https://fonts.google.com/'
+                    target='_blank'>Google Fonts</a>. This lets us skip the first
+                two steps of locally hosted fonts. Instead of adding <code>.woff</code> files
+                to our project and embedding them with <code>@font-face</code>, we can let
+                Google Fonts do this part for us.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: serving web fonts from our own web server versus serving them from Google Fonts’ servers'
+                            src='./img/web typography/locally-vs-externally-hosted-fonts.png' width='580'
+                            height='521' /></div>
+                </div>
+            </figure>
+
+            <p>In this section, we’re going to be working on
+                <code>history.html</code>, so open up that file in both your text editor and a
+                web browser. If you want a brief history of typography going all the way back
+                to the first printing press, take a quick read through the example text. Right
+                now, each section in <code>history.html</code> is using Roboto Light, but
+                we’re going to change all of them to be representative of the period
+                they’re talking about.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 482px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Screenshot: copying web fonts &lt;link&gt; from Google Fonts'
+                            src='./img/web typography/selecting-a-google-font.png' width='482' height='499' /></div>
+                </div>
+            </figure>
+
+            <p>Let’s begin by changing the font for the <em>Gothic/Blackletter</em>
+                section. In <a href='https://www.google.com/fonts' target='_blank'>Google Fonts</a>, search for
+                <strong>UnifrakturMaguntia</strong>. It should look like something a monk
+                wrote in the middle ages. Click <strong>Select this font</strong>. In the
+                pop-up menu, you’ll see a <code>&lt;link/&gt;</code> element. Copy this
+                into the <code>&lt;head&gt;</code> of <code>history.html</code>, above the
+                <code>&lt;link/&gt;</code> element that includes our <code>typo.css</code>
+                stylesheet.</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://fonts.googleapis.com/css?family=UnifrakturMaguntia"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+            </code></pre>
+
+            <p>Remember that <code>&lt;link/&gt;</code> is how we <a
+                    href='/html-and-css/hello-css/#linking-a-css-stylesheet'>include an external
+                    stylesheet</a>, and that’s exactly what the above HTML is doing.
+                However, instead of linking to a local CSS file, it’s including some
+                CSS defined by Google Fonts. If you paste the <code>href</code> value into your
+                browser, you’ll find the same <code>@font-face</code> declaration that we
+                used in the previous section&mdash;except we didn’t actually have to
+                write it this time. Yay!</p>
+
+            <p>Now that we’ve embedded our <code>UnifrakturMaguntia</code> web font,
+                we should be able to use it to style any HTML element we want. Add the
+                following to the <code>&lt;head&gt;</code> of <code>history.html</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              <span class="hljs-selector-class">.blackletter</span> {
+                <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'UnifrakturMaguntia'</span>, cursive;
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>That first section has a <code>class='blackletter'</code> attribute, so it
+                should now be printed in gothic letters:</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Screenshot: text rendered in a blackletter font'
+                            src='./img/web typography/adding-a-google-font.png' width='580' height='373' /></div>
+                </div>
+            </figure>
+
+            <p>Google Fonts are a quick and easy solution, but professional sites should
+                typically use locally hosted web fonts. This gives you a lot more flexibility
+                (you’re not limited to Google’s font offering) and can have
+                performance/reliability gains if you’ve optimized the rest of your site
+                correctly.</p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='too-many-font-files'>Too Many Font Files</h3>
+            </div>
+
+            <p>Speaking of performance, let’s do something awful. There’s
+                another 10 sections on our <code>history.html</code> page, and we want to give
+                each one its own web font. We can embed multiple fonts in a single
+                <code>&lt;link/&gt;</code> element, so change our Google Fonts stylesheet to
+                include the rest of them:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://fonts.googleapis.com/css?family=Alfa+Slab+One|Droid+Sans+Mono|Lato|Libre+Baskerville|Lobster|Questrial|Rokkitt|Rufina|Sorts+Mill+Goudy|UnifrakturMaguntia"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+            </code></pre>
+
+            <p>Note that you can generate this in Google Fonts by selecting multiple fonts
+                before copying the <code>&lt;link/&gt;</code> element. Next, add all these new
+                fonts to the <code>&lt;style&gt;</code> element of
+                <code>history.html</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-class">.old-style</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Sorts Mill Goudy'</span>, serif;
+            }
+            <span class="hljs-selector-class">.transitional</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Libre Baskerville'</span>, serif;
+            }
+            <span class="hljs-selector-class">.didot</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Rufina'</span>, serif;
+            }
+            <span class="hljs-selector-class">.slab</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Rokkitt'</span>, serif;
+            }
+            <span class="hljs-selector-class">.fat-face</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Alfa Slab One'</span>, cursive;
+            }
+            <span class="hljs-selector-class">.grotesque</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>, sans-serif;
+            }
+            <span class="hljs-selector-class">.geometric</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Questrial'</span>, sans-serif;
+            }
+            <span class="hljs-selector-class">.humanist</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Lato'</span>, sans-serif;
+            }
+            <span class="hljs-selector-class">.display</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Lobster'</span>, cursive;
+            }
+            <span class="hljs-selector-class">.monospace</span> {
+              <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Droid Sans Mono'</span>, monospace;
+            }
+            </code></pre>
+
+            <p>Now, each section of <code>history.html</code> is rendered in a font from
+                the era it’s describing. This serves as a nice introduction to the
+                historic significant of different fonts, but you should <strong>never, ever
+                    include this many web fonts on a real web page</strong>.</p>
+
+            <p>Don’t forget that each web font is actually a <code>.woff</code> or
+                <code>.woff2</code> file that your browser needs to load before it can render
+                the page. More fonts means longer load times. The key to using web fonts
+                effectively is to find a balance between performance (fewer web fonts) and a beautifully typeset
+                document (more web fonts).</p>
+
+            <p>And that’s more than you could ever want to know about web fonts. The
+                rest of this chapter shifts gears into basic typographic principles. These are
+                simple guidelines (with simple CSS implementations) that often make the
+                difference between a professional web page and an amateur one.</p>
+
+        </div>
+    </div>
+
+    <!--Paragraph indents-->
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    PARAGRAPH INDENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Separating paragraphs from one another is one of the most fundamental
+                functions of typography. There’s two generally accepted solutions: either use
+                a first-line indent <em>or</em> a margin between the paragraphs. Your readers
+                (hopefully) aren’t stupid&mdash;they don’t need two signs that a
+                new paragraph is happening, so never use <em>both</em> an indent and a margin.
+                That would be redundant.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: indenting first line of new paragraphs (ok), adding margins between paragraphs (ok), both (not ok)'
+                            src='./img/web typography/paragraph-indents-vs-margins.png' width='580' height='240' />
+                    </div>
+                </div>
+            </figure>
+
+            <p>The CSS <code>text-indent</code> property defines the size of the first-line
+                indent of a particular element (usually a <code>&lt;p&gt;</code>). We can
+                explore this in our <code>indents.html</code> page. Go ahead and change the
+                existing bottom margin styles in the first section to an indent by adding the
+                following rules to the <code>&lt;style&gt;</code> element:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              <span class="hljs-selector-class">.paragraph-indent</span> <span class="hljs-selector-tag">p</span> {
+                <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">1em</span>;
+                <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+              }
+              <span class="hljs-selector-class">.paragraph-indent</span> <span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:first-of-type</span> {
+                <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">0</span>;
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>Note that the first paragraph after a heading should never be indented
+                because, well, it’s usually pretty obvious that it’s a new paragraph. This is a
+                pretty good use case for the <a
+                    href='/html-and-css/css-selectors/#pseudo-classes-for-structure'><code>:first-of-type</code>
+                    pseudo-class</a>.</p>
+
+            <p>And here’s a negative example so we remember what <em>not</em> to do.
+                Add this to the page-specific styles in <code>indents.html</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-comment">/* DESIGNERS WILL JUDGE YOU FOR THIS */</span>
+            <span class="hljs-selector-class">.never-both</span> <span class="hljs-selector-tag">p</span> {
+              <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">1em</span>;
+              <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
+            }
+            </code></pre>
+
+            <p>It might seem silly, but we’re not kidding when we say that good
+                designers <em>will</em> judge you for this.</p>
+
+        </div>
+
+    </div>
+
+    <!--Text Alignment-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    TEXT ALIGNMENT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>The alignment of text has a subconscious impact on how you read it.
+                You’ve probably never noticed it before, but your eyes don’t move
+                in a smooth motion as they read over a paragraph&mdash;they jump from word to
+                word and from line to line. Your eyes fixate on certain spots and skip over
+                other ones.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 540px'>
+                    <div class='diagram__padding' style='padding-left:150px;'><img class='diagram__image'
+                            alt='Diagram: text with several dots on it (you read like this) versus gradients over lines of text (you don’t read like this)'
+                            src='./img/web typography/fixation-reading-vs-smooth-eye-motions.png' width='540'
+                            height='168' /></div>
+                </div>
+            </figure>
+
+            <p>In a well-designed HTML document, text alignment is never an arbitrary
+                decision. It takes into account this little bit of human physiology. Good text
+                alignment actually makes it easier for users to read your content by giving
+                their eyes an anchor to jump to when they move from line to line.</p>
+
+            <p>The next few sections explain the proper times to use left, center, right,
+                and justified text alignment. All of these examples rely on the <a
+                    href='/html-and-css/hello-css/#more-text-styles'><code>text-align</code>
+                    property</a>, which controls the text alignment of a particular HTML element.
+                We set up the <code>alignment.html</code> page in our example project with some
+                convenient scenarios. </p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='left-alignment'>Left Alignment</h3>
+            </div>
+
+            <p>Most of your text should be left-aligned because it gives the reader a
+                vertical anchor to jump back to on every line. Long runs of text, in
+                particular, should almost always be left-aligned. Short runs of text and
+                headings have a little bit more leeway.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 264px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: vertically aligned dots on left side of left-aligned text serving as an anchor for your eyes'
+                            src='./img/web typography/left-text-alignment.png' width='264' height='139' /></div>
+                </div>
+            </figure>
+
+            <p>Left alignment is the default value for <code>text-align</code>, but if we
+                wanted to be explicit, we could add the following rule to the
+                <code>&lt;style&gt;</code> element of our <code>alignment.html</code> file:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              <span class="hljs-selector-class">.left</span> {
+                <span class="hljs-attribute">text-align</span>: left;
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>Of course, if you’re working on a website that’s in a language
+                that’s written right-to-left instead of left-to-right (like Arabic), you
+                can go ahead and swap all this advice with the <em>Right Alignment</em> section
+                below.</p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='center-alignment'>Center Alignment</h3>
+            </div>
+
+            <p>Center-aligned text doesn’t have that anchor, so it’s easier for
+                the eye to get lost when it tries to jump to the next line. It’s best
+                suited for short line lengths (more on that later) and for special kinds of
+                content like poems, lyrics, and headings.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 264px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: uneven dots on center-aligned text'
+                            src='./img/web typography/center-text-alignment.png' width='264' height='139' /></div>
+                </div>
+            </figure>
+
+            <p>Go ahead and center-align the second paragraph in
+                <code>alignment.html</code> with another page-specific style:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-class">.center</span> {
+              <span class="hljs-attribute">text-align</span>: center;
+            }
+            </code></pre>
+
+            <p>Notice how the page now feels a little disjointed. The center-aligned second
+                paragraph breaks the flow of the left-aligned first paragraph. Generally
+                speaking, text alignment should be consistent throughout a web page. If
+                you’re going to center a heading, center <em>all</em> of your
+                headings.</p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='right-alignment'>Right Alignment</h3>
+            </div>
+
+            <p>Another consideration when choosing text alignment is the relationship it
+                creates with the surrounding elements. For instance, take a look at that third
+                section in <code>alignment.html</code>. We want to move the image’s
+                caption to the left of the image and right-align it to make it look like
+                it’s attached to the image:</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: image with right-aligned text caption to the left of it'
+                            src='./img/web typography/right-aligning-a-caption.png' width='580' height='351' /></div>
+                </div>
+            </figure>
+
+            <p>Our example image is wrapped in a <code>&lt;figure&gt;</code> and the caption text
+                is in a <code>&lt;figcaption&gt;</code>, so adding the
+                following to the <code>&lt;style&gt;</code> element of
+                <code>alignment.html</code> should result in the above layout.</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">figcaption</span> {
+              <span class="hljs-attribute">display</span>: none;
+            }
+            @<span class="hljs-keyword">media</span> only screen and (min-width: <span class="hljs-number">900px</span>) {
+              <span class="hljs-selector-tag">figure</span> {
+                <span class="hljs-attribute">position</span>: relative;
+              }
+              <span class="hljs-selector-tag">figcaption</span> {
+                <span class="hljs-attribute">display</span>: block;
+            
+                <span class="hljs-attribute">font-style</span>: italic;
+                <span class="hljs-attribute">text-align</span>: right;
+                <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FFFFFF</span>;
+            
+                <span class="hljs-attribute">position</span>: absolute;
+                <span class="hljs-attribute">left</span>: -<span class="hljs-number">220px</span>;
+                <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+              }
+            }
+            </code></pre>
+
+            <p>This also happens to be a good example of <a href='/html-and-css/advanced-positioning/'>advanced
+                    positioning</a>. The
+                <code>relative</code> position of the <code>&lt;figure&gt;</code> sets the coordinate
+                system for the <code>&lt;figcaption&gt;</code>’s <code>absolute</code>
+                positioning. By nudging the caption left by <code>220px</code> and giving it an
+                explicit width of <code>200px</code>, we get a nice 20-pixel margin between the
+                image and its caption.</p>
+
+            <p>Like centered text, right alignment should usually be reserved for these
+                kinds of special design scenarios because its jagged left edge makes it
+                harder for the reader to find the next line.</p>
+
+
+            <div class='subsubheading content__subsubheading'>
+                <h3 class='subsubheading__heading' id='justified-text'>Justified Text</h3>
+            </div>
+
+            <p>Justified text is created by subtly adjusting the space between
+                words/letters and splitting long words with hyphens until each line is the same
+                width. Without a high-quality hyphenation engine, justified text results in
+                awkwardly large spaces between words. These uneven spaces make it harder for
+                the eye to move horizontally across the text.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: paragraph with bad hyphenation (uneven spaces between letters and words) versus paragraph with good hyphenation (even spaces between letters and words)'
+                            src='./img/web typography/good-vs-bad-hyphenation-engine.png' width='580' height='310' />
+                    </div>
+                </div>
+            </figure>
+
+            <p>Unfortunately, most browsers don’t have <em>any</em> kind of built-in
+                hyphenation engine, so you’re better off avoiding justified text in HTML
+                documents. We can take a look by adding one more <code>text-align</code> rule
+                to our <code>alignment.html</code> file:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-class">.justify</span> {
+              <span class="hljs-attribute">text-align</span>: justify;
+            }
+            </code></pre>
+
+            <p>Compare this with the left-aligned paragraph. It’s subtle, but the
+                left-aligned paragraph is more uniform and inviting.</p>
+        </div>
+    </div>
+
+    <!--vertical text spacing-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    VERTICAL TEXT SPACING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Just as alignment isn’t an arbitrary decision, neither is the space
+                between text. In this section, we’re concerned with the responsible
+                use of three CSS properties:</p>
+
+            <ul style="padding-top: 30px;">
+                <li><code>margin-top</code> (or <code>padding-top</code>)</li>
+                <li><code>margin-bottom</code> (or <code>padding-bottom</code>)</li>
+                <li><code>line-height</code></li>
+            </ul>
+
+            <p>The first two should be pretty familiar by now, and they define the vertical
+                space between separate paragraphs. The new <code>line-height</code> property
+                determines the amount of space between lines <em>in the same paragraph</em>. In
+                traditional typography, <code>line-height</code> is called
+                “leading” because printers used little strips of lead
+                to increase the space between lines of text.</p>
+
+            <p>Together, these properties control the “vertical rhythm” of a
+                web page. There’s all sorts of techniques to figure out the
+                “optimal” vertical rhythm for a given layout, but the general principles
+                are:</p>
+
+            <ul>
+                <li>Give things enough space to breath.</li>
+                <li>Use <em>consistent</em> spacing throughout the page.</li>
+            </ul>
+
+            <p>To demonstrate this, we’re going to destroy the vertical rhythm in the
+                second half of our <code>spacing.html</code> page. Go ahead and add the
+                following page-specific styles to <code>spacing.html</code></p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              <span class="hljs-selector-class">.messy</span> {
+                <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2em</span>;
+              }
+              <span class="hljs-selector-class">.messy</span> <span class="hljs-selector-tag">h2</span> {
+                <span class="hljs-attribute">line-height</span>: .<span class="hljs-number">9em</span>;
+              }
+              <span class="hljs-selector-class">.messy</span><span class="hljs-selector-pseudo">:last-of-type</span> {
+                <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5em</span>;
+              }
+              <span class="hljs-selector-class">.messy</span><span class="hljs-selector-pseudo">:last-of-type</span> <span class="hljs-selector-tag">h2</span> {
+                <span class="hljs-attribute">margin-bottom</span>: .<span class="hljs-number">3em</span>;
+              }
+              <span class="hljs-selector-class">.messy</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:link</span>,
+              <span class="hljs-selector-class">.messy</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:visited</span> {
+                <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>A few small changes to line height, paddings, and margins can have a
+                dramatic impact on the quality of a page:</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Web page with large, consistent spacing versus web page with cramped, uneven spacing'
+                            src='./img/web typography/vertical-text-spacing.png' width='580' height='513' /></div>
+                </div>
+            </figure>
+
+            <p>There’s a surprising amount of math and psychology that goes into
+                calculating the vertical rhythm of a page, but that’s a job for your
+                designer. As a developer, you need to know the CSS properties to implement what
+                they’re asking for. More importantly, you have to understand that your
+                designer really cares about this kind of stuff, so you should be paying very
+                careful attention to your <code>margin</code>, <code>padding</code>, and
+                <code>line-height</code> properties.</p>
+
+        </div>
+
+    </div>
+
+    <!--Line Length-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    VERTICAL TEXT SPACING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>If the vertical spacing of your text isn’t arbitrary, it should be no
+                surprise that the horizontal spacing isn’t, either. “Line
+                length” or “measure” refers to the horizontal length of your
+                text. You can think of it as the number of characters or words that fit into a
+                single line. Measure has everything to do with the following CSS
+                properties:</p>
+
+            <ul style="padding-top: 30px;">
+                <li><code>width</code></li>
+                <li><code>margin-left</code> (or <code>padding-left</code>)</li>
+                <li><code>margin-right</code> (or <code>padding-right</code>)</li>
+            </ul>
+
+            <p>A good rule-of-thumb is to limit the number of characters on a single line
+                to around 80. Like alignment, this subtly affects the readability of your
+                content. It takes energy for your eye to move from the left edge of a paragraph
+                to the right, and the farther it has to scan, the faster it gets tired. Longer
+                lines also make it easier to get lost when you finish a line and need to jump
+                back to the beginning of the next line.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-top: 150px;'><img class='diagram__image'
+                            alt='Diagram: line length as the width of a paragraph'
+                            src='./img/web typography/line-length-measure.png' width='580' height='196' /></div>
+                </div>
+            </figure>
+
+            <p>These are the reasons why so many websites (including this one) use <a
+                    href='/html-and-css/responsive-design/#a-few-notes-on-design'>fixed-width layouts</a> or split
+                content into multiple columns on wider screens. Without constraining the width
+                of the page or dividing it into manageable columns, line length becomes
+                unacceptably long.</p>
+
+            <p>In our example project, the <code>line-length.html</code> file has decent
+                measure. Let’s see what happens when we break the bottom half of the page
+                by adding the following to its <code>&lt;head&gt;</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+              @<span class="hljs-keyword">media</span> only screen and (min-width: <span class="hljs-number">580px</span>) {
+                <span class="hljs-selector-class">.not-so-manageable</span> {
+                  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+                  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">2em</span>;
+                  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">2em</span>;
+                }
+              }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+            </code></pre>
+
+            <p>Now, the second section stretches to fill the full width of the browser
+                window. It feels a little bit more unapproachable due to the long line length.
+                Again, the goal of good web typography is to make it as easy as possible for
+                visitors to digest your content.</p>
+
+        </div>
+
+    </div>
+
+    <div class="comprehensive-style">
+
+        <h1>OTHER BASIC</h1>
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    TYPOGRAPHY GUIDELINES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>That should be enough to get you on your way towards quality web typography.
+                Typography is a whole industry, and we’ve barely scratched the surface.
+                However, getting any deeper into it would be more design than web development,
+                so we’ll just leave you with a few final guidelines:</p>
+
+            <ul>
+                <li>Use a <code>font-size</code> between <code>14px</code> and
+                    <code>20px</code> for the <code>body</code> element.</li>
+                <li>Use “curly quotes” and apostrophes with the
+                    <code>&amp;rsquo;</code>, <code>&amp;lsquo;</code>,
+                    <code>&amp;rdquo;</code>, and <code>&amp;ldquo;</code> HTML <a
+                        href='/html-and-css/links-and-images/#html-entities'>entities</a>.</li>
+                <li>Use proper dashes (<code>&amp;ndash;</code>, <code>&amp;mdash;</code>)
+                    and other symbols (<code>&ampcopy;</code>).</li>
+                <li>Don’t use <code>text-decoration: underline</code> except for hover
+                    states.</li>
+                <li>Use <em>real</em> italic fonts over synthesized ones if not it’s too
+                    much of a performance burden.</li>
+            </ul>
+
+            <p>If you find this stuff fascinating, <a target='_blank'
+                    href='http://practicaltypography.com/summary-of-key-rules.html'>Practical
+                    Typography</a> has a fantastic list of general rules to follow when
+                typesetting a document.</p>
+        </div>
+
+    </div>
+
+    <div class="comprehensive-style">
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SUMMARY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>The goal of this chapter was twofold:</p>
+
+            <ul>
+                <li>Learn the mechanics of web fonts and basic CSS typography
+                    properties.</li>
+                <li>Understand how designers think about typography.</li>
+            </ul>
+
+            <p>You might not be able to create a beautifully typeset web page from scratch
+                after reading this chapter, but that wasn’t the point. It was to make you
+                <em>aware</em> of the invisible art of typography. You should now have the
+                vocabulary to talk about things like font families, faces, weights, and styles,
+                as well as leading, measure, and vertical rhythm.</p>
+
+            <p>The most important thing you should take away from this chapter is the fact
+                that nothing is arbitrary in a well-designed web page. The font sizes, indent
+                style, text alignment, line height, margins, and every other tiny facet of the
+                page was carefully considered. There was a <em>purpose</em> behind all of these
+                decisions.</p>
+
+            <p>All of the CSS properties we’ve covered throughout this tutorial are
+                actually kind of simple. When it comes down to it, we’ve really just been
+                moving a bunch of boxes around, changing some colors, and altering the
+                appearance of our text. The <em>meaning</em> behind these things comes from
+                the underlying design and the business goals of the website you’re
+                implementing.</p>
+
+            <p>But, that’s for another tutorial. Believe it or not, you’ve reached the end of <a
+                    href='/html-and-css/'><em>HTML &amp; CSS is Hard</em></a>. We’ve covered all
+                the HTML elements and CSS properties you need to build professional web pages.
+                The only thing missing is <em>experience</em>. Your next step is to practice all
+                these new skills by building a bunch of web pages from scratch.</p>
+
+            <p>Stay tuned for more tutorials!</p>
+
+            <div class='next-chapter'>
+                <a href='./htmlcss.html'>Table of Contents &gt;</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer style="font-style: normal;">
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+
+            <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+                <div class="beautiful-diagrams-column" style="width: 50%;">
+                    <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+                </div>
+                <div class="beautiful-diagrams-column" style="width:50%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            InternetingIsHard.com is an independent publisher of premium
+                            web development tutorials. All content is authored and maintained by Oliver James.
+                            He loves hearing from readers, so come say hello!
+                        </p>
+                    </div>
+
+                    <div class="beautiful-diagrams-row">
+                        <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                        <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                    </div>
+
+                    <div class="beautiful-diagrams-column" style="width:100%;">
+                        <div>
+                            <p
+                                style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                                when they get here.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content" style="font-size: 13px;">
+            <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+            <a href="/">CONTACT</a>
+            <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

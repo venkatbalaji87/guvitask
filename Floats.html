@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Floats Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 250px;">FLOATS</h1>
+            </div>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 7. OF <a href="./htmlcss.html">HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px;">
+                <h4>A friendly web development tutorial for plucking out HTML elements</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+
+        <p style="padding-top:30px;">Over the last few chapters, we’ve learned how to manipulate the size
+            of <a href='./cssboxmodel.html'>boxes</a> and the space around them,
+            but for the most part, we were stuck with the default vertical flow of the
+            page. Block elements always appeared vertically one after another, effectively
+            limiting us to a single-column layout.</p>
+
+        <img style="padding-top:30px; padding-left: 150px;" src="./img/floats/vertical-vs-horizontal-stacking.png"
+            alt="vertical vs horizontal stacking" />
+
+        <p style="padding-top:30px;">“Floats” let you put block-level elements side-by-side instead of on top of
+            each other. This is a big deal. It lets us build all sorts of layouts,
+            including sidebars, multi-column pages, grids, and magazine-style articles with
+            text flowing around an image. This is where we finally start creating real web
+            pages.</p>
+
+        <p style="padding-top:30px;">Float-based layouts have mostly been replaced with <a
+                href='/html-and-css/flexbox/'>Flexbox</a> in modern websites. But, that’s not
+            to say this chapter isn’t worth reading. For over a decade, floats served as the
+            foundation for the majority of websites on the Internet, which means you’ll
+            definitely encounter them at some point in your career.</p>
+
+        <p style="padding-top:30px;">Perhaps more importantly, the limited nature of floats makes them a gentler
+            introduction to CSS layouts than Flexbox. Instead of being overwhelmed with all
+            the possibilities of Flexbox, we’ll get a chance to focus more on the
+            <em>process</em> of building up a sophisticated web page layout.</p>
+    </div>
+
+    <!--Setup-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px;">This chapter demonstrates CSS floats with a pretty simple sample project.
+                Instead of working with proper HTML content as we have been in previous
+                chapters, we’ll be styling a bunch of empty <code>&lt;div&gt;</code> elements.
+                We’ll end up with something that looks like the following, which is a pretty
+                big divergence from the types of web pages we’ve been creating thus far.</p>
+
+            <img style="padding-top:30px; padding-left: 150px;" src="./img/floats/setup.png" />
+
+            <p style="padding-top:30px;">First, create a new folder called <code>floats</code>, then add a new web
+                page called <code>floats.html</code> with the following markup:</p>
+
+            <pre><code><span >&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+                  <span >&lt;<span >head</span>&gt;</span>
+                    <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span> /&gt;</span>
+                    <span >&lt;<span >title</span>&gt;</span>Floats<span >&lt;/<span >title</span>&gt;</span>
+                    <span >&lt;<span >link</span> <span >rel</span>=<span >'stylesheet'</span> <span >href</span>=<span >'styles.css'</span>/&gt;</span>
+                  <span >&lt;/<span >head</span>&gt;</span>
+                  <span >&lt;<span >body</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'page'</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>Menu<span >&lt;/<span >div</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'sidebar'</span>&gt;</span>Sidebar<span >&lt;/<span >div</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'content'</span>&gt;</span>Content<span >&lt;/<span >div</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'footer'</span>&gt;</span>Footer<span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >body</span>&gt;</span>
+                <span >&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">This gives us the basic structure for most websites on the Internet. We have
+                a place to put a navigation menu, a sidebar, the main content of the page, and
+                a footer. Think of all these as <a href='/html-and-css/css-selectors/#container-divs'>container divs</a>
+                that you
+                can put your actual HTML content into.</p>
+
+            <p style="padding-top:30px;">You won’t see much when you open <code>floats.html</code> in a browser
+                because empty elements have zero height. We’ll fix this in the next
+                section.</p>
+
+            <pre><code>* {
+                  <span >margin</span>: <span >0</span>;
+                  <span >padding</span>: <span >0</span>;
+                  <span >box-sizing</span>: border-box;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">Also be sure to create a <code>styles.css</code> stylesheet that
+                resets default box behavior, as shown above.</p>
+
+        </div>
+    </div>
+
+
+    <!--DEFAULT HTML LAYOUT BEHAVIOR-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    DEFAULT HTML LAYOUT BEHAVIOR
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">Floats alter the default layout of a web page, so we should probably start
+                by reviewing what exactly that “default” behavior is. We introduced
+                this in block
+                elements versus inline elements, but it’s about to become much
+                more important.</p>
+
+            <p style="padding-top:30px;padding-bottom: 30px;">We can get a better look at our example page by adding
+                some background
+                colors and explicit heights to each of our <code>&lt;div&gt;</code>
+                elements. Add this to <code>styles.css</code>:</p>
+
+            <pre><code><span >.menu</span> {
+                  <span >height</span>: <span >100px</span>;
+                  <span >background-color</span>: <span >#B2D6FF</span>;    <span >/* Medium blue */</span>
+                }
+                
+                <span >.sidebar</span> {
+                  <span >height</span>: <span >300px</span>;
+                  <span >background-color</span>: <span >#F09A9D</span>;    <span >/* Red */</span>
+                }
+                
+                <span >.content</span> {
+                  <span >height</span>: <span >500px</span>;
+                  <span >background-color</span>: <span >#F5CF8E</span>;    <span >/* Yellow */</span>
+                }
+                
+                <span >.footer</span> {
+                  <span >height</span>: <span >200px</span>;
+                  <span >background-color</span>: <span >#D6E9FE</span>;    <span >/* Light blue */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">This gives us a nice rainbow, which isn’t what we’re looking
+                for, though it does demonstrate some useful concepts.</p>
+
+            <img style="padding-left: 150px;padding-top: 30px;" src="./img/floats/default-css-layout-behavior.png" />
+
+            <p style="padding-top:30px;">The important part here is that each block-level element fills 100% of its
+                parent elements’s width (<code>&lt;div class='page'&gt;</code> in this
+                case), and they appear vertically one after another. Again, we’re
+                essentially limited to a single-column layout.</p>
+
+            <p style="padding-top:30px;">Typically, you’d want to let the height of these boxes be determined
+                automatically based on the content they contain; however, we’re more
+                concerned with controlling layouts this chapter, so we won’t be dealing
+                with much real content. This is why we need the <a
+                    href='/html-and-css/css-box-model/#explicit-dimensions'>explicit
+                    <code>height</code> properties</a>.</p>
+
+            <p style="padding-top:30px;padding-bottom: 30px;">It’s worth taking a look at what happens when we shrink an
+                element’s width. Update our <code>.sidebar</code> rule to match the
+                following:</p>
+
+            <pre><code><span >.sidebar</span> {
+                  <span >width</span>: <span >200px</span>;                 <span >/* Add this */</span>
+                  <span >height</span>: <span >300px</span>;
+                  <span >background-color</span>: <span >#F09A9D</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">The sidebar element gets narrower, but the rest of the boxes stay in the
+                exact same position. All the blocks are still rendered vertically one after
+                another. This is the behavior we’ll be changing with floats.</p>
+
+
+            <img src="./img/floats/default-css-layout-behavior-explicit-width.png"
+                style="padding-top:30px;padding-left: 150px;" />
+        </div>
+    </div>
+
+    <!--Floating an element-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FLOATING AN ELEMENT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">The CSS <code>float</code> property gives us control over
+                the
+                <em>horizontal</em> position of an element. By “floating” the
+                sidebar to the left, we’re telling the browser to align it to the left
+                side of the page. Go ahead and float our sidebar with the following line:</p>
+
+            <pre><code><span >.sidebar</span> {
+                  <span >float</span>: left;                  <span >/* Add this */</span>
+                  <span >width</span>: <span >200px</span>;
+                  <span >height</span>: <span >300px</span>;
+                  <span >background-color</span>: <span >#F09A9D</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">However, this doesn’t just <em>align</em> the sidebar&mdash;it also
+                tells surrounding elements that they can flow <em>around</em> the sidebar
+                instead of beginning underneath it. It’s as if the sidebar is inside the
+                <code>.content</code> block, so any HTML markup in <code>.content</code> would
+                wrap around the sidebar’s box. This gives us a magazine-style layout:</p>
+
+
+            <p style="padding-top:30px; padding-bottom: 30px;">You can also float elements right, as shown below (let’s
+                keep our
+                sidebar floated left though). Or, if you’re overriding a float
+                declaration, you can cancel it with the <code>none</code> value. These are the
+                most common values for the <code>float</code> property.</p>
+
+            <pre><code><span >float</span>: <span >right</span>;  <span >/* Right-aligned */</span>
+                <span >float</span>: <span >none</span>;   <span >/* Revert to default flow */</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">We now have all the tools necessary to align block-level elements: floats
+                for left/right alignment and auto-margins for center alignment. Remember that
+                this only applies to <em>block</em> boxes. Inline boxes are aligned with the
+                <code>text-align</code> property, as discussed in the <a href='./cssselector.html'>previous chapter</a>.
+            </p>
+
+            <img style="padding-left: 150px;padding-top:30px;"
+                src="./img/floats/floats-and-auto-margin-for-alignment.png" alt="floats and auto margin" />
+
+        </div>
+
+    </div>
+
+    <!--Floating inside of parents-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FLOATING INSIDE OF PARENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">Floated boxes always align to the left or right of their parent element. In
+                our example, the sidebar’s parent is <code>&lt;div
+                    class='page'&gt;</code>, which is as wide as the browser window. This is why
+                our sidebar floats to the far left of the page.</p>
+
+            <p style="padding-top:30px;">Let’s change this by giving our page a fixed-width layout. Once again,
+                the auto-margin centering technique comes in handy. Add this to
+                <code>styles.css</code>:</p>
+
+            <pre><code><span >.page</span> {
+                  <span >width</span>: <span >900px</span>;
+                  <span >margin</span>: <span >0</span> auto;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">Now, we can see that <code>.sidebar</code> floats to the left of the
+                <code>.page</code> container, opposed to the edge of the browser window.</p>
+
+            <img style="padding-top:30px; padding-left: 150px;" src="./img/floats/floating-in-fixed-width-page.png"
+                alt="Floating in fixed" />
+
+            <p style="padding-top:30px;">Positioning nested container divs like this is how you build up
+                sophisticated website layouts. Here, we started with <code>.page</code> to
+                center <em>everything</em>, then we left-aligned a sidebar <em>inside</em> that
+                centered page. Things can get way more complex, but our simple example
+                demonstrates the universal truth of CSS layouts: everything is a box inside of
+                a box inside of another box.</p>
+        </div>
+
+    </div>
+
+    <!--After a Float-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    AFTER A FLOAT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px;">You probably noticed that our footer shows up in the top right, directly
+                below <code>.menu</code>. That’s because floated boxes are removed from the
+                normal flow of the page. The height of our floated elements don’t contribute to
+                the vertical position of the footer, so it simply sticks itself below the last
+                element that <em>wasn’t</em> floated.</p>
+
+            <img style="padding-top:30px; padding-left:150px;" src="./img/floats/floats-outside-of-normal-flow.png"
+                alt="Floats outside of normal flow" />
+
+            <p style="padding-top:30px; padding-bottom: 30px;">We can see this more clearly by adding a red border
+                around our
+                <code>.page</code> element:</p>
+
+            <pre><code><span >.page</span> {
+                  <span >width</span>: <span >900px</span>;
+                  <span >margin</span>: <span >0</span> auto;
+                  <span >border</span>: <span >1px</span> solid red;  <span >/* Add this */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">Notice how the border is only around the <code>.menu</code> and
+                <code>.footer</code> elements. It’s as if the floated elements weren’t even
+                there. There are two ways to fix this: clearing a float and hiding
+                overflow.</p>
+
+
+            <h3 style="padding-top:30px;">Clearing Floats</h3>
+
+            <p style="padding-top:30px;">“Clearing” a float is when we tell a block to ignore any floats
+                that appear before it. Instead of flowing around the floated box, a cleared
+                element always appears after any floats. It’s like forcing a box back
+                into the default vertical flow of the page.</p>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">We can use the <code>clear</code> property to make our
+                <code>.footer</code>
+                drop down to the bottom of the page:</p>
+
+            <pre><code><span >.footer</span> {
+                  <span >clear</span>: both;            <span >/* Add this */</span>
+                  <span >height</span>: <span >200px</span>;
+                  <span >background-color</span>: <span >#D6E9FE</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">Usually, you want to clear both left and right floats as we did here, but
+                you can choose to clear only one or the other with the <code>left</code> or
+                <code>right</code> values. Note that the red border now wraps all the way
+                around the footer, indicating that the floated elements indeed count towards
+                the height of the <code>.page</code> container:</p>
+
+            <img style="padding-top:30px;padding-left: 150px;" src="./img/floats/floats-outside-of-normal-flow.png"
+                alt="Floats outside of normal" />
+
+            <p style="padding-top:30px;">Depending on the type of layout you’re trying to create, this is a
+                perfectly acceptable solution. We could stop here, but we’re going to
+                explore float behavior more by transforming our page into a full-bleed layout
+                that has background colors filling the entire browser window.</p>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">Watch what happens when we take the menu and footer out
+                of the
+                <code>.page</code> element. Change the <code>&lt;body&gt;</code> element to
+                match the following:</p>
+
+            <pre><code><span >&lt;<span >body</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>Menu<span >&lt;/<span >div</span>&gt;</span>
+                
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'page'</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'sidebar'</span>&gt;</span>Sidebar<span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'content'</span>&gt;</span>Content<span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'footer'</span>&gt;</span>Footer<span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >body</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">Since <code>.menu</code> and <code>.footer</code> are outside our
+                fixed-width <code>.page</code>, they’re the full width of the window,
+                which is exactly what we want for a full-bleed layout. However, notice how
+                <code>.page</code> has zero height again despite the fact that the footer still
+                clears the sidebar and content blocks.</p>
+
+            <img style="padding-top:30px; padding-left: 150px;" src="./img/floats/floating-in-fixed-width-page.png"
+                alt="Floating in fixed width page" />
+
+            <p style="padding-top:30px;">Once again, the only elements in <code>.page</code> are floated, so they
+                don’t count towards its height. In other words, moving the footer outside
+                of the <code>.page</code> container broke our <code>clear</code> fix.</p>
+
+
+            <h3 style="padding-top:30px;">Hiding Overflow</h3>
+        </div>
+
+        <p style="padding-top:30px;">Clearing floats only fixes the height issue when there’s an element
+            <em>inside</em> the container element that we can add a <code>clear</code>
+            property to. Now that our footer is outside <code>.page</code>, we need a new
+            way to make floated elements contribute to the height of their container.</p>
+
+
+        <p style="padding-top:30px; padding-bottom: 30px;">The solution is the <a
+                href='https://developer.mozilla.org/en-US/docs/Web/CSS/overflow'>CSS
+                <code>overflow</code> property</a>. By adding an <code>overflow:
+                hidden</code> declaration to a container div, we’re telling it to
+            recognize the height of any floated elements it contains. This is how we can
+            add a background color to our <code>.page</code> element and have it actually
+            render:</p>
+
+        <pre><code><span >.page</span> {
+                  <span >width</span>: <span >900px</span>;
+                  <span >margin</span>: <span >0</span> auto;
+                  <span >overflow</span>: hidden;             <span >/* Add this */</span>
+                  <span >background-color</span>: <span >#EAEDF0</span>;    <span >/* Add this */</span>
+                }
+                </code></pre>
+
+        <p style="padding-top:30px;">You should now be able to see a light gray background in <code>.page</code>
+            instead of the default white. This isn’t full bleed yet (we’ll address that in
+            the next section). The important part here is the behavior of <code>overflow:
+                hidden</code>. Without it, we wouldn’t be able to see the <code>.page</code>
+            container’s background because it would have zero height.</p>
+
+        <img style="padding-top:30px; padding-left:150px;" src="./img/floats/full-bleed-layout-overflow-hidden.png"
+            alt="fully bleed" />
+
+        <p style="padding-top:30px;">To summarize, when you have an extra unfloated HTML element at the bottom of
+            a container div, use the <code>clear</code> solution. Otherwise, add an
+            <code>overflow: hidden</code> declaration to the container element. The
+            underlying idea for both options is that you need a way to tell the browser to
+            incorporate floats into the height of their container element in order for
+            their backgrounds to show up.</p>
+
+    </div>
+    </div>
+
+    <!--Full Bleed Layout-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FULL BLEED LAYOUTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px;">Next, we want to make our <code>.page</code> background fill the entire
+                browser window without changing the alignment of our sidebar or content blocks.
+                The problem is, our <code>.page</code> is busy centering everything&mdash;we
+                can’t use it for a full-bleed background because centering requires an
+                explicit <code>width</code> property.</p>
+
+            <img style="padding-top:30px;padding-left: 150px;" src="./img/floats/full-bleed-layout-with-container.png"
+                alt="Full Bleed Layout with Conainer" />
+
+            <p style="padding-top:30px;padding-bottom: 30px;">It’s time for <em>another</em> container div. Putting a
+                box around
+                <code>.page</code> lets it continue centering stuff while giving us a place to
+                define a <code>background-color</code> property. Change our
+                <code>&lt;body&gt;</code> element to match the following:</p>
+
+            <pre><code><span >&lt;<span >body</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>Menu<span >&lt;/<span >div</span>&gt;</span>
+                
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'container'</span>&gt;</span>                 <span >&lt;!-- Add this --&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'page'</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'sidebar'</span>&gt;</span>Sidebar<span >&lt;/<span >div</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'content'</span>&gt;</span>Content<span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>                                  <span >&lt;!-- Add this --&gt;</span>
+                
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'footer'</span>&gt;</span>Footer<span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >body</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">Remember that the default block-rendering behavior is for elements to fill
+                the width of their container. So, we should be able to move our
+                <code>background-color</code> declaration to a <code>.container</code> rule to
+                get a full-bleed background:</p>
+
+            <pre><code><span >.page</span> {
+                  <span >width</span>: <span >900px</span>;
+                  <span >margin</span>: <span >0</span> auto;
+                }
+                
+                <span >.container</span> {
+                  <span >overflow</span>: hidden;
+                  <span >background-color</span>: <span >#EAEDF0</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">As in the previous section, we still need the <code>overflow: hidden</code>
+                line to force the <code>.container</code> to pay attention to the height of the
+                floated elements. Without it, we wouldn’t see our background color
+                because <code>.container</code> would have zero height.</p>
+
+            <p style="padding-top:30px;">This gives us three nested <code>&lt;div&gt;</code> elements just for laying
+                out our page: a <code>.container</code> wrapper for full-bleed background
+                color, a fixed-width <code>.page</code> for centering everything, and finally
+                left-aligned <code>.sidebar</code> and <code>.content</code> blocks. This kind
+                of nesting and aligning is pretty typical of most website layouts.</p>
+
+        </div>
+
+    </div>
+
+    <!--Equal Width Columns-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FLOATS FOR EQUAL-WIDTH COLUMNS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">So far, we’ve seen a sidebar layout, a fixed-width layout, and a
+                full-bleed layout. Floats can also be used to create multi-column layouts. This
+                works just like our <code>.sidebar</code> and <code>.content</code>
+                floats&mdash;we just have more of them.</p>
+
+            <p style="padding-top:30px;padding-bottom: 30px;">Next we’re going to add three equal-width columns to our
+                footer.
+                Update the <code>&lt;footer&gt;</code> element, like so:</p>
+
+            <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'footer'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">We can style each of these columns just like we laid out the rest of our
+                page. Add a new rule to <code>styles.css</code>:</p>
+
+            <pre><code><span>.column</span> {
+                  <span >float</span>: left;
+                  <span >width</span>: <span 
+>31%</span>;
+                  <span >margin</span>: <span >20px</span> <span >1.15%</span>;
+                  <span >height</span>: <span >160px</span>;
+                  <span >background-color</span>: <span >#B2D6FF</span>;    <span >/* Medium blue */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">This is the first time we’ve used percentage values instead of
+                explicit pixel values. Percentages in CSS are relative to the width of the
+                parent element. The result is three columns that automatically resize to
+                one-third of the browser window. Resize the browser window, and you’ll
+                see our columns grow and shrink accordingly. This is the beginning of <a
+                    href='/html-and-css/responsive-design/'>responsive design</a>.</p>
+
+
+            <p style="padding-top:30px;">Anyhow, let’s not lose sight of the central thesis of this chapter:
+                floats let us stack things horizontally instead of vertically. By changing the
+                widths of the elements we’re floating, we can get all kinds of different
+                layouts, from sidebars to multiple columns to grids.</p>
+        </div>
+
+    </div>
+
+    <!--Floats for Grids-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FLOATS FOR GRIDS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">Want a grid in the footer instead of 3 columns? No
+                problem! When there
+                isn’t enough room to stack a floated element horizontally, it pops down
+                to the next line. All we need to do is add some more <code>.column</code>
+                elements:</p>
+
+            <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'footer'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">Voilà! A grid! Well, almost&hellip;</p>
+
+            <img src="./img/floats/floats-for-grids.png" style="padding-top:30px; padding-left: 150px;" />
+
+            <p style="padding-top:30px; padding-bottom: 30px;">Our footer background is too short. Fortunately, we
+                already know how to fix
+                that. Let’s replace the footer’s explicit height with another
+                <code>overflow: hidden</code> so it can accommodate any number of grid
+                items:</p>
+
+            <pre><code><span class="hljs-selector-class">.footer</span> {
+                  <span class="hljs-attribute">overflow</span>: hidden;
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#D6E9FE</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">You can use this same technique to make grids of any size. For example,
+                creating a photo gallery with a bunch of thumbnails is simply a matter of
+                putting the grid items in <code>.page</code> instead of the footer and adding
+                <code>&lt;img/&gt;</code> elements to them. But, again, remember that <a
+                    href='/html-and-css/flexbox/'>flexbox</a> is a more modern way to create
+                these kinds of layouts.</p>
+
+
+            <h3 style="padding-top:30px;">A Brief Note on Naming Conventions</h3>
+
+            <p style="padding-top:30px;">The <code>.column</code> class name isn’t exactly accurate anymore.
+                This scenario is a good example of why we want to avoid <a
+                    href='/html-and-css/css-selectors/#class-naming-conventions'>class names that
+                    refer to appearance</a>. “Column” isn’t so great because the
+                content it contains doesn’t necessarily need to be rendered in multiple
+                columns (e.g., for a mobile layout, there would likely only be one column). A
+                better name would be something like <code>.footer-item</code>, but we’ll
+                leave that for you to fix.</p>
+        </div>
+
+    </div>
+
+    <!--Floats for Content-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    FLOATS FOR CONTENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">There’s two aspects to defining a web page layout. You have your
+                overall page structure, which we’ve been working on throughout this
+                entire chapter. This is stuff like where you sidebar goes, how big your
+                navigation menu is, etc. The other aspect of layouts is styling the individual
+                HTML components (your actual content) that go inside this overarching page
+                structure.</p>
+
+            <p style="padding-top:30px;padding-bottom: 30px;">The process for the latter is the same, it’s just nested
+                inside the
+                former. Let’s add some dummy content to our <code>.content</code> element so
+                we have something to play with:</p>
+
+            <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'container'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'page'</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'sidebar'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'content'</span>&gt;</span>
+                      
+                      <span >&lt;<span >img</span> <span >src</span>=<span >'?'</span> <span >class</span>=<span >'article-image'</span>/&gt;</span>
+                
+                      <span >&lt;<span >p</span>&gt;</span>Ad netus sagittis velit orci est non ut urna taciti metus donec magnis
+                      hendrerit adipiscing mauris sit a proin ultrices nibh.<span >&lt;/<span >p</span>&gt;</span>
+                
+                      <span >&lt;<span >p</span>&gt;</span>Enim suspendisse ac scelerisque nascetur vestibulum parturient sed mi a
+                      dolor eu non adipiscing non neque scelerisque netus ullamcorper sed
+                      parturient integer.Eros dui risus non sodales ullamcorper libero a dis
+                      cubilia a orci iaculis cursus.<span >&lt;/<span >p</span>&gt;</span>
+                
+                      <span >&lt;<span >p</span>&gt;</span>Egestas at aliquam a egestas accumsan cum elementum consectetur conubia
+                      tristique eu et vitae condimentum in ante consectetur suscipit a a duis
+                      vestibulum gravida morbi sagittis.Parturient scelerisque facilisis
+                      ullamcorper a a pretium a nisl parturient semper senectus accumsan ipsum
+                      mus scelerisque eget ridiculus.Accumsan dolor a.<span >&lt;/<span >p</span>&gt;</span>
+                
+                      <span >&lt;<span >p</span>&gt;</span>Ligula taciti vel primis sit a tincidunt habitant parturient parturient
+                      in parturient ante nulla consectetur sem.Facilisis parturient litora.<span >&lt;/<span >p</span>&gt;</span>
+                
+                    <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">We’ve got an image and several paragraphs that we can
+                style just like
+                our structural divs. For example, let’s create a magazine-style layout
+                by floating the image and letting the text flow around it. Add a couple more
+                rules to our stylesheet:</p>
+
+            <pre><code><span class="hljs-selector-class">.content</span> {
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+                }
+                
+                <span class="hljs-selector-class">.article-image</span> {
+                  <span class="hljs-attribute">float</span>: left;
+                  <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;
+                  <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+                  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">20px</span>;
+                  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">20px</span>;
+                }
+                
+                <span class="hljs-selector-tag">p</span> {
+                  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">20px</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">Notice how we have a float inside of a float, and everything works just
+                fine. Laying out a website is a recursive process: you build a high-level
+                structure to work in, then you fill it with your actual content. More complex
+                layouts may need another layer or two of nesting, but the idea is the same.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 383px'>
+                    <div class='diagram__padding' style='padding-bottom: 94.7780678851175%'><img class='diagram__image'
+                            alt='Web page showing floated image with text content flowing around it'
+                            src='./img/floats/floats-final-example-e0e9f7.png' width='383' height='363' /></div>
+                </div>
+            </figure>
+
+
+            <h3>Hiding Overflow (For Content)</h3>
+
+            <p style="padding-top:30px;">You’ll find examples of nested layouts all over the place. For our
+                final example, consider a basic user-comment thread. You have an image
+                that’s floated left with a heading and some text next to it:</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 283px'>
+                    <div class='diagram__padding' style='padding-bottom: 49.82332155477032%'><img class='diagram__image'
+                            alt='Web page showing footer with icon and text next to it, not flowing around it due to overflow: hidden'
+                            src='./img/floats/overflow-hidden-for-content-735981.png' width='283' height='141' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top:30px; padding-bottom: 30px;">Let’s try creating this in our footer. In your favorite
+                <code>.column</code> element, add the following:</p>
+
+            <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'column'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'avatar'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >h3</span> <span >class</span>=<span >'username'</span>&gt;</span>Bob Smith<span >&lt;/<span >h3</span>&gt;</span>
+                  <span >&lt;<span >p</span> <span >class</span>=<span >'comment'</span>&gt;</span>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                  ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                  purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.<span >&lt;/<span >p</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;padding-bottom: 30px;">And the corresponding CSS rules:</p>
+
+            <pre><code><span class="hljs-selector-class">.avatar</span> {
+                  <span class="hljs-attribute">float</span>: left;
+                  <span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;
+                  <span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;
+                  <span class="hljs-attribute">margin</span>: <span class="hljs-number">25px</span>;
+                  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">40px</span>;
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#D6E9FE</span>;
+                }
+                
+                <span class="hljs-selector-class">.username</span> {
+                  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">30px</span>;
+                }
+                
+                <span class="hljs-selector-class">.comment</span> {
+                  <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
+                  <span class="hljs-attribute">overflow</span>: hidden;  <span class="hljs-comment">/* This is important */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top:30px;">This highlights another use case for our <code>overflow: hidden</code>
+                trick. Sticking it on our <code>.comment</code> box made sure that the text
+                “horizontally cleared” (that’s not a technical term) the floated image. Without
+                it, the last line of the <code>.comment</code> text would hang underneath the
+                image.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 580px'>
+                    <div class='diagram__padding' style='padding-bottom: 31.20689655172414%'><img class='diagram__image'
+                            alt='Web pages showing with hidden overflow (text left-aligned) and without hidden overflow (text flowing around icon)'
+                            src="./img/floats/no-overflow-hidden-for-content-1cb097.png" width='580' height='181' />
+                    </div>
+                </div>
+            </figure>
+
+            <p style="padding-top:30px;">In other words, <code>overflow: hidden</code> breaks the magazine-style
+                layout from the previous section, but in a very useful way.</p>
+        </div>
+
+    </div>
+
+    <!--Summary-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SUMMARY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top:30px;">This chapter was our first encounter with realistic web page layouts. We
+                learned how to float divs to the left and right, how to deal with content after
+                a float, and how to combine floats with the auto-margin centering technique
+                from the <a href='./cssboxmodel.html'>CSS Box Model</a> chapter.
+                These are the tools we need to create sidebars, grids, an magazine-style
+                layouts.</p>
+
+            <p style="padding-top:30px;">It’s important not to lose sight of the developer’s role in the website
+                creation process. Your job as a web developer is to take a beautifully designed
+                mockup and turn it into the HTML and CSS that browsers can display to your end
+                users. Floats are a big leap forward towards that end, but they’re also
+                becoming obsolete in favor of the flexbox layout scheme.</p>
+
+
+
+            <p style="padding-top:30px;">In the next chapter, we’ll learn even more ways to lay out complex websites
+                using flexbox. The CSS properties will be new, but the <em>process</em> will be
+                the same as it was in this chapter: we’ll still be aligning boxes inside of
+                other boxes, inside of other boxes, and so on until we accomplish the desired
+                layout.</p>
+
+            <div class='next-chapter'>
+                <a href='/html-and-css/flexbox/'>Next Chapter &gt;</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Footer-->
+
+    <footer style="font-style: normal;">
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+
+            <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+                <div class="beautiful-diagrams-column" style="width: 50%;">
+                    <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+                </div>
+                <div class="beautiful-diagrams-column" style="width:50%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            InternetingIsHard.com is an independent publisher of premium
+                            web development tutorials. All content is authored and maintained by Oliver James.
+                            He loves hearing from readers, so come say hello!
+                        </p>
+                    </div>
+
+                    <div class="beautiful-diagrams-row">
+                        <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                        <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                    </div>
+
+                    <div class="beautiful-diagrams-column" style="width:100%;">
+                        <div>
+                            <p
+                                style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                                when they get here.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content" style="font-size: 13px;">
+            <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+            <a href="/">CONTACT</a>
+            <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Selectors Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 250px;">CSS SELECTORS</h1>
+            </div>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 6. OF <a href="./htmlcss.html">HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px;">
+                <h4>A friendly web development tutorial for plucking out HTML elements</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+
+        <p style="padding-top: 30px;">Way back in the <a href='./linksandimages.html'>Links and
+                Images</a> chapter, we learned how to connect an HTML document to other files
+            in our project. “CSS selectors” are similar, except instead of
+            navigating between whole files, they let us map a single CSS rule to a specific
+            HTML element. This makes it possible to <em>selectively</em> style individual
+            elements while ignoring others.</p>
+
+
+        <div style='max-width: 395px'>
+            <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                    alt='Diagram: CSS selector connecting a CSS rule to an HTML element'
+                    src='./img/css-selectors-class.png' width='395' height='219' /></div>
+        </div>
+
+
+        <p style="padding-top: 30px;">Unless you want every section of your website to look exactly the same, this
+            is a crucial bit of functionality for us. It’s how we say things like
+            “I want this paragraph to be blue and that other paragraph to be
+            yellow.” Until now, we’ve only been able to turn <em>all</em> our
+            paragraphs blue (or yellow).</p>
+
+        <p style="padding-top: 30px;">The only CSS selector we’ve seen so far is called the “type
+            selector”, which targets all the matching elements on a page. In this
+            chapter, we’ll explore more granular ways to style a web page with class
+            selectors, descendant selectors, pseudo-classes, and ID selectors.</p>
+
+    </div>
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">We’ll only need one HTML file and a CSS stylesheet for
+                our example
+                this chapter. Create a new folder called <code>css-selectors</code> and new web
+                page called <code>selectors.html</code> with the following markup:</p>
+
+            <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                <span class="hljs-tag">&lt;<span >html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">'en'</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span >head</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span >meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">'UTF-8'</span>/&gt;</span>
+                    <span class="hljs-tag">&lt;<span >title</span>&gt;</span>CSS Selectors<span class="hljs-tag">&lt;/<span >title</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span >link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'stylesheet'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'styles.css'</span>/&gt;</span>
+                  <span class="hljs-tag">&lt;/<span >head</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span >body</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span >h1</span>&gt;</span>CSS Selectors<span class="hljs-tag">&lt;/<span >h1</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>&gt;</span>CSS selectors let you <span class="hljs-tag">&lt;<span >em</span>&gt;</span>select<span class="hljs-tag">&lt;/<span >em</span>&gt;</span> individual HTML elements in an HTML
+                       document. This is <span class="hljs-tag">&lt;<span >strong</span>&gt;</span>super<span class="hljs-tag">&lt;/<span >strong</span>&gt;</span> useful.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>&gt;</span>Classes are ridiculously important, since they allow you to select
+                       arbitrary boxes in your web pages.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>&gt;</span>We’ll also be talking about links in this example, so here’s
+                       <span class="hljs-tag">&lt;<span >a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'https://internetingishard.com'</span>&gt;</span>Interneting Is Hard<span class="hljs-tag">&lt;/<span >a</span>&gt;</span> for us to
+                       style.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >div</span>&gt;</span>Button One<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                
+                  <span class="hljs-tag">&lt;/<span >body</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">Go ahead and create that <code>styles.css</code> stylesheet in the same
+                folder, too. This gives us everything we need to explore CSS selectors.</p>
+
+            <p style="padding-top: 30px;">If you’re just diving into this tutorial series, be sure to have a
+                quick read through the <a href='/html-and-css/introduction/#atom-text-editor'>Introduction</a> to get
+                set
+                up with the Atom text editor.</p>
+        </div>
+    </div>
+
+    <!--class selectors-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CLASS SELECTORS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top: 30px;">“Class selectors” let you apply CSS styles to a specific HTML
+                element. They let you differentiate between HTML elements of the same type,
+                like when we had two <code>&lt;div&gt;</code> elements in the <a href='./cssselector.html'>previous
+                    chapter</a>, but
+                only wanted to style one of them. Class selectors require two things:</p>
+
+            <ul style="padding-top: 30px;">
+                <li>A <code>class</code> attribute on the HTML element in question.</li>
+                <li>A matching CSS class selector in your stylesheet.</li>
+            </ul>
+
+            <figure>
+                <div style='max-width: 473px'>
+                    <div class='diagram__padding' style='padding-bottom: 30px; padding-left :150px;'><img class='diagram__image'
+                            alt='Diagram: CSS class selector connecting a CSS rule to a class attribute on an HTML element'
+                            src='./img/css-selectors.png' width='473' height='199' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">We can use a class selector to style the first paragraph of our example page
+                differently than the rest of them. This could be, for instance, the synopsis of
+                a newspaper article. First, let’s add a <code>class</code> attribute to
+                the desired paragraph:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'synopsis'</span>&gt;</span>CSS selectors let you <span class="hljs-tag">&lt;<span >em</span>&gt;</span>select<span class="hljs-tag">&lt;/<span >em</span>&gt;</span> individual HTML
+                   elements in an HTML document. This is <span class="hljs-tag">&lt;<span >strong</span>&gt;</span>super<span class="hljs-tag">&lt;/<span >strong</span>&gt;</span> useful.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">Now, we can pluck out that <code>&lt;p class='synopsis'&gt;</code> element
+                in our CSS with the following (add this to <code>styles.css</code>):</p>
+
+            <pre><code><span >.synopsis</span> {
+                  <span >color</span>: <span >#7E8184</span>;        <span class="hljs-comment">/* Light gray */</span>
+                  <span >font-style</span>: italic;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">This rule is <em>only</em> applied to elements with the corresponding
+                <code>class</code> attribute. Notice the dot (<code>.</code>) prefixing the
+                class name. This distinguishes class selectors from the type selectors that
+                we’ve been working with before this chapter.</p>
+
+            <div style='max-width: 523px'>
+                <div class='diagram__padding' style='padding-left: 150px;'><img
+                        alt='Web page highlighting an italicized &lt;p&gt; element styled via a class selector'
+                        src="./img/cssselector/selecting-a-paragraph-with-class-selector.png" width='523'
+                        height='291' /></div>
+            </div>
+
+
+            <h3 style="padding-top: 30px;">Class Naming Conventions</h3>
+
+            <p style="padding-top: 30px;">The value of the HTML <code>class</code> attribute can be (almost) anything
+                you want as long as it matches the selector in your CSS. The standard naming
+                convention for classes is to use all lowercase and hyphens for spaces, just
+                like file and folder names.</p>
+
+            <p style="padding-top: 30px;">Adding a <code>class</code> attribute doesn’t alter the semantic
+                meaning of your HTML document at all&mdash;it’s purely for hooking into
+                your CSS stylesheet. However, it’s still usually a good idea to avoid
+                naming classes based on their appearance. If we chose to name our class
+                <code>.italic</code>, we wouldn’t be able to do much besides make it
+                italic in our CSS without leading to a confusing situation. Using something
+                semantic like <code>.synopsis</code> gives us more freedom for our CSS to
+                customize how that synopsis is displayed.</p>
+
+        </div>
+    </div>
+
+    <!--More Useful Divs-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MORE USEFUL DIVS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">The <code>class</code> attribute isn’t limited to
+                <code>&lt;p&gt;</code> elements&mdash;it can be defined on <em>any</em> HTML
+                element. So, armed with CSS class selectors, our generic
+                <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> boxes from the previous
+                chapter become much, much more useful. We can use them to style both individual
+                elements as well as arbitrary sections of our web page.</p>
+
+            <div class='diagram__wrapper' style='max-width: 523px'>
+                <div class='diagram__padding' style='padding-left:150px;'><img class='diagram__image'
+                        alt='Web page highlighting a button &lt;div&gt; element styled via a class selector'
+                        src='./img/cssselector/selecting-button-with-class-selector.png' width='523' height='309' />
+                </div>
+            </div>
+
+            <p style="padding-top: 30px;">Let’s start with individual elements by recreating our button from the
+                previous chapter. This time, we’ll use a class instead of a
+                <code>div</code> selector. Add the following to <code>styles.css</code>:</p>
+
+            <pre><code><span >.button</span> {
+                  <span >color</span>: <span >#FFF</span>;
+                  <span >background-color</span>: <span >#5995DA</span>;    <span class="hljs-comment">/* Blue */</span>
+                  <span >font-weight</span>: bold;
+                  <span >padding</span>: <span >20px</span>;
+                  <span >text-align</span>: center;
+                  <span >border</span>: <span >2px</span> solid <span >#5D6063</span>;    <span class="hljs-comment">/* Dark gray */</span>
+                  <span >border-radius</span>: <span >5px</span>;
+                
+                  <span >width</span>: <span >200px</span>;
+                  <span >margin</span>: <span >20px</span> auto;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">Of course, we need a corresponding <code>class</code> attribute for this to
+                work. Change the <code>&lt;div&gt;</code> in <code>selectors.html</code> to
+                match the following:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span>&gt;</span>Button One<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">Unlike the previous chapter that styled <em>all</em> the
+                <code>&lt;div&gt;</code> elements, this lets us use it for other things besides
+                buttons.</p>
+        </div>
+
+    </div>
+
+    <!--Container Divs-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CONTAINER DIVS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">Remember that <code>&lt;div&gt;</code> doesn’t alter the semantic
+                structure of a page. This makes it a great tool for defining the
+                <em>presentational</em> structure of a web page. By wrapping other HTML
+                elements in <code>&lt;div&gt;</code> tags, we can organize our site into larger
+                layout-oriented chunks without messing up how search engines view our content.</p>
+
+            <div class='diagram__wrapper' style='max-width: 441px'>
+                <div class='diagram__padding' style='padding-left:150px;'><img class='diagram__image'
+                        alt='Diagram: people see &lt;div&gt; element with margins, robots do not see it'
+                        src='./img/cssselector/container-divs.png' width='441' height='223' /></div>
+            </div>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">For example, let’s try to create a fixed-width layout
+                using the <a href='/html-and-css/css-box-model/#aligning-boxes'>auto-margin
+                    technique</a> that we learned in the previous chapter. First, wrap our entire
+                document in a generic <code>&lt;div&gt;</code> and give it a unique class:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >body</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'page'</span>&gt;</span>  <span class="hljs-comment">&lt;!-- Add this --&gt;</span>
+                    <span class="hljs-tag">&lt;<span >h1</span>&gt;</span>CSS Selectors<span class="hljs-tag">&lt;/<span >h1</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">'synopsis'</span>&gt;</span>CSS selectors let you <span class="hljs-tag">&lt;<span >em</span>&gt;</span>select<span class="hljs-tag">&lt;/<span >em</span>&gt;</span> individual HTML
+                    elements in an HTML document. This is <span class="hljs-tag">&lt;<span >strong</span>&gt;</span>super<span class="hljs-tag">&lt;/<span >strong</span>&gt;</span> useful.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>&gt;</span>Classes are ridiculously important, since they allow you to select
+                    arbitrary boxes in your web pages.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >p</span>&gt;</span>We’ll also be talking about links in this example, so here’s
+                    <span class="hljs-tag">&lt;<span >a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'https://internetingishard.com'</span>&gt;</span>Interneting Is Hard<span class="hljs-tag">&lt;/<span >a</span>&gt;</span> for us to
+                    style.<span class="hljs-tag">&lt;/<span >p</span>&gt;</span>
+                
+                    <span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span>&gt;</span>Button One<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span >div</span>&gt;</span>  <span class="hljs-comment">&lt;!-- And this --&gt;</span>
+                <span class="hljs-tag">&lt;/<span >body</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Then, add the following to <code>styles.css</code>:</p>
+
+            <pre><code><span >.page</span> {
+                  <span >width</span>: <span >600px</span>;
+                  <span >margin</span>: <span >0</span> auto;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">No matter how you resize the browser window, our web page will always be 600
+                pixels wide and centered in the available space. Note that this was the exact
+                same way we centered our button, but now we’re doing it to multiple
+                elements at the same time by nesting them in a generic container.</p>
+
+            <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                    alt='Web page highlighting wrapper &lt;div&gt; around entire document'
+                    src='./img/cssselector/selecting-button-with-class-selector.png' width='580' height='309' /></div>
+
+            <p style="padding-top: 30px;">This is how layouts are defined in more complex web pages. For instance, if
+                our page had a sidebar, we would nest all the sidebar elements in
+                <em>another</em> <code>&lt;div&gt;</code> with a <code>.sidebar</code> class.
+                We’ll see this in action in the <a href='/html-and-css/floats/'>next
+                    chapter</a>. For now, the key takeaway is that without class selectors to
+                differentiate our <code>&lt;div&gt;</code> elements, none of this would be
+                possible.</p>
+        </div>
+    </div>
+
+    <!--REusing Class Styles-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    REUSING CLASS STYLES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">The same class can be applied to multiple elements in a
+                single HTML
+                document. This means that we can now reuse arbitrary CSS declarations wherever
+                we want. To create another button, all we have to do is add another HTML
+                element with the same class:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span>&gt;</span>Button One<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">This gives us a second button that looks just like the first
+                one&mdash;without writing a single line of CSS! Organizing similar graphical
+                elements into reusable CSS rules like this makes life much easier as a web
+                developer. If we ever wanted to, say, change the button color, we would only
+                have to do it in one place and all our buttons would automatically update.</p>
+
+            <img style="padding-top: 30px; padding-left:150px;" src="./img/class-selector.png" alt="CSS SELECTORS" />
+        </div>
+
+    </div>
+
+    <!--Modifying Class Styles-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MODIFYING CLASS STYLES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">What if we want to alter our second button a little bit? Fortunately, we can
+                apply multiple classes to the <em>same</em> HTML element, too. The styles from
+                each class will be applied to the element, giving us the opportunity to both
+                reuse styles from <code>.button</code> and override some of them with a new
+                class.</p>
+
+            <div class='diagram__wrapper' style='max-width: 383px'>
+                <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                        alt='Diagram: Two arrows coming from two CSS rules to one HTML element'
+                        src='./img/modifying-classes.png' width='383' height='196' /></div>
+            </div>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">Go ahead and add another class to our second button with
+                the following
+                markup. Notice how multiple classes live in the same <code>class</code>
+                attribute, separated by spaces:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button call-to-action'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">This element now has two separate classes, and we can
+                use either of them to
+                style it. This opens up some options. Styles shared by both buttons can live in
+                the <code>.button</code> class (as they already do), and styles specific to the
+                second button reside in the <code>.call-to-action</code> class (be sure to add
+                this <em>after</em> the <code>.button</code> rule):</p>
+
+            <pre><code><span >.call-to-action</span> {
+                  <span >font-style</span>: italic;
+                  <span >background-color</span>: <span >#EEB75A</span>;    <span class="hljs-comment">/* Yellow */</span>
+                }
+                </code></pre>
+
+            <h3 style="padding-top: 30px;">Order Matters</h3>
+
+            <p style="padding-top: 30px;">There’s a couple of important things going on with our second button
+                now:</p>
+
+            <ul style="padding-top: 30px;">
+                <li>It’s adding a <em>new</em> <code>font-style</code> declaration to
+                    the original <code>.button</code> rule.</li>
+                <li>It’s <em>overriding</em> an existing <code>background-color</code>
+                    style from <code>.button</code>.</li>
+            </ul>
+
+            <p style="padding-top: 30px;">Overriding occurs because of the order of <code>.call-to-action</code> and
+                <code>.button</code> in our stylesheet. When there’s two conflicting
+                properties in a CSS file, the last one is always the one that gets applied. So,
+                if you moved <code>.call-to-action</code> to the top of
+                <code>styles.css</code>, <code>.button</code> would have the final word on the
+                value of <code>background-color</code>, and it would remain blue.</p>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">This means that the order of the <code>class</code>
+                attribute in our HTML
+                element has no effect on override behavior. Multiple classes on a single
+                element are applied “equally” (for lack of a better term), so the
+                precedence is determined solely by the order of the rules in
+                <code>styles.css</code>. In other words, the following elements are effectively
+                equivalent:</p>
+
+            <pre><code><span class="hljs-comment">&lt;!-- These result in the same rendered page --&gt;</span>
+                <span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button call-to-action'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span >div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'call-to-action button'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">This does, however, get more complicated when CSS specificity is involved,
+                which we’ll discuss at the end of this chapter.</p>
+        </div>
+    </div>
+
+    <!--Pseudo Classes for Links-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    PSEUDO CLASSES FOR LINKS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">So far, all the CSS selectors we’ve seen map directly to a piece of
+                HTML markup that we wrote. However, there’s more going on in a rendered
+                web page than just our HTML content. There’s “stateful”
+                information about what the user is doing (opposed to the content we’ve
+                authored).</p>
+
+            <p style="padding-top: 30px;">The classic example is a link. As a web developer, you create an <code>&lt;a
+                    href&gt;</code> element. After the browser renders it, the user can interact
+                with that link. They can hover over it, click it, and visit the URL.</p>
+
+            <div class='diagram__wrapper' style='max-width: 512px'>
+                <div class='diagram__padding' style='padding-left:150px;'><img class='diagram__image'
+                        alt='Diagram: pseudo-class selector connecting a CSS rule to a user’s hover state over a particular HTML element'
+                        src='./img/cssselector/pseudo-classes.png' width='512' height='194' /></div>
+            </div>
+
+            <p style="padding-top: 30px;">CSS “pseudo-classes” provide a mechanism for hooking into this
+                kind of temporary user information. At any given time, an <code>&lt;a
+                    href&gt;</code> element can be in a number of different states, and you can use
+                pseudo-classes to style each one of them individually. Think of them as class
+                selectors that you don’t have to write on your own because they’re
+                built into the browser.</p>
+
+
+            <h3 style="padding-top: 30px;">Basic Link Styles</h3>
+
+            <p style="padding-top: 30px;">Pseudo-classes begin with a colon followed by the name of the desired
+                class. The most common link pseudo-classes are as follows:</p>
+
+            <ul style="padding-top: 30px;">
+                <li><code>:link</code> &ndash; A link the user has never visited.</li>
+                <li><code>:visited</code> &ndash; A link the user has visited before.</li>
+                <li><code>:hover</code> &ndash; A link with the user’s mouse over it.</li>
+                <li><code>:active</code> &ndash; A link that’s being pressed down by a
+                    mouse (or finger).</li>
+            </ul>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Let’s take a look at all of these by adding the following
+                rules to our
+                CSS stylesheet (also note our use of <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/CSS/color_value'>keyword
+                    colors</a> instead of our usual hex codes):</p>
+
+            <pre><code><span >a</span><span >:link</span> {
+                  <span >color</span>: blue;
+                  <span >text-decoration</span>: none;
+                }
+                <span >a</span><span >:visited</span> {
+                  <span >color</span>: purple;
+                }
+                <span >a</span><span >:hover</span> {
+                  <span >color</span>: aqua;
+                  <span >text-decoration</span>: underline;
+                }
+                <span >a</span><span >:active</span> {
+                  <span >color</span>: red;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">If you’ve never been to the <a href='/'>InternetingIsHard.com</a> home
+                page, you should see a blue link. Otherwise, you’ll see a purple link.
+                When you hover over the link, it will turn aqua, and when you push down on it,
+                it’ll turn red.</p>
+
+
+            <h3 style="padding-top: 30px;">Visited Hover State</h3>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">The above snippet is just fine for most websites, but
+                take a closer look at
+                the <code>a:visited</code> behavior by changing the <code>href</code> attribute
+                to a URL that you’ve been to before. Our <code>a:hover</code> style is
+                applied to both visited and unvisited links. We can refine our links even more
+                by stringing pseudo-classes together. Add this below the previous snippet:</p>
+
+            <pre><code><span >a</span><span >:visited</span><span >:hover</span> {
+                  <span >color</span>: orange;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">This creates a dedicated hover style for visited links. Hovering over an
+                unvisited link changes it to aqua, while hovering over a visited link will turn
+                it orange. Fantastic! Except for the fact that this breaks our
+                <code>a:active</code> style due to some complicated CSS internals that
+                you’ll never want to read about. When you click down, our link
+                won’t turn red anymore.</p>
+
+
+            <h3 style="padding-top: 30px;">Visited Active State</h3>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">We can fix that with <code>a:visited:active</code>. Add
+                the following to the
+                end of our stylesheet. Note that, as with our <code>.call-to-action</code>
+                class, the order in which these are defined in <code>styles.css</code>
+                matters:</p>
+
+            <pre><code><span >a</span><span >:visited</span><span >:active</span> {
+                  <span >color</span>: red;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">These last two sections let you style visited links entirely separately from
+                unvisited ones. It’s a nice option to have, but again, you’re
+                welcome to stop at basic link styles if that’s all you need.</p>
+        </div>
+
+    </div>
+
+    <!--PSEUDO CLASSES FOR BUTTONS-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    PSEUDO CLASSES FOR BUTTONS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">Pseudo-classes aren’t just for styling text links&mdash;they can be
+                applied to any kind of selector (not just type selectors). Instead of styling
+                <code>a:link</code> and friends, we’ll be modifying our
+                <code>.button</code> class with pseudo-classes in this section. This will let
+                us create buttons that actually go somewhere.</p>
+
+
+            <h3>Link Elements, Not Div Elements</h3>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">First, we need change our buttons to be <code>&lt;a
+                    href&gt;</code> elements
+                instead of generic <code>&lt;div&gt;</code> elements, as shown below:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span >a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'nowhere.html'</span>&gt;</span>Button One<span class="hljs-tag">&lt;/<span >a</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span >a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button call-to-action'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'nowhere.html'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span >a</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">If you reload this in your browser, you’ll see that we lost some of
+                our styles even though we’re using the same classes. This is because
+                <code>&lt;a&gt;</code> is an <a
+                    href='/html-and-css/css-box-model/#block-elements-and-inline-elements'>inline
+                    element</a> by default and also has a default <code>color</code> value.</p>
+
+            <div class='diagram__wrapper' style='max-width: 427px'>
+                <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                        alt='Web page showing buttons with broken CSS styles'
+                        src='./img/cssselector/broken-button-styles.png' width='427' height='286' /></div>
+            </div>
+
+            <p style="padding-top: 30px;">We need to change it to a block element and remove some of the default link
+                styling.</p>
+
+
+            <h3 style="padding-top: 30px;" class='subsubheading__heading' id='button-styles'>Button Styles</h3>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Let’s start with <code>:link</code> and
+                <code>:visited</code>
+                variants. We’re using a similar pattern as in the previous section, but
+                since these are buttons, we want to keep both the unvisited and visited color
+                the same. Change the existing <code>.button</code> rules to match the
+                following:</p>
+
+            <pre><code><span >.button</span><span >:link</span>,                 <span class="hljs-comment">/* Change this */</span>
+                <span >.button</span><span >:visited</span> {             <span class="hljs-comment">/* Change this */</span>
+                  <span >display</span>: block;             <span class="hljs-comment">/* Add this */</span>
+                  <span >text-decoration</span>: none;      <span class="hljs-comment">/* Add this */</span>
+                
+                  <span >color</span>: <span >#FFF</span>;                <span class="hljs-comment">/* The rest is the same */</span>
+                  <span >background-color</span>: <span >#5995DA</span>;
+                  <span >font-weight</span>: bold;
+                  <span >padding</span>: <span >20px</span>;
+                  <span >text-align</span>: center;
+                  <span >border</span>: <span >2px</span> solid <span >#5D6063</span>;
+                  <span >border-radius</span>: <span >5px</span>;
+                
+                  <span >width</span>: <span >200px</span>;
+                  <span >margin</span>: <span >20px</span> auto;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Notice the new <code>:link</code> and
+                <code>:visited</code> pseudo-classes
+                in the selector. Without it, our <code>color</code> would not override the
+                browser’s default <code>a:link</code> style. <a href='#css-specificity'>CSS specificity</a> explains why
+                this is the case in
+                greater detail. Next, let’s do the hover states:</p>
+
+            <pre><code><span >.button</span><span >:hover</span>,
+                <span >.button</span><span >:visited</span><span >:hover</span> {
+                  <span >color</span>: <span >#FFF</span>;
+                  <span >background-color</span>: <span >#76AEED</span>;  <span class="hljs-comment">/* Light blue */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Both our buttons will be a lighter blue on hover.
+                Finally, let’s make
+                it a little darker when the user presses the mouse down with the
+                <code>:active</code> pseudo-class:</p>
+
+            <pre><code><span >.button</span><span >:active</span>,
+                <span >.button</span><span >:visited</span><span >:active</span> {
+                  <span >color</span>: <span >#FFF</span>;
+                  <span >background-color</span>: <span >#5995DA</span>;  <span class="hljs-comment">/* Blue */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">The great part about this is that all the styles we just defined are
+                entirely reusable. Stick a <code>.button</code> class on <em>any</em> HTML
+                element, and you’ll turn it into an interactive button.</p>
+
+
+            <h3 style="padding-top: 30px;">The Other Button</h3>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">Now, what about that second button? It’s supposed to
+                have a yellow
+                background, but we broke it with the code from the previous section. Our
+                <code>.button:link</code> selector was more “specific” than our
+                current <code>.call-to-action</code> rule, so it took precedence. Again,
+                we’ll explore this further at the end of the chapter.</p>
+
+            <p style="padding-top: 30px;">For now, let’s fix it by applying some pseudo-classes to our
+                <code>.call-to-action</code> rule. Replace the existing rule with the following
+                (make sure this appears <em>after</em> the new <code>.button</code> styles from
+                the previous section):</p>
+
+            <pre><code><span >.call-to-action</span><span >:link</span>,
+                <span >.call-to-action</span><span >:visited</span> {
+                  <span >font-style</span>: italic;
+                  <span >background-color</span>: <span >#EEB75A</span>;     <span class="hljs-comment">/* Yellow */</span>
+                }
+                
+                <span >.call-to-action</span><span >:hover</span>,
+                <span >.call-to-action</span><span >:visited</span><span >:hover</span> {
+                  <span >background-color</span>: <span >#F5CF8E</span>;     <span class="hljs-comment">/* Light yellow */</span>
+                }
+                
+                <span >.call-to-action</span><span >:active</span>,
+                <span >.call-to-action</span><span >:visited</span><span >:active</span> {
+                  <span >background-color</span>: <span >#EEB75A</span>;     <span class="hljs-comment">/* Yellow */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">Since we only added the <code>.call-to-action</code> class to our second
+                button, that’s the only one that’ll turn yellow. Of course, we still need the
+                <code>.button</code> class on both <code>&lt;a&gt;</code> elements because it
+                defines shared styles like the padding, border radius, and font weight.</p>
+        </div>
+
+    </div>
+
+    <!--ID SELECTORS-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    ID SELECTORS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;padding-bottom: 30px;">“ID selectors” are a more stringent alternative to class
+                selectors. They work pretty much the same way, except you can only have
+                <em>one</em> element with the same ID per page, which means you can’t
+                reuse styles at all. Instead of a <code>class</code> attribute, they require an
+                <code>id</code> attribute on whatever HTML element you’re trying to
+                select. Try adding one to our second button:</p>
+
+            <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'button-2'</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'button'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'nowhere.html'</span>&gt;</span>Button Two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">The corresponding CSS selector must begin with a hash
+                sign (<code>#</code>)
+                opposed to a dot. Adding the following to <code>styles.css</code> will change
+                the text color of our yellow button:</p>
+
+            <pre><code><span >#button-2</span> {
+                  <span >color</span>: <span class="hljs-number">#5D6063</span>;  <span class="hljs-comment">/* Dark gray */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">The problem is, if we wanted to share this style with
+                another button,
+                we’d have to give it another unique <code>id</code> attribute. Pretty
+                soon, our CSS would start to look pretty gnarly:</p>
+
+            <pre><code><span class="hljs-comment">/* (This is painful to maintain) */</span>
+                <span >#button-2</span>,
+                <span >#button-3</span>,
+                <span >#checkout-button</span>,
+                <span >#menu-bar-call-to-action</span> {
+                  <span >color</span>: <span class="hljs-number">#5D6063</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">For this reason, ID selectors are generally frowned upon. Use class
+                selectors instead.</p>
+
+
+            <h3 style="padding-top: 30px;">URL Fragments</h3>
+
+            <p style="padding-top: 30px;"><code>id</code> attributes need to be unique because they serve as the
+                target for “URL fragments”, which we sort of glossed over in our <a
+                    href='/html-and-css/links-and-images/#absolute-relative-and-root-relative-links'>discussion
+                    of URLs</a>. Fragments are how you point the user to a specific part of a web
+                page. They look like an ID selector stuck on the end of a URL.</p>
+
+
+            <p style="padding-top: 30px;">For example, if we wanted to point the user to our second button, we could
+                use the following. Note that we can omit the URL entirely if we’re
+                linking to a different section on the same page:</p>
+
+            <pre><code><span class="hljs-comment">&lt;!-- From the same page --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'#button-2'</span>&gt;</span>Go to Button Two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- From a different page --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'selectors.html#button-2'</span>&gt;</span>Go to Button Two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">If you add the first option to our <code>selectors.html</code> page and
+                click it, you’ll see the URL in the browser change. To actually see it
+                jump down to the second button, you’ll need to add some more dummy
+                content to the page or make the window height very short, as the browser will
+                limit scrolling to the visible page.</p>
+
+            <figure>
+                <div style='max-width: 580px'>
+                    <div><img class='diagram__image'
+                            alt='Diagram: two arrows from URL fragments to two HTML elements and two arrows from CSS rules to those same elements'
+                            src='./img/cssselector/id-selectors.png' width='580' height='201' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">This overlapping functionality is more reason to avoid ID selectors. They
+                create a dependency between your website’s URLs and your CSS styles. Imagine
+                using a bunch of <code>id</code> attributes on your headings as both URL
+                fragments and ID selectors. If you forgot to update your stylesheet every time
+                you edited the URL of a section, you would actually break your website.</p>
+        </div>
+
+    </div>
+
+
+    <!--CSS Specificity-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CSS SPECIFICITY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top: 30px;">Earlier in this chapter, we talked about how <a
+                    href='#modifying-class-styles'>order matters</a> when it comes to CSS rules
+                in an external stylesheet. All else being equal, rules are applied from
+                top-to-bottom. This allowed us to override rules in a predictable manner.</p>
+
+            <div class='diagram__wrapper' style='max-width: 457px'>
+                <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                        alt='Diagram: Four CSS rules with same specificity applied in order'
+                        src='./img/cssselector/css-specify.png' width='457' height='251' /></div>
+            </div>
+
+            <p style="padding-top: 30px;">Unfortunately, not all CSS selectors are created equal. “CSS
+                specificity” is the weight given to different categories of selectors.
+                This means that certain selectors will <em>always</em> override other ones,
+                regardless of where they appear in the stylesheet.</p>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">Let’s start by seeing where this <em>doesn’t</em> break.
+                If you
+                add the following after our existing <code>.call-to-action</code> rules, it
+                will override the previous <code>background-color</code>. If you stick it at
+                the top of the file, it’ll get overridden later on, so our button
+                won’t turn red. This is expected behavior.</p>
+
+            <pre><code><span >.call-to-action</span><span class="hljs-selector-pseudo">:link</span>,
+              <span >.call-to-action</span><span class="hljs-selector-pseudo">:visited</span> {
+                <span >background-color</span>: <span class="hljs-number">#D55C5F</span>;    <span class="hljs-comment">/* Red */</span>
+              }
+              </code></pre>
+
+            <p style="padding-top: 30px;">Now, watch what happens when we try to do the same thing with an ID
+                selector. First, be sure to delete the previous snippet, then try adding this
+                <em>before</em> our existing <code>.call-to-action</code> rules:</p>
+
+            <pre><code><span >#button-2</span> {
+                <span >background-color</span>: <span class="hljs-number">#D55C5F</span>;    <span class="hljs-comment">/* Red */</span>
+              }
+              </code></pre>
+
+            <p style="padding-top: 30px;">ID selectors have higher specificity than class selectors, so this
+                <em>will</em> turn our second button red even though we try to set the
+                <code>background-color</code> with <code>.call-to-action:link</code> later in
+                our stylesheet. The whole “order matters” concept only works when
+                all your rules have the same specificity.</p>
+
+            <figure class='diagram'>
+                <div class='diagram__wrapper' style='max-width: 457px'>
+                    <div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: Four CSS rules. Third one has higher specificity, so fourth one is ignored.'
+                            src='./img/cssselector/css-specificity-and-rule-order.png' width='457' height='251' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">The specificity of selectors we’ve seen in this chapter are show
+                below, from greatest to least:</p>
+
+            <ul style="padding-top: 30px;">
+                <li><code style='margin-left: 8px'>#button-2</code></li>
+                <li><code style='margin: 0 5px 0 8px'>.button:link</code></li>
+                <li><code style='margin-left: 8px'>a:link</code> and <code style='margin: 0 8px 0 5px'>.synopsis
+                        em</code> (they’re equal)</li>
+                <li><code style='margin-left: 8px'>.button</code></li>
+                <li><code style='margin-left: 8px'>a</code></li>
+            </ul>
+
+            <p style="padding-top: 30px;">This can get very confusing. It’s such a big problem that an entire
+                methodology called “<a href='http://getbem.com/introduction/'>BEM</a>” has evolved. BEM attempts
+                to make CSS rules more reusable by making <em>everything</em> a class selector.
+                This completely eliminates the potential for specificity issues.</p>
+
+            <p>BEM is outside the scope of this tutorial. The takeaway here is that CSS
+                rules are not necessarily applied in sequential order, but you should try to
+                make the browser do so by writing CSS that uses the same specificity.</p>
+
+        </div>
+
+    </div>
+
+    <!--Summary-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    Summary
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">In this chapter, we got some hands-on experience with class selectors,
+                descendant selectors, pseudo-classes, link styling, and ID selectors. The goal
+                of all this was to be able to target a specific HTML element from your CSS.
+                Class selectors are by far the most versatile and come with the least amount of
+                drawbacks. As a result, they’ll become part of your daily life as a web
+                developer.</p>
+                
+                <p style="padding-top: 30px;">Like it or not, things got a lot more complicated this chapter. We’re
+                now able to make our CSS interact with an HTML document in half a dozen
+                different ways. Furthermore, over the next few chapters, we’ll begin to
+                see a dependency between our HTML’s structure and the layout of a web
+                page. With all this interplay between CSS and HTML, it can be hard to know
+                where to start building a new web page.</p>
+                
+                <p style="padding-top: 30px;">The <a
+                  href='/html-and-css/basic-web-pages/#structure-versus-presentation'>separation
+                  of content from presentation</a> helps guide this process. You need content
+                before you can present it, so your first step is usually to mark up your raw
+                content with HTML tags. Once that’s prepared, you’re ready to add
+                <code>class</code> attributes to your elements and style them one-by-one. When
+                you discover a need for some extra structure to create a desired layout (e.g.,
+                turn a group of elements into a sidebar), that’s when you start wrapping
+                your content in container <code>&lt;div&gt;</code>’s.</p>
+                
+                <p style="padding-top: 30px;">This chapter covered almost all the CSS selectors that power real websites.
+                We’ve got the tools we need to dive much deeper into complex CSS layouts. In
+                the next installment of <a href='/html-and-css/'><em>HTML and CSS Is
+                Hard</em></a>, we’ll learn how to create columns and sidebars using CSS
+                floats.</p>
+                
+                <div class='next-chapter'>
+                  <a href='./Floats.html'>Next Chapter &gt;</a>
+                </div>
+        </div>
+
+    </div>
+
+
+    <!--Footer-->
+
+    <footer style="font-style: normal;">
+        <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                 <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize"/>
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    
+    <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+        <div class="beautiful-diagrams-column" style="width: 50%;">
+            <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+        </div>
+        <div class="beautiful-diagrams-column" style="width:50%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                InternetingIsHard.com is an independent publisher of premium 
+                web development tutorials. All content is authored and maintained by Oliver James. 
+                He loves hearing from readers, so come say hello!
+            </p>
+        </div>
+    
+        <div class="beautiful-diagrams-row">
+            <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+           <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+        </div>
+    
+        <div class="beautiful-diagrams-column" style="width:100%;">
+            <div>
+            <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know when they get here.
+            </p>
+        </div>
+    
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="footer-content" style="font-size: 13px;">
+    <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+    <a href="/">CONTACT</a>
+    <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+    <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+    </div>
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>

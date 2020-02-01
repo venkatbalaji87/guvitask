@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 250px;">CSS BOX MODEL</h1>
+            </div>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 5. OF <a href="./htmlcss.html">HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px;">
+                <h4>A friendly introduction to padding, borders, and margins</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+
+        <p style="padding-top: 30px;">
+            The previous chapter introduced the basic text formatting properties of CSS, but that was
+            only one aspect of styling pages. Defining the layout of a web page is an entirely different
+            beast. That’s what this chapter is about.
+        </p>
+
+        <p style="padding-top: 30px;">
+            The “CSS box model“ is a set of rules that define how every web page on the Internet is rendered.
+            CSS treats each element in your HTML document as a “box” with a bunch of different properties that
+            determine where it appears on the page. So far, all of our web pages have just been a bunch of elements
+            rendered one after another. The box model is our toolkit for customizing this default layout scheme.
+        </p>
+
+        <img style="padding-top: 30px; padding-left: 150px;" src="./img/cssboxmodel/css-html-and-the-box-model.png"
+            alt="css html and the box model" />
+
+        <p style="padding-top: 30px;">
+            A big part of your job as a web developer will be to apply rules from the CSS box model to turn a
+            design mockup into a web page. As you work through this chapter, you might find yourself wondering
+            why we have to learn all these rules instead of just uploading a giant static image of a web
+            page (i.e., a mockup) to a web server and calling it a day.
+        </p>
+
+        <p style="padding-top: 30px;">
+            Indeed, this would make life a lot easier; however, if we didn’t separate out our content into HTML,
+            search engines would have no way to infer the structure of our web pages, we couldn’t make our site
+            responsive, and there would be no way to add fancy animations or interactivity with JavaScript. That’s
+            a big enough trade-off to make CSS a worthwhile cause.
+        </p>
+
+        <p style="padding-top: 30px;">
+            This chapter covers the core components of the CSS box model: padding, borders, margins, block boxes,
+            and inline boxes. You can think of this as the “micro” view of CSS layouts, as it defines the individual
+            behavior of boxes. In future chapters, we’ll learn more about how HTML structure and the CSS box model
+            combine to form all sorts of complex page layouts.
+        </p>
+    </div>
+
+
+    <!--SETUP-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">
+                To get started, let’s create a new folder called css-box-model and stick a new web page in it called
+                boxes.html. Add the following code:
+            </p>
+
+            <pre><code><span>&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">'en'</span>&gt;</span>
+                  <span >&lt;<span class="hljs-name">head</span>&gt;</span>
+                    <span >&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">'UTF-8'</span>/&gt;</span>
+                    <span >&lt;<span class="hljs-name">title</span>&gt;</span>Boxes Are Easy!<span >&lt;/<span class="hljs-name">title</span>&gt;</span>
+                    <span >&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'stylesheet'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'box-styles.css'</span>/&gt;</span>
+                  <span >&lt;/<span class="hljs-name">head</span>&gt;</span>
+                  <span >&lt;<span class="hljs-name">body</span>&gt;</span>
+                    <span >&lt;<span class="hljs-name">h1</span>&gt;</span>Headings Are Block Elements<span >&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                
+                    <span >&lt;<span class="hljs-name">p</span>&gt;</span>Paragraphs are blocks, too. <span >&lt;<span class="hljs-name">em</span>&gt;</span>However<span >&lt;/<span class="hljs-name">em</span>&gt;</span>, &amp;lt;em&amp;gt; and &amp;lt;strong&amp;gt;
+                       elements are not. They are <span >&lt;<span class="hljs-name">strong</span>&gt;</span>inline<span >&lt;/<span class="hljs-name">strong</span>&gt;</span> elements.<span >&lt;/<span class="hljs-name">p</span>&gt;</span>
+                
+                    <span >&lt;<span class="hljs-name">p</span>&gt;</span>Block elements define the flow of the HTML document, while inline elements
+                       do not.<span >&lt;/<span class="hljs-name">p</span>&gt;</span>
+                  <span >&lt;/<span class="hljs-name">body</span>&gt;</span>
+                <span >&lt;/<span class="hljs-name">html</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top:30px;">
+
+                As you should remember from <a href="./hellocss.html">Hello, CSS </a>, this HTML file links to a CSS
+                stylesheet stored in a file called
+                box-styles.css. Go ahead and create this file, too (you can leave it empty for now).
+            </p>
+
+            <p style="padding-top:30px;">
+                Hopefully, you should be very familiar using Atom for these kinds of file and folder creation tasks. If
+                not, be sure to review the Atom walkthrough in the introductory chapter of this tutorial.
+            </p>
+        </div>
+    </div>
+
+    <!--Block VS Inline-->
+
+    <div class="comprehensive-style">
+
+        <h1>BLOCK ELEMENTS AND INLINE</h1>
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">
+                Back in Basic Web Pages, we briefly touched on how CSS uses “boxes” to define the layout of a web page.
+                Each HTML element rendered on the screen is a box, and they come in two flavors: “block” boxes and
+                “inline“ boxes.
+            </p>
+
+            <img src="./img/cssboxmodel/inline-vs-block-boxes.png" alt="inline Versus block boxes" />
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">All the HTML elements that we’ve been working with have
+                a default type
+                of box. For instance, <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code> are
+                block-level elements, while <code>&lt;em&gt;</code> and
+                <code>&lt;strong&gt;</code> are inline elements. Let’s get a better look
+                at our boxes by adding the following to <code>box-styles.css</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">p</span> {
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#DDE0E3</span>;    <span class="hljs-comment">/* Light gray */</span>
+                }
+                
+                <span class="hljs-selector-tag">em</span>, <span class="hljs-selector-tag">strong</span> {
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B2D6FF</span>;    <span class="hljs-comment">/* Light blue */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">The <code>background-color</code> property only fills in the background of
+                the selected box, so this will give us a clear view into the structure of the
+                current sample page. Our headings and paragraphs should have gray backgrounds,
+                while our emphasis and strong elements should be light blue.</p>
+
+            <img src="./img/cssboxmodel/block-boxes-and-inline-boxes.png" alt="block boxes and inline" />
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">This shows us a couple of very important behaviors
+                associated with block and
+                inline boxes:</p>
+            <ul>
+
+                <li>
+                    <p><strong>Block boxes</strong> always appear <strong>below</strong> the
+                        previous block element. This is the “natural” or “static” flow of an HTML
+                        document when it gets rendered by a web browser.</p>
+                </li>
+
+                <li>
+                    <p>The <strong>width of block boxes</strong> is set automatically based
+                        on the width of its parent container. In this case, our blocks are always
+                        the width of the browser window.</p>
+                </li>
+
+                <li>
+                    <p>The default <strong>height of block boxes</strong> is based on the
+                        content it contains. When you narrow the browser window, the
+                        <code>&lt;h1&gt;</code> gets split over two lines, and its height adjusts
+                        accordingly.</p>
+                </li>
+
+                <li>
+                    <p><strong>Inline boxes</strong> don’t affect <strong>vertical
+                            spacing</strong>. They’re not for determining layout&mdash;they’re for
+                        styling stuff <em>inside</em> of a block.</p>
+                </li>
+
+                <li>
+                    <p>The <strong>width of inline boxes</strong> is based on the content it
+                        contains, not the width of the parent element.</p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!--Changing Box Behavior-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CHANGING BOX BEHAVIOR
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">We can override the default box type of HTML elements
+                with the CSS
+                <code>display </code> property. For example, if we wanted to make our
+                <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> elements blocks instead
+                of inline elements, we could update our rule in
+                <code>box-styles.css</code> like so:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">em</span>, <span class="hljs-selector-tag">strong</span> {
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B2D6FF</span>;
+                  <span class="hljs-attribute">display</span>: block;
+                }
+                </code>
+                </pre>
+
+            <p style="padding-top: 30px;">Now, these elements act like our headings and paragraphs: they start on
+                their own line, and they fill the entire width of the browser. This comes in
+                handy when you’re trying to turn <code>&lt;a&gt;</code> elements into
+                buttons or format <code>&lt;img/&gt;</code> elements (both of these are
+                inline boxes by default).</p>
+
+            <img style="padding-top: 30px;" src="./img/cssboxmodel/block-boxes-and-inline-boxes.png"
+                alt="block block-boxes-and-inline-boxes" />
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">However, it’s almost never a good idea to turn
+                <code>&lt;em&gt;</code>
+                and <code>&lt;strong&gt;</code> into block elements, so let’s turn them
+                back into inline boxes by changing their <code>display</code> property to
+                <code>inline</code>, like so:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">em</span>, <span class="hljs-selector-tag">strong</span> {
+                      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B2D6FF</span>;
+                      <span class="hljs-attribute">display</span>: inline;             <span class="hljs-comment">/* This is the default for em and strong */</span>
+                    }
+                    </code></pre>
+        </div>
+    </div>
+
+    <!--THe Box Model-->
+
+    <div class="comprehensive-style">
+        <div class="comprehensive-style">
+            <h2 style="padding-left:150px;">CONTENT, PADDING, BORDER AND</h2>
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MARGIN
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;"> The “CSS box model” is a set of rules that determine
+                the
+                dimensions of every element in a web page. It gives each box (both inline and
+                block) four properties:</p>
+
+            <ul>
+
+                <li><strong>Content</strong> &ndash; The text, image, or other media
+                    content in the element.</li>
+
+                <li><strong>Padding</strong> &ndash; The space between the box’s
+                    content and its border.</li>
+
+                <li><strong>Border</strong> &ndash; The line between the box’s padding
+                    and margin.</li>
+
+                <li><strong>Margin</strong> &ndash; The space between the box and surrounding
+                    boxes.</li>
+
+            </ul>
+
+            <p style="padding-top: 30px;">Together, this is everything a browser needs to render an element’s
+                box. The content is what you author in an HTML document, and it’s the
+                only one that has any semantic value (which is why
+                it’s in the HTML). The rest of them are purely presentational, so
+                they’re defined by CSS rules. </p>
+
+            <img style="padding-top: 30px;" src="./img/cssboxmodel/css-box-model.png" alt="css box model" />
+        </div>
+    </div>
+
+    <!--Padding-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    PADDING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">Let’s start from the inside out. We’ve already been
+                working with
+                content, so on to padding. The <code>padding</code> property&hellip;you guessed
+                it&hellip;defines the padding for the selected element:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">h1</span> {
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">50px</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">This adds 50 pixels to <em>each side</em> of the <code>&lt;h1&gt;</code>
+                heading. Notice how the background color expands to fill this space.
+                That’s always the case for padding because it’s inside the
+                border, and everything inside the border gets a background.</p>
+
+            <img style="padding-top: 30px;" src="./img/cssboxmodel/block-boxes-and-inline-boxes.png"
+                alt="block block-boxes-and-inline-boxes" />
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">Sometimes you’ll only want to style one side of an
+                element. For that,
+                CSS provides the following properties:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+                      <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">20px</span>;
+                      <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">20px</span>;
+                      <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">10px</span>;
+                      <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">10px</span>;
+                    }
+                    </code></pre>
+
+            <p style="padding-top: 30px;">You can use any unit for the padding of an element, not just pixels. Again,
+                <code>em</code>
+                units are particularly useful for making your margins scale with the base
+                font size.</p>
+
+
+            <h3 style="padding-top: 30px;">Shorthand Formats</h3>
+
+            <p style="padding-top: 30px;">Typing out all of these properties out can be tiresome, so CSS provides an
+                alternative “shorthand” form of the <code>padding</code> property
+                that lets you set the top/bottom and left/right padding with only one line of
+                CSS. When you provide <em>two</em> values to the <code>padding</code> property,
+                it’s interpreted as the vertical and horizontal padding values,
+                respectively.</p>
+
+            <img style="padding-top: 30px;" src="./img/cssboxmodel/padding-shortform-two-values.png" />
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">This means that our previous rule can be rewritten as:
+            </p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">10px</span>;  <span class="hljs-comment">/* Vertical  Horizontal */</span>
+}
+</code></pre>
+
+            <p style="padding-top: 30px;">Alternatively, if you provide <em>four</em> values, you can set the padding
+                for each side of an element individually. The values are interpreted clockwise,
+                starting at the top:</p>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Let’s try this out by removing the <code>10px</code> right padding
+                from the previous rule. This should give us 20 pixels on the top and bottom of
+                each paragraph, 10 pixels on the left, but none on the right:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+                      <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">10px</span>;  <span class="hljs-comment">/* Top  Right  Bottom  Left */</span>
+                    }
+                    </code></pre>
+
+            <p style="padding-top: 30px;">Whether or not you want to use shorthand forms or not is largely a matter of
+                personal preference and team conventions. Some developers like the fact that
+                the shorthand form is more condensed, while others think the long form is
+                easier to understand at a glance (and thus easier to maintain). Regardless,
+                you’ll likely encounter all of them at some point in your web development
+                career.</p>
+
+        </div>
+
+    </div>
+
+    <!--Borders-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    PADDING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">
+                Continuing our journey outward from the center of the CSS box model, we have the border: a line drawn 
+                around the content and padding of an element. The border property requires a new syntax that we’ve never 
+                seen before. First, we define the stroke width of the border, then its style, followed by its color.
+            </p>
+
+            <img src="./img/cssboxmodel/css-border-syntax.png" alt="CSS Border Syntax" />
+
+            <p style="padding-top:30px; padding-bottom: 30px;">Try adding a border around our <code>&lt;h1&gt;</code> heading by updating
+                the rule in <code>box-styles.css</code>:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">h1</span> {
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">50px</span>;
+                  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#5D6063</span>;
+                }
+                </code></pre>
+                
+                <p style="padding-top:30px;">This tells the browser to draw a thin gray line around our heading. Notice
+                how the border bumps right up next to the padding with no space in between.
+                And, if you shrink your browser enough for the heading to be split over two
+                lines, both the padding and the border will still be there.</p>
+                
+                <p style="padding-top:30px;padding-bottom: 30px;">Drawing a border around our entire heading makes it look a little 1990s, so
+                how about we limit it to the bottom of the heading? Like <code>padding</code>,
+                there are <code>-top</code>, <code>-bottom</code>, <code>-left</code>, and
+                <code>-right</code> variants for the <code>border</code> property:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">border-bottom</span>: 1<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">solid</span> <span class="hljs-selector-id">#5D6063</span>;
+                </code></pre>
+                
+                <p style="padding-top:30px;">Borders are common design elements, but they’re also invaluable for
+                debugging. When you’re not sure how a box is being rendered, add a
+                <code>border: 1px solid red;</code> declaration to it. This will clearly show
+                the box’s padding, margin, and overall dimensions with just a single line
+                of CSS. After you figured out why your stuff is broken, simply delete the
+                rule.</p>
+                
+                <p style="padding-top:30px;">Please refer to the <a
+                  href='https://developer.mozilla.org/en-US/docs/Web/CSS/border-style'>Mozilla
+                  Developer Network</a> for more information about border styles.</p>
+        </div>
+    </div>
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MARGINS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px; padding-bottom: 30px;">Margins define the space outside of an element’s border. Or, rather,
+                the space between a box and its surrounding boxes. Let’s add some space
+                to the bottom of each <code>&lt;p&gt;</code> element:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">10px</span>;
+                  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">50px</span>;          <span class="hljs-comment">/* Add this */</span>
+                }
+                </code></pre>
+                
+                <p style="padding-top:30px;">This demonstrates a side-specific variant of the <code>margin</code>
+                property, but it also accepts the same <a href='#shorthand-formats'>shorthand
+                formats</a> as <code>padding</code>.</p>
+                
+                <p style="padding-top:30px;">Margins and padding can accomplish the same thing in a lot of situations,
+                making it difficult to determine which one is the “right” choice. The most
+                common reasons why you would pick one over the other are:</p>
+                
+                <ul style="padding-top:30px;">
+                  <li>The padding of a box has a background, while margins are always
+                    transparent.</li>
+                  <li>Padding is included in the click area of an element, while margins
+                    aren’t.</li>
+                  <li>Margins collapse vertically, while padding doesn’t (we’ll
+                    discuss this more in the next section).</li>
+                </ul>
+                
+                <p style="padding-top:30px;">If none of these help you decide whether to use <code>padding</code> over
+                <code>margin</code>, then don’t fret about it&mdash;just pick one. In
+                CSS, there’s often more than one way to solve your problem.</p>
+                
+                
+               <h3>Margins on Inline Elements</h3>
+                
+                <p style="padding-top:30px;">One of the starkest contrasts between block-level elements and inline ones
+                is their handling of margins. Inline boxes <em>completely ignore</em> the top
+                and bottom margins of an element. For example, watch what happens when we add a
+                big margin to our <code>&lt;strong&gt;</code> element:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">strong</span> {
+                  <span class="hljs-attribute">margin</span>: <span class="hljs-number">50px</span>;
+                }
+                </code></pre>
+                
+                <p style="padding-top:30px;">The horizontal margins display just like we’d expect, but
+                this doesn’t alter the vertical space around our
+                <code>&lt;strong&gt;</code> element one bit.</p>
+                
+                <figure ><div style='max-width: 546px'><div style='padding-bottom: 30px;'><img  alt='Web page demonstrating lack of vertical margins on inline boxes' src='./img/cssboxmodel/margins-on-inline-elements.png' width='546' height='291'/></div></div></figure>
+                
+                <p>If we change <code>margin</code> to <code>padding</code>, we’ll
+                discover that this isn’t exactly the case for a box’s padding.
+                It’ll display the blue background; however, it won’t affect the
+                vertical layout of the surrounding boxes.</p>
+                
+                <figure><div style='max-width: 546px'><div style='padding-bottom: 30px;'><img  alt='Web page demonstrating vertical padding on inline boxes' src='./img/cssboxmodel/paddings-on-inline-elements.png' width='546' height='291'/></div></div></figure>
+                
+                <p style="padding-top:30px;">The rationale behind this goes back to the fact that inline boxes format
+                runs of text inside of a block, and thus have limited impact on the overall
+                layout of a page. If you want to play with the vertical space of a page, you
+                <em>must</em> be working with block-level elements (luckily, we already know
+                how to <a href='#changing-box-behavior'>change an element’s box
+                  type</a></a>).</p>
+                
+                <p style="padding-top:30px;">So, before you start banging your head against the wall trying to figure out
+                why your top or bottom margin isn’t working, remember to check your
+                <code>display</code> property. Trust us, this will happen to you
+                eventually.</p>
+        </div>
+    </div>
+
+    <!--Vertical Margin Collapse-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    VERTICAL MARGIN COLLAPSE
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px; padding-bottom: 30px;" >Another quirk of the CSS box model is the “vertical margin
+                collapse”. When you have two boxes with vertical margins sitting right
+                next to each other, they will collapse. Instead of adding the margins together
+                like you might expect, only the biggest one is displayed.</p>
+                
+                <p>For example, let’s add a top margin of 25 pixels to our
+                <code>&lt;p&gt;</code> element:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">10px</span>;
+                
+                  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">25px</span>;
+                  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">50px</span>;
+                }
+                </code></pre>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">Each paragraph should have 50 pixels on the bottom, and 25 pixels on the
+                top. That’s 75 pixels between our <code>&lt;p&gt;</code> elements, right?
+                Wrong! There’s still only going to be <code>50px</code> between them
+                because the smaller top margin collapses into the bigger bottom one.</p>
+                
+                <figure><div style='max-width: 500px'><div style='padding-bottom: 30px;'><img  alt='Diagram: comparison of an uncollapsed vertical margin with a collapsed vertical margin' src="./img/cssboxmodel/vertical-margin-collapse.png" width='500' height='348'/></div></div></figure>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">This behavior can be very useful when you’re working with a lot of
+                different kinds of elements, and you want to define their layout as the
+                <em>minimum</em> space between other elements.</p>
+                
+                <div ><h3>Preventing Margin Collapse</h3></div>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">It can also be really annoying. Sometimes you do want to prevent the margins
+                from collapsing. All you need to do is put another invisible element in between
+                them:</p>
+                
+                <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Paragraphs are blocks, too. <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>However<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>, &amp;lt;em&amp;gt; and &amp;lt;strong&amp;gt;
+                elements are not. They are <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>inline<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> elements.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">'padding-top: 1px'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  <span class="hljs-comment">&lt;!-- Add this --&gt;</span>
+                
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Block elements define the flow of the HTML document, while inline elements
+                do not.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                </code></pre>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">We’ll talk more about the <code>&lt;div&gt;</code> element in the next
+                section. The important part here is that only <em>consecutive</em> elements can
+                collapse into each other. Putting an element with non-zero height (hence the
+                <code>padding-top</code>) between our paragraphs forces them to display both
+                the <code>25px</code> top margin and the <code>50px</code> bottom margin.</p>
+                
+                <div  style='max-width: 209px'><div class='diagram__padding' style='padding-bottom: 30px;'><img class='diagram__image' alt='Diagram: inserting an empty &lt;div&gt; to force vertical margins to uncollapsed' src='./img/cssboxmodel/paddings-on-inline-elements.png' width='209' height='365'/></div></div>
+                
+                <p style="padding-top:30px;">Remember that padding doesn’t ever collapse, so an alternative
+                solution would be to use <code>padding</code> to space out our paragraphs
+                instead of the <code>margin</code> property. However, this only works if
+                you’re not using the padding for anything else (at the moment, we are, so
+                let’s stick to the <code>&lt;div&gt;</code> option).</p>
+                
+                <p style="padding-top:30px;">A third option to avoid margin collapse is to stick to a
+                bottom-only or top-only margin convention. For instance, if all your elements
+                <em>only</em> define a bottom margin, there’s no potential for them to
+                collapse.</p>
+                
+                <p style="padding-top:30px;">Finally, the <a href='/html-and-css/flexbox/'>flexbox</a> layout scheme
+                doesn’t have collapsing margins, so this isn’t really even an issue for modern
+                websites.</p>
+        </div>
+
+    </div>
+
+    <!--Generic Boxes-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    GENERIC BOXES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">So far, every HTML element we’ve seen lends additional meaning to the
+                content it contains. Indeed, this is the whole point of HTML, but there are
+                many times when we need a generic box purely for the sake of styling a web
+                page. This is what <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are
+                for.</p>
+                
+                <p style="padding-top:30px;">Both <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are
+                “container” elements that don’t have any affect on the
+                semantic structure of an HTML document. They do, however, provide a hook for
+                adding CSS styles to arbitrary sections of a web page. For example, sometimes
+                you need to add an invisible box to prevent a margin collapse, or maybe you
+                want to group the first few paragraphs of an article into a synopsis with
+                slightly different text formatting.</p>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">We’ll use a lot of <code>&lt;div&gt;</code>’s throughout the
+                rest of this tutorial. For now, let’s create a simple button by adding
+                the following to the bottom of our <code>boxes.html</code> file:</p>
+                
+                <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                </code></pre>
+                
+                <p style="padding-top:30px; padding-bottom: 30px;">And here are the associated styles that need to go into
+                <code>box-styles.css</code>. Most of these should be familiar from the last
+                  chapter, although we did throw in a new <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius'><code>border-radius</code>
+                    property</a>:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">div</span> {
+                  <span class="hljs-attribute">color</span>: <span class="hljs-number">#FFF</span>;
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#5995DA</span>;
+                  <span class="hljs-attribute">font-weight</span>: bold;
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+                  <span class="hljs-attribute">text-align</span>: center;
+                  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#5D6063</span>;
+                  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+                }
+                </code></pre>
+                
+                <p style="padding-top:30px;">This will give us a big blue button that spans the entire width of the
+                browser:</p>
+                
+                <div style='max-width: 425px'><div style='padding-bottom: 30px;'><img class='diagram__image' alt='Web page using &lt;div&gt; elements for buttons' src="./img/cssboxmodel/block-boxes-and-inline-boxes.png" width='425' height='400'/></div></div>
+                
+                <p>Of course, these styles also apply to the invisible <code>&lt;div&gt;</code>
+                we used to break the margin collapse in the previous section. Obviously, we
+                  need a way to select individual <code>&lt;div&gt;</code>’s if
+                  they’re to be of any practical use to us. That’s what <a
+                    href='/html-and-css/css-selectors/#class-selectors'>class selectors</a> are
+                  for, which we’ll introduce in the next chapter. In lieu of those,
+                  let’s just delete or comment out that invisible
+                  <code>&lt;div&gt;</code>.</p>
+                
+                <p style="padding-top:30px;">The only real difference between a <code>&lt;div&gt;</code> and a
+                <code>&lt;span&gt;</code> is that the former is for block-level content while
+                the latter is meant for inline content.</p>
+        </div>
+
+    </div>
+
+    <!--Explicit Dimensions-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    EXPLICIT DIMENSIONS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">So far, we’ve let our HTML elements define their dimensions
+                automatically. The paddings, borders, and margins we’ve been playing with
+                all wrap around whatever content happens to be inside the element’s box.
+                If you add more text to our <code>&lt;em&gt;</code> element, everything will
+                expand to accommodate it:</p>
+                
+                <div  style='max-width: 425px'><div style='padding-bottom: 30px;'><img class='diagram__image' alt='Web page showing an &lt;em&gt; element expanding as more content is added' src='./img/cssboxmodel/block-boxes-and-inline-boxes.png' width='425' height='364'/></div></div>
+                
+                <p style='padding-bottom: 30px;'>But, sometimes our desired layout calls for an explicit dimension, like a
+                sidebar that’s exactly 250 pixels wide. For this, CSS provides the
+                <code>width</code> and <code>height</code> properties. These take precedence
+                over the default size of a box’s content.</p>
+                
+                <p style='padding-bottom: 30px;'>Let’s give our button an explicit width by adding the following
+                property to <code>box-styles.css</code>:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">div</span> {
+                  <span class="hljs-comment">/* [Existing Declarations] */</span>
+                  <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+                }
+                </code></pre>
+                
+                <p style='padding-bottom: 30px;'>Instead of being as wide as the browser window, our button is now 200
+                pixels, and it hugs the left side of the page:</p>
+                
+                <div style='max-width: 425px'><div style='padding-bottom: 30px;'><img class='diagram__image' alt='Web page showing an explicit CSS width property on a button' src='./img/cssboxmodel/explicit-width-on-generic-div.png' width='425' height='364'/></div></div>
+                
+                <p style='padding-bottom: 30px;'>Also notice that if you make the button’s title longer, it will
+                automatically wrap to the next line, and the element will expand vertically to
+                accommodate the new content. You can change this default behavior with the
+                <a
+                  href='https://developer.mozilla.org/en-US/docs/Web/CSS/white-space'><code>white-space</code></a>
+                and <a
+                  href='https://developer.mozilla.org/en-US/docs/Web/CSS/overflow'><code>overflow</code></a>
+                properties.</p>
+        </div>
+
+    </div>
+
+    <!--Aligning Boxes-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    ALIGNING BOXES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">Aligning boxes horizontally is a common task for web developers, and
+                the box model offers a lot of ways to do it. We already saw the <a
+                href='/html-and-css/hello-css/#text-alignment'><code>text-align</code>
+                property</a>, which aligns the content and <em>inline</em> boxes inside of a
+                block-level element. Aligning <em>block</em> boxes is another story.</p>
+                
+                <p style="padding-top: 30px;padding-bottom: 30px;">Try adding the following rule to our stylesheet. It will only align the
+                <em>content</em> inside of our block boxes&mdash;not the blocks themselves. Our
+                <code>&lt;div&gt;</code> button is still left-aligned regardless of the
+                <code>&lt;body&gt;</code>’s text alignment:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">body</span> {
+                  <span class="hljs-attribute">text-align</span>: center;
+                }
+                </code></pre>
+                
+                <p style="padding-top: 30px;">There are three methods for horizontally aligning block-level elements:
+                “auto-margins” for center alignment, “floats” for left/right alignment, and
+                “flexbox” for complete control over alignment. Yes, unfortunately block-level
+                alignment is totally unrelated to the <code>text-align</code> property.</p>
+                
+                
+                <h3 style="padding-top: 30px;">Centering With Auto-Margins</h3>
+                
+                <p style="padding-top: 30px;"><a href='/html-and-css/floats/'>Floats</a> and <a
+                  href='/html-and-css/flexbox/'>flexbox</a> are complicated topics that
+                we’ve devoted entire chapters to, but we do have the background to deal
+                with auto-margins right now. When you set the left and right margin of a
+                block-level element to <code>auto</code>, it will center the block in its
+                parent element.</p>
+                
+                <p style="padding-top: 30px;padding-bottom: 30px;">For example, we can center our button with the following:</p>
+                
+                <pre class='highlight'><code><span class="hljs-selector-tag">div</span> {
+                  <span class="hljs-attribute">color</span>: <span class="hljs-number">#FFF</span>;
+                  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#4A90E2</span>;
+                  <span class="hljs-attribute">font-weight</span>: bold;
+                  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+                  <span class="hljs-attribute">text-align</span>: center;
+                
+                  <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+                  <span class="hljs-attribute">box-sizing</span>: border-box;
+                  <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span> auto; <span class="hljs-comment">/* Vertical  Horizontal */</span>
+                }
+                </code></pre>
+                
+                <p style="padding-top: 30px;">Note that this only works on blocks that have an explicit width defined on
+                them. Remove that <code>width:&nbsp;200px</code> line, and our button will be
+                the full width of the browser, making “center alignment”
+                meaningless.</p>
+        </div>
+
+    </div>
+
+    <!--Resetting Styles-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    ALIGNING BOXES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+    <div>
+        <p style="padding-top: 30px;">Notice that white band around our page? That’s a default
+            margin/padding added by your browser. Different browsers have different default
+            styles for all of their HTML elements, making it difficult to create consistent
+            stylesheets.</p>
+            
+            <figure><div style='max-width: 580px'><div class='diagram__padding' style='padding-bottom: 30px;'><img class='diagram__image' alt='One web page showing white border due to default margin/padding and another web page without the white border after a universal reset' src='./img/cssboxmodel/resetting-box-sizing-and-margins.png' width='580' height='299'/></div></div></figure>
+            
+            <p style="padding-bottom: 30px;">It’s usually a good idea to override default styles to a predictable
+            value using the “universal” CSS selector (<code>*</code>). Try
+            adding this to the top of our <code>box-styles.css</code> file:</p>
+            
+            <pre class='highlight'><code>* {
+              <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+              <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+              <span class="hljs-attribute">box-sizing</span>: border-box;
+            }
+            </code></pre>
+            
+            <p style="padding-top: 30px;">This selector matches every HTML element, effectively resetting the
+            <code>margin</code> and <code>padding</code> properties for our web page. We
+            also converted all our boxes to <code>border-box</code>, which, again, is a
+            best practice.</p>
+            
+            <p style="padding-top: 30px;">You’ll find a similar reset at the top of almost every global CSS
+            stylesheet on the web. They can get a whole lot more complicated, but the three
+            simple declarations shown above allow us to confidently tweak the CSS box
+            model for our own purposes without worrying about unforeseen interactions with
+            default browser styles.</p>
+    </div>
+
+</div>
+
+
+<!--Summary-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                ALIGNING BOXES
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p style="padding-top: 30px;">We’ll learn more about the practical uses of the CSS box model as we
+            get deeper into constructing complex web pages. For now, think of it as a new
+            tool in your CSS toolbox. With a few key concepts from this chapter, you should
+            feel much more equipped to convert a design mockup into a real-life web
+            page:</p>
+            
+            <ul style="padding-top: 30px;">
+              <li>Everything is a box.</li>
+              <li>Boxes can be inline or block-level.</li>
+              <li>Boxes have content, padding, borders, and margins.</li>
+              <li>They also have seemingly arbitrary rules about how they interact.</li>
+              <li>Mastering the CSS box model means you can lay out most web pages.</li>
+            </ul>
+            
+            <p style="padding-top: 30px;">Like the last chapter, the CSS properties we just covered might seem
+            simple&mdash;and they sort of are. But, start looking at the websites you visit
+            through the lens of the CSS box model, and you’ll see this stuff
+            literally everywhere.</p>
+            
+            <p style="padding-top: 30px;">Our exploration of generic boxes (<code>&lt;div&gt;</code> and
+            <code>&lt;span&gt;</code>) was a little bit limited because we didn’t
+            have a way to pluck out an individual HTML element from our web page.
+            We’ll fix that in the next chapter with a more in-depth discussion of CSS
+            selectors.</p>
+            
+            <div class='next-chapter'>
+              <a href='./cssselector.html'>Next Chapter &gt;</a>
+            </div>
+    </div>
+
+</div>
+
+<footer style="font-style: normal;">
+    <div class="comprehensive-style">
+    <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+             <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize"/>
+        </div>
+        <div class="rule-line-after"> </div>
+    </div>
+
+<div class="beautiful-diagrams-row" style="margin-top: 10px;">
+    <div class="beautiful-diagrams-column" style="width: 50%;">
+        <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+            <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+    </div>
+    <div class="beautiful-diagrams-column" style="width:50%;">
+        <div>
+        <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+            InternetingIsHard.com is an independent publisher of premium 
+            web development tutorials. All content is authored and maintained by Oliver James. 
+            He loves hearing from readers, so come say hello!
+        </p>
+    </div>
+
+    <div class="beautiful-diagrams-row">
+        <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+       <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+    </div>
+
+    <div class="beautiful-diagrams-column" style="width:100%;">
+        <div>
+        <p style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+            More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know when they get here.
+        </p>
+    </div>
+
+    </div>
+</div>
+</div>
+</div>
+<div class="footer-content" style="font-size: 13px;">
+<a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+<a href="/">CONTACT</a>
+<a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+<a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+<a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

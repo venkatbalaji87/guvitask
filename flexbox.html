@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flexbox Tutorial | HTML & CSS Is Hard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate/animate.min.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+  <nav class="navigation-bar">
+    <div class="left-side-nav-logo">
+      <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+            alt="internet-image" /></a>
+      </div>
+      <div>
+        <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+      </div>
+    </div>
+    <div class="right-side-nav-logo">
+      <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+    </div>
+  </nav>
+
+  <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+    <div class="home-panel">
+      <div>
+        <h1 style="padding-left: 250px;">FLEXBOX</h1>
+      </div>
+      <div class="line-rule" style="margin-top: 30px;">
+        <div class="rule-line-before"> </div>
+        <div class="text-content-home">
+          Nº 8. OF <a href="./htmlcss.html"> HTML AND CSS IS HARD</a>
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+      <div style="margin-bottom: 30px; margin-top: 30px; padding-left: 40px;">
+        <h4>A friendly tutorial for modern CSS layouts</h4>
+      </div>
+    </div>
+    <hr>
+    </hr>
+  </div>
+
+  <div class="comprehensive-style">
+    <p style="padding-top:30px;">The “Flexible Box” or “Flexbox” layout mode offers
+      an alternative to <a href='./Floats.html'>Floats</a> for defining the
+      overall appearance of a web page. Whereas floats only let us horizontally
+      position our boxes, flexbox gives us <em>complete</em> control over the
+      alignment, direction, order, and size of our boxes.</p>
+
+    <figure style="padding-top:30px;">
+      <div style='max-width: 600px'>
+        <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+            alt='Diagram: comparison of flexbox alignment, direction, order, and size properties'
+            src='./img/flexbox/flexbox-layouts.png' width='600' height='400' /></div>
+      </div>
+    </figure>
+
+    <p>The web is currently undergoing a major transition, so a little discussion
+      around the state of the industry is warranted. For the last decade or so,
+      floats were the sole option for laying out a complex web page. As a result,
+      they’re well supported even in legacy browsers, and developers have used
+      them to build millions of web pages. This means you’ll inevitably run
+      into floats during your web development career (so the previous chapter
+      wasn’t a total waste).</p>
+
+    <p style="padding-top:30px;">However, floats were originally intended for the magazine-style layouts that
+      we covered in <a href='/html-and-css/floats/#floats-for-content'>Floats for
+        Content</a>. Despite what we saw last chapter, the kinds of layouts you can
+      create with floats are actually somewhat limited. Even a simple sidebar layout
+      is, technically speaking, a little bit of a hack. Flexbox was invented to break
+      out of these limitations.</p>
+
+    <p style="padding-top:30px;">We’re finally at a point where browser support has hit critical mass
+      and developers can start building full websites with flexbox. Our
+      recommendation is to use flexbox to lay out your web pages as much as possible,
+      reserving floats for when you need text to flow <em>around</em> a box (i.e., a
+      magazine-style layout) or when you need to support legacy web browsers.</p>
+
+    <figure style="padding-top:30px;">
+      <div style='max-width: 454px'>
+        <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+            alt='Diagram: CSS floats for text wrapping around a box versus flexbox for the rest of the page layout'
+            src="./img/flexbox/flexbox-vs-floats.png" width='454' height='255' /></div>
+      </div>
+    </figure>
+
+    <p style="padding-top:30px;">In this chapter, we’ll explore the entire flexbox layout model step by step.
+      You should walk away comfortable building virtually any layout a web designer
+      could ever give you.</p>
+  </div>
+
+  <!--SETUP-->
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          SETUP
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">The example for this chapter is relatively simple, but it clearly
+        demonstrates all of the important flexbox properties. We’ll wind up with
+        something that looks like this:</p>
+
+      <figure style="padding-top:30px;" class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 369px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page with flexbox-based layout' src='./img/flexbox/footer-flexible-items-static-widths.png'
+              width='369' height='368' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">For starters, we need an empty HTML document that contains nothing but a
+        menu bar. Make a new Atom project called
+        <code>flexbox</code> to house all the example files for this chapter. Then,
+        create <code>flexbox.html</code> and add the following markup:</p>
+
+      <pre><code><span >&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+                  <span >&lt;<span >head</span>&gt;</span>
+                    <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span>/&gt;</span>
+                    <span >&lt;<span >title</span>&gt;</span>Some Web Page<span >&lt;/<span >title</span>&gt;</span>
+                    <span >&lt;<span >link</span> <span >rel</span>=<span >'stylesheet'</span> <span >href</span>=<span >'styles.css'</span>/&gt;</span>
+                  <span >&lt;/<span >head</span>&gt;</span>
+                  <span >&lt;<span >body</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'menu-container'</span>&gt;</span>
+                      <span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>
+                        <span >&lt;<span >div</span> <span >class</span>=<span >'date'</span>&gt;</span>Aug 14, 2016<span >&lt;/<span >div</span>&gt;</span>
+                        <span >&lt;<span >div</span> <span >class</span>=<span >'signup'</span>&gt;</span>Sign Up<span >&lt;/<span >div</span>&gt;</span>
+                        <span >&lt;<span >div</span> <span >class</span>=<span >'login'</span>&gt;</span>Login<span >&lt;/<span >div</span>&gt;</span>
+                      <span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >body</span>&gt;</span>
+                <span >&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+
+      <p style="padding-top:30px; padding-bottom: 30px;">Next, we need to create the corresponding
+        <code>styles.css</code>
+        stylesheet. This won’t look like much: just a full-width blue menu bar
+        with a white-bordered box in it. Note that we’ll be using flexbox instead
+        of our traditional auto-margin technique to center the menu.</p>
+
+      <pre><code>* {
+                  <span >margin</span>: <span >0</span>;
+                  <span >padding</span>: <span >0</span>;
+                  <span >box-sizing</span>: border-box;
+                }
+                
+                <span >.menu-container</span> {
+                  <span >color</span>: <span >#fff</span>;
+                  <span >background-color</span>: <span >#5995DA</span>;  <span >/* Blue */</span>
+                  <span >padding</span>: <span >20px</span> <span >0</span>;
+                }
+                
+                <span >.menu</span> {
+                  <span >border</span>: <span >1px</span> solid <span >#fff</span>;  <span >/* For debugging */</span>
+                  <span >width</span>: <span >900px</span>;
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">Finally, download some images for use by
+        our example web page. Unzip them into the <code>flexbox</code> project, keeping
+        the parent <code>images</code> directory. Your project should look like this
+        before moving on:</p>
+
+      <figure style="padding-top:30px;" class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 240px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Screenshot of project files' src='./img/flexbox/project-files.png' width='240' height='331' /></div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!--Flexbox Overview-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          FLEXBOX OVERVIEW
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">Flexbox uses two types of boxes that we’ve never seen before:
+        “flex containers” and “flex items”. The job of a flex
+        container is to group a bunch of flex items together and define how
+        they’re positioned.</p>
+
+      <figure>
+        <div style='max-width: 414px'>
+          <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: flex container as a highlighted container wrapping grayed out elements versus flex items as highlighted boxes inside the container'
+              src='./img/flexbox/flex-container-and-flex-items.png' width='414' height='164' /></div>
+        </div>
+      </figure>
+
+      <p>Every HTML element that’s a direct child of a flex container is an
+        “item”. Flex items can be manipulated individually, but for the
+        most part, it’s up to the container to determine their layout. The main
+        purpose of flex items are to let their container know how many things it needs
+        to position.</p>
+
+      <p style="padding-top:30px;">As with float-based layouts, defining complex web pages with flexbox is all
+        about nesting boxes. You align a bunch of flex items inside a container, and,
+        in turn, those items can serve as flex containers for their own items. As you
+        work through the examples in this chapter, remember that the fundamental task
+        of laying out a page hasn’t changed: we’re still just moving a
+        bunch of nested boxes around.</p>
+
+    </div>
+
+  </div>
+
+  <!--Flex Containers-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          FLEX CONTAINERS
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">The first step in using flexbox is to turn one of our HTML elements into a
+        flex container. We do this with the <code>display</code> property, which should
+        be familiar from the CSS Box Model
+        chapter. By giving it a value of <code>flex</code>, we’re telling the
+        browser that everything in the box should be rendered with flexbox instead of
+        the default box model.</p>
+
+      <p style="padding-top:30px; padding-bottom: 30px;">Add the following line to our <code>.menu-container</code> rule
+        to turn it
+        into a flex container:</p>
+
+      <pre><code><span >.menu-container</span> {
+                  <span >/* ... */</span>
+                  <span >display</span>: flex;
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">This <em>enables</em> the flexbox layout mode&mdash;without it, the browser
+        would ignore all the flexbox properties that we’re about to introduce.
+        Explicitly defining flex containers means that you can mix and match flexbox
+        with other layout models (e.g., floats and everything we’re going to learn in
+        Advanced Positioning).</p>
+
+      <figure>
+        <div style='max-width: 309px'>
+          <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: Mixing and matching flexbox layout with block boxes and floats'
+              src='./img/flexbox/enabling-flexbox.png' width='309' height='289' /></div>
+        </div>
+      </figure>
+
+      <p>Great! We have a flex container with one flex item in it. However, our page
+        will look exactly like it did before because we haven’t told the
+        container how to display its item.</p>
+    </div>
+  </div>
+
+  <!--Aligning a flex item-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          ALIGNING A FLEX ITEM
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;padding-bottom: 30px;">After you’ve got a flex container, your next job is to define
+        the
+        horizontal alignment of its items. That’s what the
+        <code>justify-content</code> property is for. We can use it to center our
+        <code>.menu</code>, like so:</p>
+
+      <pre><code><span >.menu-container</span> {
+                  <span >/* ... */</span>
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: center;    <span >/* Add this */</span>
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">This has the same effect as adding a <code>margin: 0 auto</code> declaration
+        to the <code>.menu</code> element. But, notice how we did this by adding a
+        property to the <em>parent</em> element (the flex container) instead of
+        directly to the element we wanted to center (the flex item). Manipulating items
+        through their containers like this is a common theme in flexbox, and it’s
+        a bit of a divergence from how we’ve been positioning boxes thus far.</p>
+
+      <figure style="padding-top:30px;">
+        <div style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: flex-start (3 left-aligned boxes), center (3 center-aligned boxes), flex-end (3 right-aligned boxes)'
+              src='/html-and-css/flexbox/flex-justify-content-alignment-ea129c.png' width='600' height='173' /></div>
+        </div>
+      </figure>
+
+      <p>Other values for <code>justify-content</code> are shown below:</p>
+
+      <ul style="padding-top:30px;">
+        <li><code>center</code></li>
+        <li><code>flex-start</code></li>
+        <li><code>flex-end</code></li>
+        <li><code>space-around</code></li>
+        <li><code>space-between</code></li>
+      </ul>
+
+      <p style="padding-top:30px;">Try changing <code>justify-content</code> to <code>flex-start</code> and
+        <code>flex-end</code>. This should align the menu to the left and right side of
+        the browser window, respectively. Be sure to change it back to
+        <code>center</code> before moving on. The last two options are only useful when
+        you have multiple flex items in a container.</p>
+    </div>
+  </div>
+
+  <!--Distributing multi flex items-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          DISTRIBUTING MULTI FLEX ITEMS
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">“Big deal,” you might be saying: we can do left/right alignment
+        with floats and centering with auto-margins. True. Flexbox doesn’t show
+        its real strength until we have more than one item in a container. The
+        <code>justify-content</code> property also lets you distribute items equally
+        inside a container.</p>
+
+      <figure>
+        <div style='max-width: 466px'>
+          <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: space-around (3 boxes with equal space between them and their container), space-between (3 boxes with spaces between them, but not between their container)'
+              src='./img/flexbox/flex-justify-content-distribution.png' width='466' height='173' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom: 30px;"> Change our <code>.menu</code> rule to match the following:</p>
+
+      <pre><code><span >.menu</span> {
+                  <span >border</span>: <span >1px</span> solid <span >#fff</span>;
+                  <span >width</span>: <span >900px</span>;
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: space-around;
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">This turns our <code>.menu</code> into a nested flex container, and the
+        <code>space-around</code> value spreads its items out across its entire width.
+        You should see something like this:</p>
+
+      <figure style="padding-top:30px;" class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page showing menu bar &lt;li&gt; elements laid out with space-between'
+              src='/html-and-css/flexbox/menu-bar-flex-space-around-e4b5a5.png' width='600' height='167' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-top:30px; padding-bottom: 30px;">The flex container automatically distributes extra horizontal
+        space to
+        either side of each item. The <code>space-between</code> value is similar, but
+        it only adds that extra space <em>between</em> items. This is what we actually
+        want for our example page, so go ahead and update the
+        <code>justify-content</code> line:</p>
+
+      <pre><code><span >justify-content</span>: <span >space-between</span>;
+                </code></pre>
+
+      <p style="padding-top:30px;">Of course, you can also use <code>center</code>, <code>flex-start</code>,
+        <code>flex-end</code> here if you want to push all the items to one side or
+        another, but let’s leave it as <code>space-between</code>.</p>
+    </div>
+  </div>
+
+  <!--Grouping  Flex Items-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum">
+          GROUPING FLEX ITEMS
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">Flex containers only know how to position elements that are one level deep
+        (i.e., their child elements). They don’t care one bit about what’s
+        inside their flex items. This means that grouping flex items is another weapon
+        in your layout-creation arsenal. Wrapping a bunch of items in an extra
+        <code>&lt;div&gt;</code> results in a totally different web page.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 462px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: wrapping two flex items in a &lt;div&gt; to eliminate one of the flex items'
+              src='./img/flexbox/menu-bar-grouped-items.png' width='462' height='193' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">For example, let’s say you want both the <strong>Sign Up</strong> and
+        <strong>Login</strong> links to be on the right side of the page, as in the
+        screenshot below. All we need to do is stick them in another
+        <code>&lt;div&gt;</code>:</p>
+
+      <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'date'</span>&gt;</span>Aug 14, 2016<span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'links'</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'signup'</span>&gt;</span>Sign Up<span >&lt;/<span >div</span>&gt;</span>      <span >&lt;!-- This is nested now --&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'login'</span>&gt;</span>Login<span >&lt;/<span >div</span>&gt;</span>         <span >&lt;!-- This one too! --&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+      <p style="padding-top:30px;">Instead of having three items, our <code>.menu</code> flex container now has
+        only two (<code>.date</code> and <code>.links</code>). Under the existing
+        <code>space-between</code> behavior, they’ll snap to the left and right
+        side of the page.</p>
+
+      <figure>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page showing two menu bar &lt;li&gt; items wrapped in a container &lt;div&gt;'
+              src='./img/flexbox/menu-bar-grouped-items.png' width='600' height='167' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">But, now we need to lay out the <code>.links</code> element because it’s
+        using the default block layout mode. The solution: more nested flex containers!
+        Add a new rule to our <code>styles.css</code> file that turns the
+        <code>.links</code> element into a flex container:</p>
+
+      <pre><code><span >.links</span> {
+                  <span >border</span>: <span >1px</span> solid <span >#fff</span>;  <span >/* For debugging */</span>
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: flex-end;
+                }
+                
+                <span >.login</span> {
+                  <span >margin-left</span>: <span >20px</span>;
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">This will put our links right where we want them. Notice that margins still
+        work just like they did in the <a href='/html-and-css/css-box-model/'>CSS Box
+          Model</a>. And, as with the normal box model, auto margins have a special
+        meaning in flexbox (we’ll leave that for the <a href='#flex-items-and-auto-margins'>end of the chapter</a>
+        though).</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page &lt;li&gt; elements laid out with nested flexbox containers'
+              src='./img/flexbox/menu-bar-grouped-items-2.png' width='600' height='167' /></div>
+        </div>
+      </figure>
+
+      <p>We won’t need those white borders anymore, so you can go ahead and delete
+        them if you like.</p>
+    </div>
+  </div>
+
+  <!--Cross Vertical alignment-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          cross-axis (vertical) alignment
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">So far, we’ve been manipulating horizontal alignment, but flex
+        containers can also define the vertical alignment of their items. This is
+        something that’s simply not possible with floats.</p>
+
+      <figure>
+        <div style='max-width: 433px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: justify-content (left and right), align-items (top and bottom)'
+              src='./img/flexbox/align-items-vs-justify-content.png' width='433' height='204' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">To explore this, we need to add a header underneath our menu. Add the
+        following markup to <code>flexbox.html</code> after the
+        <code>.menu-container</code> element:</p>
+
+      <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'header-container'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'header'</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'subscribe'</span>&gt;</span>Subscribe &amp;#9662;<span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'logo'</span>&gt;</span><span >&lt;<span >img</span> <span >src</span>=<span >'images/awesome-logo.svg'</span>/&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                    <span >&lt;<span >div</span> <span >class</span>=<span >'social'</span>&gt;</span><span >&lt;<span >img</span> <span >src</span>=<span >'images/social-icons.svg'</span>/&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+
+      <p style="padding-top:30px; padding-bottom: 30px;">Next, add some base styles to get it aligned with our
+        <code>.menu</code>
+        element:</p>
+
+      <pre><code><span >.header-container</span> {
+                  <span >color</span>: <span >#5995DA</span>;
+                  <span >background-color</span>: <span >#D6E9FE</span>;
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: center;
+                }
+                
+                <span >.header</span> {
+                  <span >width</span>: <span >900px</span>;
+                  <span >height</span>: <span >300px</span>;
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: space-between;
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">This should all be familiar; however, the scenario is a little bit different
+        than our menu. Since <code>.header</code> has an explicit height, items can be
+        positioned vertically inside of it. The official specification calls this
+        “cross-axis” alignment (we’ll see why in a moment), but for
+        our purposes it might as well be called “vertical” alignment.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page showing heading and icons vertically centered in a header container via the align-items property'
+              src='./img/flexbox/header-align-items.png' width='600' height='238' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">Vertical alignment is defined by adding an <code>align-items</code> property
+        to a flex container. Make our example page match the above screenshot with the
+        following line:</p>
+
+      <pre><code><span >.header</span> {
+                  <span >/* ... */</span>
+                  <span >align-items</span>: center;  <span >/* Add this */</span>
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">The available options for <code>align-items</code> is similar to
+        <code>justify-content</code>:</p>
+
+      <ul style="padding-top:30px;">
+        <li><code>center</code></li>
+        <li><code>flex-start</code> &nbsp; (top)</li>
+        <li><code>flex-end</code> &nbsp; &nbsp; &nbsp;(bottom)</li>
+        <li><code>stretch</code></li>
+        <li><code>baseline</code></li>
+      </ul>
+
+      <figure>
+        <div style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: flex-start (boxes at top of container), center (boxes in center of container), flex-end (boxes at bottom of container, stretch (boxes filling height of container)'
+              src='/html-and-css/flexbox/flex-align-items-26abfd.png' width='600' height='201' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">Most of these are pretty straightforward. The <code>stretch</code> option is
+        worth a taking a minute to play with because it lets you display the
+        background of each element. Let’s take a brief look by adding the
+        following to <code>styles.css</code>:</p>
+
+      <pre><code>.header {
+                  <span >/* ... */</span>
+                  align-items: stretch;    <span >/* Change this */</span>
+                }
+                
+                .social,
+                .logo,
+                .subscribe {
+                  border: <span >1</span>px solid <span class="hljs-meta">#5995DA;</span>
+                }
+                </code></pre>
+
+      <p style="padding-top:30px;">The box for each item extends the full height of the flex container,
+        regardless of how much content it contains. A common use case for this behavior
+        is creating equal-height columns with a variable amount of content in each
+        one&mdash;something very difficult to do with floats.</p>
+
+      <p style="padding-top:30px;">Be sure to delete the above changes and vertically center our content inside
+        of <code>.header</code> before moving on.</p>
+    </div>
+  </div>
+
+  <!--Wrapping Flex Items-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          wrapping flex items
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">Flexbox is a more powerful alternative to float-based grids. Not only
+        can it render items as a grid&mdash;it can change their alignment, direction,
+        order, and size, too. To create a grid, we need the <code>flex-wrap</code>
+        property.</p>
+
+      <figure>
+        <div style='max-width: 449px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: no wrapping (boxes flowing outside of container), with wrapping (boxes wrapping to next line in container)'
+              src='./img/flexbox/flex-wrap.png' width='449' height='237' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">Add a row of photos to <code>flexbox.html</code> so that we have something
+        to work with. This should go inside of <code>&lt;body&gt;</code>,
+        under the <code>.header-container</code> element:</p>
+
+      <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-container'</span>&gt;</span>
+            <span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid'</span>&gt;</span>
+              <span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-item first-item'</span>&gt;</span>
+                <span >&lt;<span >img</span> <span >src</span>=<span >'images/one.svg'</span>/&gt;</span>
+              <span >&lt;/<span >div</span>&gt;</span>
+              <span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-item'</span>&gt;</span>
+                <span >&lt;<span >img</span> <span >src</span>=<span >'images/two.svg'</span>/&gt;</span>
+              <span >&lt;/<span >div</span>&gt;</span>
+              <span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-item'</span>&gt;</span>
+                <span >&lt;<span >img</span> <span >src</span>=<span >'images/three.svg'</span>/&gt;</span>
+              <span >&lt;/<span >div</span>&gt;</span>
+            <span >&lt;/<span >div</span>&gt;</span>
+          <span >&lt;/<span >div</span>&gt;</span>
+          </code></pre>
+
+      <p style="padding-top:30px; padding-bottom: 30px;">Again, the corresponding CSS should be familiar from previous
+        sections:</p>
+
+      <pre><code><span>.photo-grid-container</span> {
+            <span >display</span>: flex;
+            <span >justify-content</span>: center;
+          }
+          
+          <span >.photo-grid</span> {
+            <span >width</span>: <span >900px</span>;
+            <span >display</span>: flex;
+            <span >justify-content</span>: flex-start;
+          }
+          
+          <span >.photo-grid-item</span> {
+            <span >border</span>: <span >1px</span> solid <span >#fff</span>;
+            <span >width</span>: <span >300px</span>;
+            <span >height</span>: <span >300px</span>;
+          }
+          </code></pre>
+
+      <p style="padding-top:30px;">This should work as expected, but watch what happens when we add more items
+        than can fit into the flex container. Insert an extra two photos into the
+        <code>.photo-grid</code>:</p>
+
+      <pre><code><span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-item'</span>&gt;</span>
+            <span >&lt;<span >img</span> <span >src</span>=<span >'images/four.svg'</span>/&gt;</span>
+          <span >&lt;/<span >div</span>&gt;</span>
+          <span >&lt;<span >div</span> <span >class</span>=<span >'photo-grid-item last-item'</span>&gt;</span>
+            <span >&lt;<span >img</span> <span >src</span>=<span >'images/five.svg'</span>/&gt;</span>
+          <span >&lt;/<span >div</span>&gt;</span>
+          </code></pre>
+
+      <p style="padding-top:30px;">By default, they flow off the edge of the page:</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 470px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page with messed up layout due to no flexbox wrapping' src='./img/flexbox/grid-no-flex-wrap.png'
+              width='470' height='236' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">If you’re trying to build a hero banner that lets the user
+        horizontally scroll through a bunch of photos, this might be desired behavior,
+        but that’s not what we want. Adding the following <code>flex-wrap</code>
+        property forces items that don’t fit to get bumped down to the next
+        row:</p>
+
+      <pre><code><span >.photo-grid</span> {
+            <span >/* ... */</span>
+            <span >flex-wrap</span>: wrap;
+          }
+          </code></pre>
+
+      <p style="padding-top:30px;padding-bottom: 30px;">Now, our flex items behave much like floated boxes, except
+        flexbox gives us
+        more control over how “extra” items are aligned in the final row
+        via the <code>justify-content</code> property. For example, the last line is
+        currently left-aligned. Try centering it by updating our
+        <code>.photo-grid</code> rule, like so:</p>
+
+      <pre><code><span >.photo-grid</span> {
+            <span >width</span>: <span >900px</span>;
+            <span >display</span>: flex;
+            <span >justify-content</span>: center;    <span >/* Change this */</span>
+            <span >flex-wrap</span>: wrap;
+          }
+          </code></pre>
+
+      <p style="padding-top:30px;">Achieving this with float-based layouts is ridiculously complicated.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page showing grid created from correct flexbox wrapping'
+              src='./img/flexbox/grid-with-flex-wrap.png' width='600' height='505' /></div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!--Flex Container Direction-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          flex container direction
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">“Direction” refers to whether a container renders its items
+        horizontally or vertically. So far, all the containers we’ve seen use the
+        default horizontal direction, which means items are drawn one after another in
+        the same row before popping down to the next column when they run out of
+        space.</p>
+
+      <figure>
+        <div class='diagram__wrapper' style='max-width: 427px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: row (3 horizontal boxes), column (3 vertical boxes)' src='./img/flexbox/flex-direction.png'
+              width='427' height='237' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">One of the most amazing things about flexbox is its ability to transform
+        rows into columns using only a single line of CSS. Try adding the following
+        <code>flex-direction</code> declaration to our <code>.photo-grid</code>
+        rule:</p>
+
+      <pre><code><span >.photo-grid</span> {
+          <span >/* ... */</span>
+          <span >flex-direction</span>: column;
+        }
+        </code></pre>
+
+      <p style="padding-top:30px;">This changes the direction of the container from the default
+        <code>row</code> value. Instead of a grid, our page now has a single vertical
+        column:</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 369px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page with grid turned into a vertical column of boxes'
+              src='./img/flexbox/flex-direction-column.png' width='369' height='556' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-top:30px;">A key tenant of responsive design is presenting the same HTML markup to both
+        mobile and desktop users. This presents a bit of a problem, as most mobile
+        layouts are a single column, while most desktop layouts stack elements
+        horizontally. You can imagine how useful <code>flex-direction</code> is going
+        to become once we start building responsive layouts.</p>
+
+
+      <div style="padding-top:30px;">
+        <h3>Alignment Considerations</h3>
+      </div>
+
+      <p style="padding-top:30px;">Notice that the column is hugging the left side of its flex container
+        despite our <code>justify-content: center;</code> declaration. When you rotate
+        the direction of a container, you also rotate the direction of the
+        <code>justify-content</code> property. It now refers to the container’s
+        vertical alignment&mdash;not its horizontal alignment.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 564px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: axes flipped when flex-direction is equal to column'
+              src='/html-and-css/flexbox/flex-direction-axes-b30e85.png' width='564' height='286' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">To horizontally center our column, we need to define an
+        <code>align-items</code> property on our <code>.photo-grid</code>:</p>
+
+      <pre><code><span >.photo-grid</span> {
+          <span >/* ... */</span>
+          <span >flex-direction</span>: column;
+          <span >align-items</span>: center;      <span >/* Add this */</span>
+        }
+        </code></pre>
+    </div>
+  </div>
+
+  <!--Flex Container Order-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          flex container order
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px; padding-bottom: 30px;">Up until now, there’s been a tight correlation between the
+        order of
+        our HTML elements and the way boxes are rendered in a web page. With either
+        floats or the flexbox techniques we’ve seen so far, the only way we could
+        make a box appear before or after another one is to move around the underlying
+        HTML markup. That’s about to change.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: row (left to right), row-reverse (right to left), column (top to bottom), column-reverse (bottom to top)'
+              src='./img/flexbox/flex-direction-reverse.png' width='600' height='201' /></div>
+        </div>
+      </figure>
+
+      <p style="padding-bottom:30px;">The <code>flex-direction</code> property also offers you control over the
+        order in which items appear via the <code>row-reverse</code> and
+        <code>column-reverse</code> properties. To see this in action, let’s
+        transform our column back into a grid, but this time around we’ll reverse
+        the order of everything:</p>
+
+      <pre><code><span >.photo-grid</span> {
+        <span >width</span>: <span class="hljs-number">900px</span>;
+        <span >display</span>: flex;
+        <span >justify-content</span>: center;
+        <span >flex-wrap</span>: wrap;
+        <span >flex-direction</span>: row-reverse;  <span >/* &lt;--- Really freaking cool! */</span>
+        <span >align-items</span>: center;
+      }
+      </code></pre>
+
+      <p style="padding-top:30px;">Both rows are now rendered right-to-left instead of left-to-right. But,
+        notice how this only swaps the order on a per-row basis: the first row
+        doesn’t start at 5, it starts at 3. This is useful behavior for a lot of
+        common design patterns (<code>column-reverse</code> in particular opens up a
+        lot of doors for mobile layouts). We’ll learn how to get even more
+        granular in the next section.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 600px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Web page with grid rows displayed backwards (3, 2, 1 in first row and 5, 4 in second row)'
+              src='./img/flexbox/grid-direction-row-reverse.png' width='600' height='505' /></div>
+        </div>
+      </figure>
+
+      <p>Reordering elements from inside a stylesheet is a big deal. Before flexbox,
+        web developers had to resort to JavaScript hacks to accomplish this kind of
+        thing. However, don’t abuse your newfound abilities. As we discussed in
+        the very first chapter of this tutorial, you should always separate
+        content from presentation. Changing the order like this is purely
+        presentational&mdash;your HTML should still make sense without these styles
+        applied to it.</p>
+    </div>
+
+  </div>
+
+  <!--Flex Item Order-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          flex ITEM order
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">This entire chapter has been about positioning flex items <em>through their
+          parent containers</em>, but it’s also possible to manipulate individual
+        items. The rest of this chapter is going to shift focus away from flex
+        containers onto the items they contain.</p>
+
+      <figure class='diagram'>
+        <div class='diagram__wrapper' style='max-width: 422px'>
+          <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+              alt='Diagram: setting the order of a flex item individual with the order property'
+              src='./img/flexbox/flex-direction-vs-order.png' width='422' height='237' /></div>
+        </div>
+      </figure>
+
+      <p>Adding an <code>order</code> property to a flex item defines its order in
+        the container without affecting surrounding items. Its default value is
+        <code>0</code>, and increasing or decreasing it from there moves the item to
+        the right or left, respectively.
+        <?p> 
+      
+      <p style="padding-top:30px; padding-bottom: 30px;">This can be used, for example, to swap order of the <code>.first-item</code>
+      and <code>.last-item</code> elements in our grid. We should also change the
+      <code>row-reverse</code> value from the previous section back to
+      <code>row</code> because it’ll make our edits a little easier to see:</p>
+      
+      <pre ><code><span >.photo-grid</span> {
+        <span >/* ... */</span>
+        <span >flex-direction</span>: row;  <span >/* Update this */</span>
+        <span >align-items</span>: center;
+      }
+      
+      <span >.first-item</span> {
+        <span >order</span>: <span class="hljs-number">1</span>;
+      }
+      
+      <span >.last-item</span> {
+        <span >order</span>: -<span class="hljs-number">1</span>;
+      }
+      </code></pre>
+      
+      <p style="padding-top:30px;">Unlike setting <code>row-reverse</code> and <code>column-reverse</code> on a
+      flex container, <code>order</code> works across row/column boundaries. The
+      above snippet will switch our first and last items, even though they appear on
+      different rows.</p>
+    </div>
+  </div>
+
+<!--Flex Item Alignment-->
+
+<div class="comprehensive-style">
+
+  <div class="comprehensive-style">
+    <div class="line-rule">
+      <div class="rule-line-before"> </div>
+      <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+        flex container order
+      </div>
+      <div class="rule-line-after"> </div>
+    </div>
+  </div>
+
+  <div>
+    <p style="padding-top:30px;">We can do the same thing with vertical alignment. What if we want that
+      <strong>Subscribe</strong> link and those social icons to go at the bottom of
+      the header instead of the center? Align them individually! This is where the
+      <code>align-self</code> property comes in. Adding this to a flex item overrides
+      the <code>align-items</code> value from its container:</p>
+      
+      <pre class='highlight'><code><span class="hljs-selector-class">.social</span>,
+      <span class="hljs-selector-class">.subscribe</span> {
+        <span class="hljs-attribute">align-self</span>: flex-end;
+        <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">20px</span>;
+      }
+      </code></pre>
+      
+      <p style="padding-top:30px;">This should send them to the bottom of the <code>.header</code>. Note that
+      margins (padding, too) work just like you’d expect.</p>
+      
+      <figure style="padding-top:30px;" class='diagram'><div class='diagram__wrapper' style='max-width: 600px'><div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image' alt='Web page showing bottom-aligned icons via the align-self property' src='./img/flexbox/grid-align-self.png' width='600' height='505'/></div></div></figure>
+      
+      <p>You can align elements in other ways using the same values as the
+      <code>align-items</code> property, listed below for convenience.</p>
+      
+      <ul style="padding-top:30px;">
+        <li><code>center</code></li>
+        <li><code>flex-start</code> &nbsp; (top)</li>
+        <li><code>flex-end</code> &nbsp; &nbsp; &nbsp;(bottom)</li>
+        <li><code>stretch</code></li>
+        <li><code>baseline</code></li>
+      </ul>
+
+  </div>
+
+  </div>
+
+  <!--Auto Margins-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          flex container order
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="padding-top:30px;">Auto-margins in flexbox are special. They can be used as an alternative to
+        an <a href='#grouping-flex-items'>extra <code>&lt;div&gt;</code></a> when
+        trying to align a group of items to the left/right of a container. Think of
+        auto-margins as a “divider” for flex items in the same
+        container.</p>
+        
+        <p style="padding-top:30px; padding-bottom: 30px;">Let’s take a look by flattening our items in <code>.menu</code> so
+        that it matches the following:</p>
+        
+        <pre ><code><span >&lt;<span >div</span> <span >class</span>=<span >'menu-container'</span>&gt;</span>
+          <span >&lt;<span >div</span> <span >class</span>=<span >'menu'</span>&gt;</span>
+            <span >&lt;<span >div</span> <span >class</span>=<span >'date'</span>&gt;</span>Aug 14, 2016<span >&lt;/<span >div</span>&gt;</span>
+            <span >&lt;<span >div</span> <span >class</span>=<span >'signup'</span>&gt;</span>Sign Up<span >&lt;/<span >div</span>&gt;</span>
+            <span >&lt;<span >div</span> <span >class</span>=<span >'login'</span>&gt;</span>Login<span >&lt;/<span >div</span>&gt;</span>
+          <span >&lt;/<span >div</span>&gt;</span>
+        <span >&lt;/<span >div</span>&gt;</span>
+        </code></pre>
+        
+        <p style="padding-top:30px; padding-bottom: 30px;">Reloading the page should make the items spread out equally through our
+        menu, just like at the beginning of the chapter. We can replicate the desired
+        layout by sticking an auto-margin between the items we want to separate, like
+        so:</p>
+        
+        <pre class='highlight'><code><span class="hljs-selector-class">.signup</span> {
+          <span class="hljs-attribute">margin-left</span>: auto;
+        }
+        </code></pre>
+        
+        <p style="padding-top:30px;">Auto-margins eat up <em>all</em> the extra space in a flex container, so
+        instead of distributing items equally, this moves the <code>.signup</code> and
+        any following items (<code>.login</code>) to the right side of the container.
+        This will give you the exact same layout we had before, but without that extra
+        nested <code>&lt;div&gt;</code> to group them. Sometimes, it’s nice to
+        keep your HTML flatter.</p>
+    </div>
+  </div>
+
+  <!--Summary-->
+
+  <div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+      <div class="line-rule">
+        <div class="rule-line-before"> </div>
+        <div class="comprehensive-curriculum" style="text-transform: uppercase;">
+          summary
+        </div>
+        <div class="rule-line-after"> </div>
+      </div>
+    </div>
+
+  <div>
+    <p style="padding-top: 30px;">Flexbox gave us a ton of amazing new tools for laying out a web page.
+      Compare these techniques to what we were able to do with <a
+      href='/html-and-css/floats'>floats</a>, and it should be pretty clear that
+      flexbox is a cleaner option for laying out modern websites:</p>
+      
+      <ul style="padding-top: 30px;">
+        <li>Use <code>display: flex;</code> to create a flex container.</li>
+        <li>Use <code>justify-content</code> to define the horizontal alignment of
+          items.</li>
+        <li>Use <code>align-items</code> to define the vertical alignment of
+          items.</li>
+        <li>Use <code>flex-direction</code> if you need columns instead of rows.</li>
+        <li>Use the <code>row-reverse</code> or <code>column-reverse</code> values to
+          flip item order.</li>
+        <li>Use <code>order</code> to customize the order of individual elements.</li>
+        <li>Use <code>align-self</code> to vertically align individual items.</li>
+        <li>Use <code>flex</code> to create flexible boxes that can stretch and
+          shrink.</li>
+      </ul>
+      
+      <p style="padding-top: 30px;">Remember that these flexbox properties are just a language that lets you
+      tell browsers how to arrange a bunch of HTML elements. The hard part
+      isn’t actually writing the HTML and CSS code, it’s figuring out,
+      conceptually (on a piece of paper), the behavior of all the necessary
+      boxes to create a given layout.</p>
+      
+      <p style="padding-top: 30px;">When a designer hands you a mockup to implement, your first task is to draw
+      a bunch of boxes on it and determine how they’re supposed to stack,
+      stretch, and shrink to achieve the desired design. Once you’ve got that
+      done, it should be pretty easy to code it up using these new flexbox
+      techniques.</p>
+      
+      <p style="padding-top: 30px;">The flexbox layout mode should be used for most of your web pages, but there
+      are some things it’s not-so-good at, like gently tweaking element
+      positions and preventing them from interacting with the rest of the page. After
+      covering these kinds of advanced positioning techniques in the next chapter,
+      you’ll be an HTML and CSS positioning expert.</p>
+      
+      <div class='next-chapter'>
+        <a href='./advancedpositioning.html'>Next Chapter &gt;</a>
+      </div>
+
+  </div>
+  </div>
+
+  <!--Footer-->
+
+  <footer style="font-style: normal;">
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+            <div class="beautiful-diagrams-column" style="width: 50%;">
+                <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+            </div>
+            <div class="beautiful-diagrams-column" style="width:50%;">
+                <div>
+                    <p
+                        style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                        InternetingIsHard.com is an independent publisher of premium
+                        web development tutorials. All content is authored and maintained by Oliver James.
+                        He loves hearing from readers, so come say hello!
+                    </p>
+                </div>
+
+                <div class="beautiful-diagrams-row">
+                    <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                    <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                </div>
+
+                <div class="beautiful-diagrams-column" style="width:100%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                            when they get here.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content" style="font-size: 13px;">
+        <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+        <a href="/">CONTACT</a>
+        <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+    </div>
+</footer>
+
+
+
+
+</body>
+
+</html>

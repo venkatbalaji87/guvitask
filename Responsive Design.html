@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Design Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 250px;">RESPONSIVE DESIGN</h1>
+            </div>
+            <div class="line-rule" style="margin-top: 30px;">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 10. OF <a href="./htmlcss.html"> HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px; padding-left: 40px;">
+                <h4>A beginner’s tutorial for crafting mobile-friendly websites</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+
+        <p>“Responsive design” refers to the idea that your website should
+            display equally well in everything from widescreen monitors to mobile phones.
+            It’s an approach to web design and development that eliminates the
+            distinction between the mobile-friendly version of your website and its desktop
+            counterpart. With responsive design, they’re the same thing.</p>
+            
+            <p>Responsive design is accomplished through CSS “media queries”.
+            Think of media queries as a way to conditionally apply CSS rules. They tell the
+            browser that it should ignore or apply certain rules depending on the
+            user’s device.</p>
+            
+            <figure><div style='max-width: 580px'><div style='padding-left:150px; '><img class='diagram__image' alt='Diagram: HTML content pointing to media queries, which point to mobile, tablet, and desktop devices' src='./img/Responsive Design/how-responsive-websites-work.png' width='580' height='550'/></div></div></figure>
+            
+            <p>Media queries let us present the same HTML content as distinct CSS layouts.
+            So, instead of maintaining one website for smartphones and an entirely
+            unrelated site for laptops/desktops, we can use the same HTML markup (and web
+            server) for both of them. This means that whenever we add a new article or edit
+            a typo in our HTML, those changes are automatically reflected in both mobile
+            and widescreen layouts. <em>This</em> is the reason why we separate
+            content from presentation.</p>
+            
+            <p class='nudge-desktop--smaller'>In this chapter, we’ll learn how media
+            queries are really just a thin wrapper around the plain old CSS that we’ve been
+            working with up ’til this point. As we’ll soon discover, it’s actually pretty
+            easy to implement a responsive layout. (<a
+            href='/html-and-css/responsive-images/'>Responsive Images</a>, on the other
+            hand, are an entirely different story).</p>
+    </div>
+
+    <!--SETUP-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+        <p>Create a <a href='/html-and-css/introduction/#atom-text-editor'>new
+            project</a> called <code>responsive-design</code> and a new file called
+          <code>responsive.html</code>. It’s the emptiest web page that we’ve
+          seen in awhile, but it’ll help us demonstrate something very important in
+          the next section:</p>
+          
+          <pre ><code><span >&lt;!DOCTYPE html&gt;</span>
+          <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+            <span >&lt;<span >head</span>&gt;</span>
+              <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span>/&gt;</span>
+              <span >&lt;<span >title</span>&gt;</span>Responsive Design<span >&lt;/<span >title</span>&gt;</span>
+              <span >&lt;<span >link</span> <span >rel</span>=<span >'stylesheet'</span> <span >href</span>=<span >'styles.css'</span>/&gt;</span>
+            <span >&lt;/<span >head</span>&gt;</span>
+            <span >&lt;<span >body</span>&gt;</span>
+              <span >&lt;!-- There's nothing here! --&gt;</span>
+            <span >&lt;/<span >body</span>&gt;</span>
+          <span >&lt;/<span >html</span>&gt;</span>
+          </code></pre>
+          
+          <p>You’ll also need to <a href='/html-and-css/responsive-design/images-e9877a.zip'>download some images</a> for later in
+          the chapter. Unzip everything into the same folder as
+          <code>responsive.html</code>, keeping the parent <code>images</code> folder.
+          Your project should look like this before moving on:</p>
+          
+          <figure ><div style='max-width: 198px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Screenshot: Atom’s file browser with project files in it' src='./img/Responsive Design/project-files.png' width='198' height='247'/></div></div></figure>
+        </div>  
+    </div>
+
+    <!--CSS MEDIA QUERIES-->
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CSS MEDIA QUERIES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>We’ll start small by simply updating the background color on the
+                <code>&lt;body&gt;</code> element based on the device width. This is a good
+                way to make sure our media queries are actually working before getting into
+                complicated layouts.</p>
+                
+                <figure><div style='max-width: 536px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: mobile device with red background, tablet with yellow background, desktop with blue background. Background colors set with media queries.' src='./img/Responsive Design/simple-responsive-media-queries.png' width='536' height='213'/></div></div></figure>
+                
+                <p>Let’s differentiate between narrow, medium, and wide layouts by
+                creating a new <code>styles.css</code> stylesheet and adding the following:</p>
+                
+                <pre ><code>* {
+                  <span >margin</span>: <span >0</span>;
+                  <span >padding</span>: <span >0</span>;
+                  <span >box-sizing</span>: border-box;
+                }
+                
+                <span >/* Mobile Styles */</span>
+                @<span >media</span> only screen and (max-width: <span >400px</span>) {
+                  <span class="hljs-selector-tag">body</span> {
+                    <span >background-color</span>: <span >#F09A9D</span>; <span >/* Red */</span>
+                  }
+                }
+                
+                <span >/* Tablet Styles */</span>
+                @<span >media</span> only screen and (min-width: <span >401px</span>) and (max-width: <span >960px</span>) {
+                  <span class="hljs-selector-tag">body</span> {
+                    <span >background-color</span>: <span >#F5CF8E</span>; <span >/* Yellow */</span>
+                  }
+                }
+                
+                <span >/* Desktop Styles */</span>
+                @<span >media</span> only screen and (min-width: <span >961px</span>) {
+                  <span class="hljs-selector-tag">body</span> {
+                    <span >background-color</span>: <span >#B2D6FF</span>; <span >/* Blue */</span>
+                  }
+                }
+                </code></pre>
+                
+                
+                <p>When you resize your browser, you should see three different background
+                colors: blue when it’s greater than <code>960px</code> wide, yellow when
+                it’s between <code>401px</code> and <code>960px</code>, and red when
+                it’s less than <code>400px</code>.</p>
+                
+                <p>Media queries always begin with the <code>@media</code>
+                “at-rule” followed by some kind of conditional statement, and then
+                some curly braces. Inside the curly braces, you put a bunch of ordinary CSS
+                rules. The browser only pays attention to those rules if the condition is
+                met.</p>
+                
+                <figure ><div style='max-width: 600px'><div class='diagram__padding' style='padding-left; 150px;'><img class='diagram__image' alt='Diagram: media query composed of the @media at-rule, a media type, a media feature, then a bunch of ordinary CSS' src="./img/Responsive Design/media-query-terms.png" width='600' height='272'/></div></div></figure>
+                
+                <p>The <code>only screen</code> “media type” means that the
+                contained styles should only be applied to devices with screens (opposed to
+                printed documents, like when you hit <strong>Cmd+P</strong> in a browser). The
+                <code>min-width</code> and <code>max-width</code> parts are called “media
+                features”, and they specify the device dimensions you’re
+                targeting.</p>
+                
+                <p>The above media queries are by far the most common ones you’ll
+                encounter, but there are a lot of <a
+                href='https://developer.mozilla.org/en-US/docs/Web/CSS/@media'>other
+                conditions</a> you can check for, including whether the device is in portrait
+                or landscape mode, the resolution of its screen, and whether it has a mouse or
+                not.</p>
+        </div>
+    </div>
+
+    <!--A Few Notes on Design-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    A FEW NOTES ON DESIGN
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Ok, so <code>@media</code> is how we define different layouts for specific
+                device widths, but what layouts are we actually trying to implement? The
+                example web page for this chapter is going to look something like this:</p>
+                
+                <figure><div class='diagram__wrapper' style='max-width: 580px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Mockups of mobile, tablet, and desktop web pages' src='./img/Responsive Design/mobile-first-design.png' width='580' height='431'/></div></div></figure>
+                
+                <p>In the real world, it’s up to your web designer to supply you with
+                these kinds of mockups. Your job as a developer is to implement the individual
+                layouts using media queries to separate out the various CSS rules that apply to
+                each one.</p>
+                
+                <p>There’s a few <a
+                  href='https://developers.google.com/web/fundamentals/design-and-ui/responsive/patterns/?hl=en'>well
+                  defined patterns</a> for how a desktop layout collapses into a mobile layout
+                (we’re using “layout shifter”). A lot of these decisions are
+                in the realm of design, which is outside the scope of this code-oriented
+                tutorial; however, there are two concepts that you must understand as a
+                developer:</p>
+                
+                <ul style="padding-top: 30px;">
+                  <li>A “fluid” layout is one that stretches and shrinks to fill
+                    the width of the screen, just like the <a
+                      href='/html-and-css/flexbox/#flexible-items'>flexible boxes</a> we
+                    covered a few chapters ago.</li>
+                  <li> A “fixed-width” layout is the opposite: it has the same
+                    width regardless of the screen dimensions (we created one of these in the
+                    <a href='/html-and-css/css-selectors#container-divs'>CSS Selectors</a>
+                  chapter).</li>
+                </ul>
+                
+                <figure><div style='max-width: 600px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: fluid layout expanding to fill entire width of the browser, fixed-width layout staying the same even if browser gets wider' src='./img/Responsive Design/fixed-width-vs-fluid-layouts.png' width='600' height='236'/></div></div></figure>
+                
+                <p>In our example web page, the mobile and tablet versions are fluid, and the
+                desktop version is fixed-width.</p>
+                
+                
+                <div style="padding-top: 30px;"><h3>Choosing Breakpoints</h3></div>
+                
+                <p>Most of those <a
+                  href='https://developers.google.com/web/fundamentals/design-and-ui/responsive/patterns/?hl=en'>responsive
+                  design patterns</a> have similar behavior, using fluid layouts for
+                mobile/tablet devices and fixed-width layouts for wider screens. There’s
+                a reason for this.</p>
+                
+                <p>Fluid layouts let us target a <em>range</em> of screen widths instead of
+                specific mobile devices. This is very important for web designers. When they
+                set out to create a mobile layout, they aren’t trying to make something
+                that looks good on an iPhone 6s, Galaxy S7, or iPad mini&mdash;they’re
+                designing a fluid layout that looks good <em>anywhere</em> between 300 pixels
+                and 500 pixels (or whatever).</p>
+                
+                <p>In other words, the exact pixel values for the <code>min-width</code> and
+                <code>max-width</code> parameters in a media query (collectively known as the
+                “breakpoints” for a responsive website) don’t actually
+                matter. Our website doesn’t care about the specific device the user is
+                on. All it needs to know is that it should display a layout that looks pretty
+                at 400 pixels wide (or whatever).</p>
+                
+        </div>
+    </div>
+
+    <!--Mobile First Development-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MOBILE-FIRST DEVELOPMENT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Let’s dive right into implementing the above screenshots. It’s
+                always a good idea to start with the mobile layout and work your way up to the
+                desktop version. Desktop layouts are typically more complex than their mobile
+                counterparts, and this “mobile-first” approach maximizes the amount
+                of CSS that you can reuse across your layouts.</p>
+                
+                <p style="padding-bottom: 30px;">First, we need to fill in <code>responsive.html</code>’s
+                <code>&lt;body&gt;</code> element with some empty boxes. Each box has an image
+                in it so we can tell them apart a little bit easier.</p>
+                
+                <pre ><code><span >&lt;<span >div</span> <span >class</span>=<span >'page'</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section menu'</span>&gt;</span><span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section header'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/header.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section content'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/content.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section sign-up'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/sign-up.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section feature-1'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/feature.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section feature-2'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/feature.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                  <span >&lt;<span >div</span> <span >class</span>=<span >'section feature-3'</span>&gt;</span>
+                    <span >&lt;<span >img</span> <span >src</span>=<span >'images/feature.svg'</span>/&gt;</span>
+                  <span >&lt;/<span >div</span>&gt;</span>
+                <span >&lt;/<span >div</span>&gt;</span>
+                </code></pre>
+                
+                <p style="padding-bottom: 30px;">And here’s our base styles, which should apply to <em>all</em> layouts
+                (mobile, tablet, and desktop). Make sure to add these above the
+                <code>@media</code> rules we created earlier and below the <a
+                href='/html-and-css/css-box-model/#resetting-styles'>universal selector</a>
+                rule that resets our margins and padding:</p>
+                
+                <pre ><code><span >.page</span> {
+                  <span >display</span>: flex;
+                  <span >flex-wrap</span>: wrap;
+                }
+                
+                <span >.section</span> {
+                  <span >width</span>: <span >100%</span>;
+                  <span >height</span>: <span >300px</span>;
+                  <span >display</span>: flex;
+                  <span >justify-content</span>: center;
+                  <span >align-items</span>: center;
+                }
+                
+                <span >.menu</span> {
+                  <span >background-color</span>: <span >#5995DA</span>;
+                  <span >height</span>: <span >80px</span>;
+                }
+                
+                <span >.header</span> {
+                  <span >background-color</span>: <span >#B2D6FF</span>;
+                }
+                
+                <span >.content</span> {
+                  <span >background-color</span>: <span >#EAEDF0</span>;
+                  <span >height</span>: <span >600px</span>;
+                }
+                
+                <span >.sign-up</span> {
+                  <span >background-color</span>: <span >#D6E9FE</span>;
+                }
+                
+                <span >.feature-1</span> {
+                  <span >background-color</span>: <span >#F5CF8E</span>;
+                }
+                
+                <span >.feature-2</span> {
+                  <span >background-color</span>: <span >#F09A9D</span>;
+                }
+                
+                <span >.feature-3</span> {
+                  <span >background-color</span>: <span >#C8C6FA</span>;
+                }
+                </code></pre>
+                
+                <p>If you make the browser window narrow, you'll see that this gives us our
+                entire mobile layout. Pretty easy, huh? No media queries required. That’s
+                  why it’s called “mobile-first”&mdash;the mobile version
+                  doesn’t require any special handling. Also notice that <a
+                    href='/html-and-css/flexbox/#wrapping-flex-items'><code>flex-wrap</code>
+                    property</a> in the containing <code>.page</code> div. This will make it
+                  very easy to implement our tablet and desktop layouts.</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 119px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Web page showing layout created with mobile-first CSS (no media queries)' src='./img/Responsive Design/mobile-layout-.png' width='119' height='391'/></div></div></figure>
+                
+                <p>By keeping these base styles outside of the media queries, we’re able
+                to override and add on to them as we implement our specific layouts. This is
+                really convenient when, for instance, your designer wants to tweak the color
+                scheme for the entire website. Instead of tracking down redundant
+                <code>background-color</code> declarations in several <code>@media</code>
+                rules, you only have to update it here. That change automatically applies to
+                the mobile, tablet, and desktop layouts.</p>
+                
+        </div>
+    </div>
+
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    TABLET LAYOUT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>On to the tablet layout. The only difference between the mobile and tablet
+                mockups is that the <strong>Sign Up</strong> and <strong>Feature</strong>
+                sections form a 2&times;2 grid instead of a single column.</p>
+                
+                <p>Flexbox makes this real easy. Simply adjust the widths of the flex items to
+                be half the screen and <code>flex-wrap</code> will take care of the rest. Of
+                course, we only want this behavior to apply to tablet-sized screens, so it
+                needs to go into an <code>@media</code> rule. Replace the existing <code>/*
+                  Tablet Styles */</code> media query with the following:</p>
+                
+                <pre ><code><span >/* Tablet Styles */</span>
+                @<span >media</span> only screen and (min-width: <span >401px</span>) and (max-width: <span >960px</span>) {
+                  <span >.sign-up</span>,
+                  <span >.feature-1</span>,
+                  <span >.feature-2</span>,
+                  <span >.feature-3</span> {
+                    <span >width</span>: <span >50%</span>;
+                  }
+                }
+                </code></pre>
+                
+                <p>To see these changes, make sure your browser window is between 400 pixels
+                and 960 pixels wide, then scroll down to the bottom of the page. You should see
+                a colorful grid:</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 170px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Web page showing the grid created from tablet media query' src='./img/Responsive Design/tablet-layout.png' width='170' height='335'/></div></div></figure>
+                
+                <p>Again, it doesn’t matter what the exact width of the screen is: this
+                layout will fluidly respond to any width in the media query’s range. Our
+                mobile layout is also fluid, so we now have a website that looks beautiful (if
+                a bit empty) in every device smaller than <code>960px</code> wide.</p>            
+        </div>
+    </div>
+
+    <!--DESKTOP LAYOUT-->
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    DESKTOP LAYOUT
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>And that’s where our desktop layout comes in. We don’t want our
+                web page to expand endlessly, so we’re going to give it a fixed width and
+                <a href='/html-and-css/css-box-model/#aligning-boxes'>center it
+                with auto-margins</a>. As with tablet styles, this needs to go into a media
+                query. Replace the existing <code>/* Desktop Styles */</code> media query with
+                the following:</p>
+                
+                <pre ><code><span >/* Desktop Styles */</span>
+                @<span >media</span> only screen and (min-width: <span >961px</span>) {
+                  <span >.page</span> {
+                    <span >width</span>: <span >960px</span>;
+                    <span >margin</span>: <span >0</span> auto;
+                  }
+                  <span >.feature-1</span>,
+                  <span >.feature-2</span>,
+                  <span >.feature-3</span> {
+                    <span >width</span>: <span >33.3%</span>;
+                  }
+                  <span >.header</span> {
+                    <span >height</span>: <span >400px</span>;
+                  }
+                }
+                </code></pre>
+                
+                <p>This gives us the correct widths for everything, and we have more real
+                estate to play with, so we made the header a little taller, too. Almost there,
+                but our desktop layout calls for some reordering: the <strong>Sign Up</strong>
+                and <strong>Content</strong> boxes should appear <em>underneath</em> all the
+                <strong>Feature</strong> sections.</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 565px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Desktop layout of web page before and after flexbox re-ordering' src='./img/Responsive Design/desktop-layout.png' width='565' height='418'/></div></div></figure>
+                
+                <p>This is where flexbox really shines. Trying to create this combination of
+                mobile and desktop layouts would be very difficult with <a
+                href='/html-and-css/floats/'>floats</a>. With flexbox’s <a
+                href='/html-and-css/flexbox/#flex-item-order'><code>order</code> property</a>,
+                it’s just a few lines of CSS. Append these rules to the desktop media
+                query:</p>
+                
+                <pre ><code><span >.sign-up</span> {
+                  <span >height</span>: <span >200px</span>;
+                  <span >order</span>: <span >1</span>;
+                }
+                <span >.content</span> {
+                  <span >order</span>: <span >2</span>;
+                }
+                </code></pre>
+                
+                <p>Ta da! A responsive website! Not bad for less than a hundred lines of CSS.
+                More importantly, we didn’t have to alter a single line of HTML to
+                accommodate our mobile, tablet, and desktop layouts.</p>
+                
+                <p>This was just one example of laying out a responsive site. You can use these
+                exact same techniques to implement all sorts of other designs. Start with the
+                base styles that apply to your entire site, then tweak them for various device
+                widths by selectively applying CSS rules with <code>@media</code>. You could
+                even add another media query to, say, create a dedicated layout for
+                ultra-widescreen monitors.</p>
+        </div>
+    </div>
+
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    DISABLING VIEWPORT ZOOMING
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>We’ve got one final task for making a responsive web page. Before
+                responsive design was a thing, mobile devices only had a desktop layout to work
+                with. To cope with this, they zoomed out to fit the entire desktop layout into
+                the width of the screen, letting the user interact with it by zooming in when
+                necessary.</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 465px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: zoom enabled (desktop layout rendered in a tablet device) versus zoom disabled (tablet layout rendered in a tablet device)' src='./img/Responsive Design/html-viewport-zooming.png' width='465' height='295'/></div></div></figure>
+                
+                <p>This default behavior will prevent mobile devices from using our mobile
+                layout, which is obviously very terrible. To disable it, add the following
+                element to the <code>&lt;head&gt;</code> of our document. Just like <code>&lt;meta
+                    charset='UTF-8'/&gt;</code>, this is a critical element that should be
+                on every single web page you create:</p>
+                
+                <pre ><code><span >&lt;<span >meta</span> <span >name</span>=<span >'viewport'</span>
+                      <span >content</span>=<span >'width=device-width, initial-scale=1.0, maximum-scale=1.0'</span> /&gt;</span>
+                </code></pre>
+                
+                <p>To see this in action, we’ll need to <em>simulate</em> a mobile device in
+                our desktop browser. This is a little advanced for where we’re at right now,
+                but we can give it a shot. Open up <code>responsive.html</code> in Google
+                Chrome, then hit <strong>View&nbsp;&gt; Developer &gt;
+                  Developer&nbsp;Tools</strong> in the menu bar. Then, to simulate a mobile
+                device, click the <strong>Toggle Device Toolbar</strong> icon, highlighted
+                below.</p>
+                
+                <figure class='diagram'><div class='diagram__wrapper' style='max-width: 357px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Screenshot: responsive icon in Chrome’s developer toolbar' src='./img/Responsive Design/chrome-device-toolbar.png' width='357' height='176'/></div></div></figure>
+                
+                <p>You should see the zoom-disabled version of the above diagram in your
+                browser, since it’s now pretending to be a mobile device. (We’ll save the
+                in-depth discussion of Chrome dev tools for a future tutorial.)</p>
+                
+                
+                
+                <p>Alternatively, if you’re reading this chapter on a smartphone, you can
+                navigate to the live <a
+                href='/html-and-css/responsive-design/example/default-viewport-zoom/responsive.html'>before</a>
+                and <a
+                href='/html-and-css/responsive-design/example/disabled-viewport-zoom/responsive.html'>after</a>
+                versions of our example project to experience the effect of our
+                <code>viewport</code> changes.</p>
+                
+        </div>
+    </div>
+
+    <!--Summary-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SUMMARY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Believe it or not, that’s actually all you need to know to create responsive
+                websites. If we boil it down, we’re really only concerned with three
+                things:</p>
+                
+                <ul style="padding-top: 30px;">
+                  <li>The responsive <em>design</em> (the mockups for each layout)</li>
+                  <li>CSS rules for implementing each of those layouts</li>
+                  <li>Media queries for conditionally applying those CSS rules</li>
+                </ul>
+                
+                <p>We started this chapter by learning about the difference between fluid
+                layouts and fixed-width layouts. Then, we went on to create a mobile-first
+                stylesheet that used media queries to build tablet and desktop layouts on top
+                of a shared set of base styles. Finally, we disabled the default viewport zoom
+                behavior of mobile browsers.</p>
+                
+                <p>So, that was the easy part of responsive design. In the next chapter, we’ll
+                discover the hard part: images. Presenting different CSS to specific devices
+                isn’t too bad, but optimizing images for those devices requires a bit more
+                planning.</p>
+                
+                <div class='next-chapter'>
+                  <a href='./ResponsiveImages.html'>Next Chapter &gt;</a>
+                </div>
+        </div>
+ </div>
+
+ <footer style="font-style: normal;">
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+            <div class="beautiful-diagrams-column" style="width: 50%;">
+                <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+            </div>
+            <div class="beautiful-diagrams-column" style="width:50%;">
+                <div>
+                    <p
+                        style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                        InternetingIsHard.com is an independent publisher of premium
+                        web development tutorials. All content is authored and maintained by Oliver James.
+                        He loves hearing from readers, so come say hello!
+                    </p>
+                </div>
+
+                <div class="beautiful-diagrams-row">
+                    <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                    <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                </div>
+
+                <div class="beautiful-diagrams-column" style="width:100%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                            when they get here.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content" style="font-size: 13px;">
+        <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+        <a href="/">CONTACT</a>
+        <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+    </div>
+</footer>
+
+</body>
+</html>

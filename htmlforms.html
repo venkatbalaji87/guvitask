@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Forms Tutorial | HTML & CSS Is Hard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navigation-bar">
+        <div class="left-side-nav-logo">
+            <div> <a class="nav-logo-symbol" href="./index.html" target="_self"><img src="img/wifi-icon-resize.png"
+                        alt="internet-image" /></a>
+            </div>
+            <div>
+                <a class="nav-name" href="./index.html" target="_self" />INTERNETING IS HARD </a>
+            </div>
+        </div>
+        <div class="right-side-nav-logo">
+            <a href="./htmlcss.html" target="_blank">HTML &amp; CSS </a>
+        </div>
+    </nav>
+
+    <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
+        <div class="home-panel">
+            <div>
+                <h1 style="padding-left: 200px;">SEMANTIC HTML</h1>
+            </div>
+            <div class="line-rule" style="margin-top: 30px;">
+                <div class="rule-line-before"> </div>
+                <div class="text-content-home">
+                    Nº 13. OF <a href="./htmlcss.html"> HTML AND CSS IS HARD</a>
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-top: 30px;">
+                <h4 style="font-style: italic;">A friendly web development tutorial for capturing user input</h4>
+            </div>
+        </div>
+        <hr>
+        </hr>
+    </div>
+
+    <div class="comprehensive-style">
+        <p>HTML form elements let you collect input from your website’s visitors.
+            Mailing lists, contact forms, and blog post comments are common examples for
+            small websites, but in organizations that rely on their website for revenue,
+            forms are sacred and revered.</p>
+            
+            
+            <figure ><div  style='max-width: 535px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Examples of text inputs, textareas, radio buttons, checkboxes, and other HTML form elements' src='./img/htmlforms/html-form-elements.png' width='535' height='260'/></div></div></figure>
+            
+            
+            <p>Forms are the “money pages.” They’re how e-commerce sites
+            sell their products, how SaaS companies collect payment for their service, and
+            how non-profit groups raise money online. Many companies measure the success of
+            their website by the effectiveness of its forms because they answer questions
+            like “how many leads did our website send to our sales team?” and
+            “how many people signed up for our product last week?” This often
+            means that forms are subjected to endless A/B tests and optimizations.</p>
+            
+            <figure ><div  style='max-width: 496px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: frontend form elements sending input to backend server for processing' src='./img/htmlforms/form-frontend-and-backend.png' width='496' height='203'/></div></div></figure>
+            
+            <p>There are two aspects of a functional HTML form: the frontend user interface
+            and the backend server. The former is the <em>appearance</em> of the form (as
+            defined by HTML and CSS), while the latter is the code that processes it
+            (storing data in a database, sending an email, etc). We’ll be focusing
+            entirely on the frontend this chapter, leaving backend form processing for a
+            future tutorial.</p>
+    </div>
+
+      <!--SETUP-->
+      <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Unfortunately, there’s really no getting around that fact that styling
+                forms is <em>hard</em>. It’s always a good idea to have a mockup
+                representing the exact page you want to build before you start coding it up,
+                but this is particularly true for forms. So, here’s the example
+                we’ll be creating in this chapter:</p>
+                
+                <figure ><div  style='max-width: 600px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Mobile and desktop web page mockups with several form elements' src='./img/htmlforms/responsive-form-mockup.png' width='600' height='741'/></div></div></figure>
+                
+                <p>As you can see, this is a speaker submission form for a fake conference. It
+                hosts a pretty good selection of HTML forms elements: various types of text
+                fields, a group of radio buttons, a dropdown menu, a checkbox, and a submit button.</p>
+                
+                <p>Create a new <a href='/html-and-css/introduction/#atom-text-editor'>Atom
+                  project</a> called <code>forms</code> and stick a new HTML file in it called
+                <code>speaker-submission.html</code>. For starters, let’s add the markup
+                for the header. (Hey look! It has <a
+                href='/html-and-css/semantic-html/#headers'>some semantic HTML</a>!)</p>
+                
+                <pre><code><span >&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+                  <span >&lt;<span >head</span>&gt;</span>
+                    <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span>/&gt;</span>
+                    <span >&lt;<span >title</span>&gt;</span>Speaker Submission<span >&lt;/<span >title</span>&gt;</span>
+                    <span >&lt;<span >link</span> <span >rel</span>=<span >'stylesheet'</span> <span >href</span>=<span >'styles.css'</span>/&gt;</span>
+                  <span >&lt;/<span >head</span>&gt;</span>
+                  <span >&lt;<span >body</span>&gt;</span>
+                    <span >&lt;<span >header</span> <span >class</span>=<span >'speaker-form-header'</span>&gt;</span>
+                      <span >&lt;<span >h1</span>&gt;</span>Speaker Submission<span >&lt;/<span >h1</span>&gt;</span>
+                      <span >&lt;<span >p</span>&gt;</span><span >&lt;<span >em</span>&gt;</span>Want to speak at our fake conference? Fill out
+                        this form.<span >&lt;/<span >em</span>&gt;</span><span >&lt;/<span >p</span>&gt;</span>
+                    <span >&lt;/<span >header</span>&gt;</span>
+                  <span >&lt;/<span >body</span>&gt;</span>
+                <span >&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+                
+                <p>Next, create a <code>styles.css</code> file and add the following CSS. It
+                uses a simple <a href='/html-and-css/flexbox/'>flexbox</a> technique to center
+                the header (and form) no matter how wide the browser window is:</p>
+                
+                <pre ><code>* {
+                  <span >margin</span>: <span >0</span>;
+                  <span >padding</span>: <span >0</span>;
+                  <span >box-sizing</span>: border-box;
+                }
+                
+                <span >body</span> {
+                  <span >color</span>: <span >#5D6063</span>;
+                  <span >background-color</span>: <span >#EAEDF0</span>;
+                  <span >font-family</span>: <span >"Helvetica"</span>, <span >"Arial"</span>, sans-serif;
+                  <span >font-size</span>: <span >16px</span>;
+                  <span >line-height</span>: <span >1.3</span>;
+                
+                  <span >display</span>: flex;
+                  <span >flex-direction</span>: column;
+                  <span >align-items</span>: center;
+                }
+                
+                <span >.speaker-form-header</span> {
+                  <span >text-align</span>: center;
+                  <span >background-color</span>: <span >#F6F7F8</span>;
+                  <span >border</span>: <span >1px</span> solid <span >#D6D9DC</span>;
+                  <span >border-radius</span>: <span >3px</span>;
+                  
+                  <span >width</span>: <span >80%</span>;
+                  <span >margin</span>: <span >40px</span> <span >0</span>;
+                  <span >padding</span>: <span >50px</span>;
+                }
+                
+                <span >.speaker-form-header</span> <span>h1</span> {
+                  <span >font-size</span>: <span >30px</span>;
+                  <span >margin-bottom</span>: <span >20px</span>;
+                }
+                </code></pre>
+                
+                <p>Notice that we’re adhering to the <a
+                  href='/html-and-css/responsive-design/#mobile-first-development'>mobile-first
+                  development</a> approach that we discussed in the <em>Responsive Design</em>
+                chapter. These base CSS rules give us our mobile layout and provide a
+                foundation for the desktop layout, too. We’ll create the media query for
+                a fixed-width desktop layout later in the chapter.</p>
+        </div>
+    </div>
+
+<!--html forms-->
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                HTML FORMS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>On to forms! Every HTML form begins with the aptly named
+            <code>&lt;form&gt;</code> element. It accepts a <a
+            href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form'>number of
+            attributes</a>, but the most important ones are <code>action</code> and
+            <code>method</code>. Go ahead and add an empty form to our HTML document, right
+            under the <code>&lt;header&gt;</code>:</p>
+            
+            <pre ><code><span >&lt;<span >form</span> <span >action</span>=<span >''</span> <span >method</span>=<span >'get'</span> <span >class</span>=<span >'speaker-form'</span>&gt;</span>
+            <span >&lt;/<span >form</span>&gt;</span>
+            </code></pre>
+            
+            <p>The <code>action</code> attribute defines the URL that processes the form.
+            It’s where the input collected by the form is sent when the user clicks
+              the <strong>Submit</strong> button. This is typically a special URL defined
+              by your web server that knows how to process the data. Common backend
+              technologies for processing forms include <a
+                href='https://nodejs.org/en/'>Node.js</a>, <a
+                href='http://php.net/'>PHP</a>, and <a href='http://rubyonrails.org/'>Ruby
+              on Rails</a>, but again, we’ll be focusing on the frontend in this
+            chapter.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 464px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: &lt;form&gt; action and method attributes sent to backend server' src='./img/htmlforms/form-action-attribute.png' width='464' height='248'/></div></div></figure>
+            
+            <p>The <code>method</code> attribute can be either <a
+              href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST'><code>post</code></a>
+            or <a
+              href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET'><code>get</code></a>,
+            both of which define how the form is submitted to the backend server. This is
+            largely dependent on how your web server wants to handle the form, but the
+            general rule of thumb is to use <code>post</code> when you’re
+            <em>changing</em> data on the server, reserving <code>get</code> for when
+            you’re only <em>getting</em> data.</p>
+            
+            <p>By leaving the <code>action</code> attribute blank, we’re telling the
+            form to submit to the same URL. Combined with the <code>get</code> method, this
+            will let us inspect the contents of the form.</p>
+            
+            
+            <div><h3>Styling Forms</h3></div>
+            
+            <p>Of course, we’re looking at an empty form right now, but that
+            doesn’t mean we can’t add some styles to it like we would a
+            container <code>&lt;div&gt;</code>. This will turn it into a box that matches
+            our <code>&lt;header&gt;</code> element:</p>
+            
+            <pre ><code><span >.speaker-form</span> {
+              <span >background-color</span>: <span >#F6F7F8</span>;
+              <span >border</span>: <span >1px</span> solid <span >#D6D9DC</span>;
+              <span >border-radius</span>: <span >3px</span>;
+              
+              <span >width</span>: <span >80%</span>;
+              <span >padding</span>: <span >50px</span>;
+              <span >margin</span>: <span >0</span> <span >0</span> <span >40px</span> <span >0</span>;
+            }
+            </code></pre>            
+    </div>
+</div>
+
+<!--Email Input Fields-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                EMAIL INPUT FIELDS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>The <code>&lt;input/&gt;</code> element’s <code>type</code> attribute
+            also lets you do basic input validation. For example, let’s try adding
+            another input element that <em>only</em> accepts email addresses instead of
+            arbitrary text values:</p>
+            
+            <pre ><code><span >&lt;<span >div</span> <span >class</span>=<span >'form-row'</span>&gt;</span>
+              <span >&lt;<span >label</span> <span >for</span>=<span >'email'</span>&gt;</span>Email<span >&lt;/<span >label</span>&gt;</span>
+              <span >&lt;<span >input</span> <span >id</span>=<span >'email'</span>
+                     <span >name</span>=<span >'email'</span>
+                     <span >type</span>=<span >'email'</span>
+                     <span >placeholder</span>=<span >'joe@example.com'</span>/&gt;</span>
+            <span >&lt;/<span >div</span>&gt;</span>
+            </code></pre>
+            
+            <p>This works exactly like the <code>type='text'</code> input, except it
+            automatically checks that user entered an email address. In Firefox, you can
+            try typing something that’s not an email address, then clicking outside
+            of the field to make it lose focus and validate its input. It should turn red
+            to show the user that it’s an incorrect value. Chrome and Safari
+            don’t attempt to validate until user tries to submit the form, so
+            we’ll see this in action later in this chapter.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 416px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Web page showing invalid email field value highlighted with red border' src='./img/htmlforms/firefox-invalid-email-input.png' width='416' height='177'/></div></div></figure>
+            
+            <p>This is more than just validation though. By telling browsers that
+            we’re looking for an email address, they can provide a more intuitive
+            user experience. For instance, when a smartphone browser sees this
+            <code>type='email'</code> attribute, it gives the user a special email-specific
+            keyboard with an easily-accessible <code>@</code> character.</p>
+            
+            <p>Also notice the new <code>placeholder</code> attribute that lets you display
+            some default text when the <code>&lt;input/&gt;</code> element is empty. This
+            is a nice little UX technique to prompt the user to input their own value.</p>
+            
+            <p>There’s a bunch of other built-in validation options besides email
+            addresses, which you can read about on MDN’s <a
+            href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input'><code>&lt;input/&gt;</code>
+            reference</a>. Of particular interest are the <code>required</code>,
+            <code>minlength</code>, <code>maxlength</code>, and <code>pattern</code>
+            attributes.</p>
+            
+            
+            <div><h3>Styling Email Input Fields</h3></div>
+            
+            <p>We want our email field to match our text field from the previous section,
+            so let’s add another attribute selector to the existing
+            <code>input[type='text']</code> rule, like so:</p>
+            
+            <pre ><code><span >/* Change this rule */</span>
+            <span >.form-row</span> <span >input</span><span >[type='text']</span> {
+              <span >background-color</span>: <span >#FFFFFF</span>;
+              <span >/* ... */</span>
+            }
+            
+            <span >/* To have another selector */</span>
+            <span >.form-row</span> <span >input</span><span >[type='text']</span>,
+            <span >.form-row</span> <span >input</span><span >[type='email']</span> {
+              <span >background-color</span>: <span >#FFFFFF</span>;
+              <span >/* ... */</span>
+            }
+            </code></pre>
+            
+            <p>Again, we don’t want to use a plain old <code>input</code> type
+            selector here because that would style <em>all</em> of our
+            <code>&lt;input/&gt;</code> elements, including our upcoming radio buttons and
+            checkbox. This is part of what makes styling forms tricky. Understanding the
+            CSS to pluck out exactly the elements you want is a crucial skill.</p>
+            
+            <p>Let’s not forget about our desktop styles. Update the corresponding
+            <code>input[type='text']</code> rule in our media query to match the following
+            (note that we’re preparing for the next few
+            sections with the <code>select</code>, and
+            <code>textarea</code> selectors):</p>
+            
+            <pre ><code>@<span >media</span> only screen and (min-width: <span >700px</span>) {
+              <span >/* ... */</span>
+              <span >.form-row</span> <span >input</span><span >[type='text']</span>,
+              <span >.form-row</span> <span >input</span><span >[type='email']</span>,    <span >/* Add */</span>
+              <span >.form-row</span> <span >select</span>,                 <span >/* These */</span>
+              <span >.form-row</span> <span >textarea</span> {              <span >/* Selectors */</span>
+                <span >width</span>: <span >250px</span>;
+                <span >height</span>: initial;
+              }
+              <span >/* ... */</span>
+            }
+            </code></pre>
+            
+            <p>Since we can now have a “right” and a “wrong” input
+            value, we should probably convey that to users. The <code>:invalid</code> and
+            <code>:valid</code> <a
+            href='/html-and-css/css-selectors/#pseudo-classes-for-links'>pseudo-classes</a>
+            let us style these states independently. For example, maybe we want to render
+            both the border and the text with a custom shade of red when the user entered
+            an unacceptable value. Add the following rule to our stylesheet, outside of the
+            media query:</p>
+            
+            <pre ><code><span >.form-row</span> <span >input</span><span >[type='text']</span><span >:invalid</span>,
+            <span >.form-row</span> <span >input</span><span >[type='email']</span><span >:invalid</span> {
+              <span >border</span>: <span >1px</span> solid <span >#D55C5F</span>;
+              <span >color</span>: <span >#D55C5F</span>;
+              <span >box-shadow</span>: none; <span >/* Remove default red glow in Firefox */</span>
+            }
+            </code></pre>
+            
+            <p>Until we include a submit button, you’ll only be able to see this in
+            Firefox, but you get the idea. There’s a similar pseudo-class called
+            <code>:focus</code> that selects the element the user is currently filling out.
+            This gives you a lot of control over the appearance of your forms.</p>            
+    </div>
+</div>
+
+<!--Radio Buttons-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                RADIO BUTTONS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>Changing the <code>type</code> property of the <code>&lt;input/&gt;</code>
+            element to <code>radio</code> transforms it into a radio button. Radio buttons
+            are a little more complex to work with than text fields because they always
+            operate in groups, allowing the user to choose one out of many predefined
+            options.</p>
+            
+            <figure><div style='max-width: 478px'><div style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: &lt;fieldset&gt; wrapping a &lt;legend&gt; and a series of radio buttons with associated &lt;label&gt; elements' src='./img/htmlforms/radio-label-fieldset-legend-elements.png' width='478' height='219'/></div></div></figure>
+            
+            <p>This means that we not only need a label for each
+            <code>&lt;input/&gt;</code> element, but also a way to group radio buttons and
+            label the entire group. This is what the <code>&lt;fieldset&gt;</code> and
+            <code>&lt;legend&gt;</code> elements are for. Every radio button group you
+            create should:</p>
+            
+            <ul>
+              <li>Be wrapped in a <code>&lt;fieldset&gt;</code>, which is labeled with a
+                <code>&lt;legend&gt;</code>.</li>
+              <li>Associate a <code>&lt;label&gt;</code> element with each radio button.</li>
+              <li>Use the same <code>name</code> attribute for each radio button in the
+                group.</li>
+              <li>Use different <code>value</code> attributes for each radio button.</li>
+            </ul>
+            
+            <p>Our radio button example has all of these components. Add the following to
+            our <code>&lt;form&gt;</code> element underneath the email field:</p>
+            
+            <pre ><code><span >&lt;<span >fieldset</span> <span >class</span>=<span >'legacy-form-row'</span>&gt;</span>
+              <span >&lt;<span >legend</span>&gt;</span>Type of Talk<span >&lt;/<span >legend</span>&gt;</span>
+              <span >&lt;<span >input</span> <span >id</span>=<span >'talk-type-1'</span>
+                     <span >name</span>=<span >'talk-type'</span>
+                     <span >type</span>=<span >'radio'</span>
+                     <span >value</span>=<span >'main-stage'</span> /&gt;</span>
+              <span >&lt;<span >label</span> <span >for</span>=<span >'talk-type-1'</span> <span >class</span>=<span >'radio-label'</span>&gt;</span>Main Stage<span >&lt;/<span >label</span>&gt;</span>
+              <span >&lt;<span >input</span> <span >id</span>=<span >'talk-type-2'</span>
+                     <span >name</span>=<span >'talk-type'</span>
+                     <span >type</span>=<span >'radio'</span>
+                     <span >value</span>=<span >'workshop'</span>
+                     <span >checked</span> /&gt;</span>
+              <span >&lt;<span >label</span> <span >for</span>=<span >'talk-type-2'</span> <span >class</span>=<span >'radio-label'</span>&gt;</span>Workshop<span >&lt;/<span >label</span>&gt;</span>
+            <span >&lt;/<span >fieldset</span>&gt;</span>
+            </code></pre>
+            
+            <p>Unlike text fields, the user can’t enter custom values into a radio
+            button, which is why each one of them needs an explicit <code>value</code>
+            attribute. This is the value that will get sent to the server when the user
+            submits the form. It’s also very important that each radio button has the
+            same <code>name</code> attribute, otherwise the form wouldn’t know they
+            were part of the same group.</p>
+            
+            <p>We also introduced a new attribute called <code>checked</code>. This is a
+            “boolean attribute”, meaning that it never takes a value&mdash;it
+            either exists or doesn’t exist on an <code>&lt;input/&gt;</code> element.
+            If it does exist on either a radio button or a checkbox element, that element
+            will be selected/checked by default.</p>
+            
+            
+            <div><h3>Styling Radio Buttons</h3></div>
+            
+            <p>We have a few things working against us with when it comes to styling radio
+            buttons. First, there’s simply more elements to worry about. Second, the
+            <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements have
+            rather ugly default styles, and there’s not a whole lot of consistency in
+            these defaults across browsers. Third, at the time of this writing,
+            <code>&lt;fieldset&gt;</code> doesn’t support flexbox.</p>
+            
+            <p>But don’t fret! This is a good example of <a
+              href='/html-and-css/floats/'>floats</a> being a useful fallback for
+            legacy/troublesome elements. You’ll notice that we didn’t wrap the
+            radio buttons in our existing <code>.form-row</code> class, opting instead for
+            a new <code>.legacy-form-row</code> class. This is because it’s going to
+            be completely separate from our other elements, using floats instead of
+            flexbox.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 418px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Diagram: mobile layout created with block box &lt;label&gt; versus desktop layout with label as floated left' src='./img/htmlforms/radio-button-float-layout.png' width='418' height='408'/></div></div></figure>
+            
+            <p>Start with the mobile and tablet styles by adding the following rules
+            outside of our media query. We want to get rid of the default
+            <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> styles, then
+            float the radio buttons and labels so they appear in one line underneath the
+            <code>&lt;legend&gt;</code>:</p>
+            
+            <pre ><code><span >.legacy-form-row</span> {
+              <span >border</span>: none;
+              <span >margin-bottom</span>: <span >40px</span>;
+            }
+            
+            <span >.legacy-form-row</span> <span >legend</span> {
+              <span >margin-bottom</span>: <span >15px</span>;
+            }
+            
+            <span >.legacy-form-row</span> <span >.radio-label</span> {
+              <span >display</span>: block;
+              <span >font-size</span>: <span >14px</span>;
+              <span >padding</span>: <span >0</span> <span >20px</span> <span >0</span> <span >10px</span>;
+            }
+            
+            <span >.legacy-form-row</span> <span >input</span><span class="hljs-selector-attr">[type='radio']</span> {
+              <span >margin-top</span>: <span >2px</span>;
+            }
+              
+            <span >.legacy-form-row</span> <span >.radio-label</span>,
+            <span >.legacy-form-row</span> <span >input</span><span class="hljs-selector-attr">[type='radio']</span> {
+              <span >float</span>: left;
+            }
+            </code></pre>
+            
+            <p>For the desktop layout, we need to make the <code>&lt;legend&gt;</code> line
+            up with the <code>&lt;label&gt;</code> elements in the previous section (hence
+            the <code>width: 120px</code> line), and we need to float <em>everything</em>
+            to the left so they appear on the same line. Update our media query to include
+            the following:</p>
+            
+            <pre ><code>@<span >media</span> only screen and (min-width: <span >700px</span>) {
+              <span >/* ... */</span>
+              <span >.legacy-form-row</span> {
+                <span >margin-bottom</span>: <span >10px</span>;
+              }
+              <span >.legacy-form-row</span> <span >legend</span> {
+                <span >width</span>: <span >120px</span>;
+                <span >text-align</span>: right;
+                <span >padding-right</span>: <span >20px</span>;
+              }
+              <span >.legacy-form-row</span> <span >legend</span> {
+                <span >float</span>: left;
+              }
+            }
+            </code></pre>
+            
+            <p>As far as layouts go, this is a pretty good cross-browser solution. However,
+            customizing the appearance of the actual button is another story. It’s
+            possible by taking advantage of the <code>checked</code> attribute, but
+            it’s a little bit complicated. We’ll leave you to Google
+            “custom radio button CSS” and explore that rabbit hole on your
+            own.</p>
+    </div>
+</div>
+
+<!--select elements-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <h1 style="padding-left: 190px;">SELECT ELEMENTS</h1>
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                (DROPDOWN MENUS)
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>Dropdown menus offer an alternative to radio buttons, as they let the user
+            select one out of many options. The <code>&lt;select&gt;</code> element
+            represents the dropdown menu, and it contains a bunch of
+            <code>&lt;option&gt;</code> elements that represent each item.</p>
+            
+            <pre ><code><span >&lt;<span >div</span> <span >class</span>=<span >'form-row'</span>&gt;</span>
+              <span >&lt;<span >label</span> <span >for</span>=<span >'t-shirt'</span>&gt;</span>T-Shirt Size<span >&lt;/<span >label</span>&gt;</span>
+              <span >&lt;<span >select</span> <span >id</span>=<span >'t-shirt'</span> <span >name</span>=<span >'t-shirt'</span>&gt;</span>
+                <span >&lt;<span >option</span> <span >value</span>=<span >'xs'</span>&gt;</span>Extra Small<span >&lt;/<span >option</span>&gt;</span>
+                <span >&lt;<span >option</span> <span >value</span>=<span >'s'</span>&gt;</span>Small<span >&lt;/<span >option</span>&gt;</span>
+                <span >&lt;<span >option</span> <span >value</span>=<span >'m'</span>&gt;</span>Medium<span >&lt;/<span >option</span>&gt;</span>
+                <span >&lt;<span >option</span> <span >value</span>=<span >'l'</span>&gt;</span>Large<span >&lt;/<span >option</span>&gt;</span>
+              <span >&lt;/<span >select</span>&gt;</span>
+            <span >&lt;/<span >div</span>&gt;</span>
+            </code></pre>
+            
+            <p>Just like our radio button <code>&lt;input/&gt;</code> elements, we have
+            <code>name</code> and <code>value</code> attributes that get passed to the
+            backend server. But, instead of being defined on a single element,
+            they’re spread across the <code>&lt;select&gt;</code> and
+            <code>&lt;option&gt;</code> elements.</p>
+            
+            
+            <div><h3 >Styling Select Elements</h3></div>
+            
+            <p class='nudge-desktop--much-smaller'>And, also just like our radio buttons,
+            <code>&lt;select&gt;</code> elements are notoriously hard to style. However,
+            there’s a reason for this. Dropdowns are a complex piece of interactivity, and
+            their behavior changes significantly across devices. For instance, on an
+            iPhone, clicking a <code>&lt;select&gt;</code> element brings up a native
+            scrolling UI component that makes it much easier to navigate the menu.</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 244px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Screenshot showing three &lt;option&gt; elements in the scrolling &lt;select&gt; menu at the bottom of an iPhone screen' src='./img/htmlforms/select-dropdown-in-iphone.png' width='244' height='253'/></div></div></figure>
+            
+            <p>It’s usually a good idea to let the browser/device determine the best
+            way to preset a <code>&lt;select&gt;</code> element, so we’ll be keeping
+            our CSS pretty simple. Unfortunately, even the simplest things are surprisingly
+            hard. For instance, try changing the font size of our
+            <code>&lt;select&gt;</code> element:</p>
+            
+            <pre ><code><span >.form-row</span> <span >select</span> {
+              <span >width</span>: <span >100%</span>;
+              <span >padding</span>: <span >5px</span>;
+              <span >font-size</span>: <span >14px</span>;            <span >/* This won't work in Chrome or Safari */</span>
+            }
+            </code></pre>
+            
+            <p>This will work in Firefox, but not in Chrome or Safari! To sort of fix this,
+            we can use a vendor-specific prefix for the <code>appearance</code>
+            property:</p>
+            
+            <pre ><code><span >.form-row</span> <span >select</span> {
+              <span >width</span>: <span >100%</span>;
+              <span >padding</span>: <span >5px</span>;
+              <span >font-size</span>: <span >14px</span>;            <span >/* This won't work in Chrome or Safari */</span>
+              <span >-webkit-appearance</span>: none;   <span >/* This will make it work */</span>
+            }
+            </code></pre>
+            
+            <p>The <code>-webkit</code> prefix will <em>only</em> apply to Chrome and
+            Safari (which are powered by the WebKit rendering engine), while Firefox will
+              remain unaffected. This is effectively a hack, and even MDN says <a
+                href='https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance'>not
+                to use this CSS property</a>.</p>
+            
+            <p>Style difficulties like this are a serious consideration when building a
+            form. If you need custom styles, you may be better off using radio buttons or
+              JavaScript UI widgets. <a
+                href='http://getbootstrap.com/javascript/#dropdowns'>Bootstrap
+                Dropdowns</a> and <a href='https://jqueryui.com/selectmenu/#default'>jQuery
+              Selectmenu’s</a> are common JavaScript solutions for customizing select
+            menus. In any case, at least you now understand the problem. You can read more
+            about <code>&lt;select&gt;</code> issues <a
+              href='https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Advanced_styling_for_HTML_forms#Dealing_with_the_select_nightmare'>here</a>.</p>            
+    </div>
+</div>
+
+<!--Text areas-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                TEXT AREAS
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>The <code>&lt;textarea&gt;</code> element creates a multi-line text field
+            designed to collect large amounts of text from the user. They’re suitable
+            for things like biographies, essays, and comments. Go ahead and add a
+            <code>&lt;textarea&gt;</code> to our form, along with a little piece of
+            instructional text:</p>
+            
+            <pre ><code><span >&lt;<span >div</span> <span >class</span>=<span >'form-row'</span>&gt;</span>
+              <span >&lt;<span >label</span> <span >for</span>=<span >'abstract'</span>&gt;</span>Abstract<span >&lt;/<span >label</span>&gt;</span>
+              <span >&lt;<span >textarea</span> <span >id</span>=<span >'abstract'</span> <span >name</span>=<span >'abstract'</span>&gt;</span><span >&lt;/<span >textarea</span>&gt;</span>
+              <span >&lt;<span >div</span> <span >class</span>=<span >'instructions'</span>&gt;</span>Describe your talk in 500 words or less<span >&lt;/<span >div</span>&gt;</span>
+            <span >&lt;/<span >div</span>&gt;</span>
+            </code></pre>
+            
+            <p>Note that this isn’t self-closing like the <code>&lt;input/&gt;</code>
+            element, so you always need a closing <code>&lt;/textarea&gt;</code> tag. If
+            you want to add any default text, it needs to go <em>inside</em> the tags
+            opposed to a <code>value</code> attribute.</p>
+            
+            
+            <div ><h3 >Styling Textareas</h3></div>
+            
+            <p>Fortunately, styling textareas is pretty straightforward. Add the following
+            to our <code>styles.css</code> file (before the media query):</p>
+            
+            <pre ><code><span >.form-row</span> <span >textarea</span> {
+              <span >font-family</span>: <span >"Helvetica"</span>, <span >"Arial"</span>, sans-serif;
+              <span >font-size</span>: <span >14px</span>;
+            
+              <span >border</span>: <span >1px</span> solid <span >#D6D9DC</span>;
+              <span >border-radius</span>: <span >3px</span>;
+            
+              <span >min-height</span>: <span >200px</span>;
+              <span >margin-bottom</span>: <span >10px</span>;
+              <span >padding</span>: <span >7px</span>;
+              <span >resize</span>: none;
+            }
+            
+            <span >.form-row</span> <span >.instructions</span> {
+              <span >color</span>: <span >#999999</span>;
+              <span >font-size</span>: <span >14px</span>;
+              <span >margin-bottom</span>: <span >30px</span>;
+            }
+            </code></pre>
+            
+            <p>By default, many browsers let the user resize <code>&lt;textarea&gt;</code>
+            elements to whatever dimensions they want. We disabled this here with the
+            <code>resize</code> property.</p>
+            
+            <p>We also need a little tweak in our desktop layout. The
+            <code>.instructions</code> <code>&lt;div&gt;</code> needs to be underneath the
+            <code>&lt;textarea&gt;</code>, so let’s nudge it left by the width of the
+            <code>&lt;label&gt;</code> column. Add the following rule to the end of our
+            media query:</p>
+
+            <pre ><code>@<span >media</span> only screen and (min-width: <span >700px</span>) {
+              <span >/* ... */</span>
+              <span >.form-row</span> <span >.instructions</span> {
+                <span >margin-left</span>: <span >120px</span>;
+              }
+            }
+            </code></pre>          
+    </div>
+</div>
+
+<!--Checkboxes-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                CHECKBOXES
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>Checkboxes are sort of like radio buttons, but instead of selecting only one
+            option, they let the user pick as many as they want. This simplifies things,
+            since the browser doesn’t need to know which checkboxes are part of the
+            same group. In other words, we don’t need a <code>&lt;fieldset&gt;</code>
+            wrapper or shared <code>name</code> attributes. Add the following to the end of
+            our form:</p>
+            
+            
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'form-row'</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'checkbox-label'</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'available'</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'available'</span>
+                     <span class="hljs-attr">name</span>=<span class="hljs-string">'available'</span>
+                     <span class="hljs-attr">type</span>=<span class="hljs-string">'checkbox'</span>
+                     <span class="hljs-attr">value</span>=<span class="hljs-string">'is-available'</span>/&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>I’m actually available the date of the talk<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            </code></pre>
+            
+            <p>The way we used <code>&lt;label&gt;</code> here was a little different than
+            previous sections. Instead of being a separate element, the
+            <code>&lt;label&gt;</code> wraps its corresponding <code>&lt;input/&gt;</code>
+            element. This is perfectly legal, and it’ll make it easier to match our
+            desired layout. It’s still a best practice to use the <code>for</code>
+            attribute.</p>
+            
+            
+            <div class='subsubheading content__subsubheading'><h3 class='subsubheading__heading' id='styling-checkboxes'>Styling Checkboxes</h3></div>
+            
+            <p>For the mobile layout, all we need to do is override the
+            <code>margin-bottom</code> that we put on the rest the
+            <code>&lt;label&gt;</code> elements. Add the following to
+            <code>styles.css</code>, outside of the media query:</p>
+            
+            <pre class='highlight'><code><span class="hljs-selector-class">.form-row</span> <span class="hljs-selector-class">.checkbox-label</span> {
+              <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+            }
+            </code></pre>
+            
+            <p>And inside the media query, we have to take that 120-pixel label column into
+            account:</p>
+            
+            <pre class='highlight'><code>@<span class="hljs-keyword">media</span> only screen and (min-width: <span class="hljs-number">700px</span>) {
+              <span class="hljs-comment">/* ... */</span>
+              <span class="hljs-selector-class">.form-row</span> <span class="hljs-selector-class">.checkbox-label</span> {
+                <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">120px</span>;
+                <span class="hljs-attribute">width</span>: auto;
+              }
+            }
+            </code></pre>
+            
+            <p>By wrapping both the checkbox and the label text, we’re able to use a
+            <code>width: auto</code> to make the entire form field be on a single line
+            (remember that the <code>auto</code> width makes the box match the size of its
+            contents).</p>
+            
+            <figure class='diagram'><div class='diagram__wrapper' style='max-width: 386px'><div class='diagram__padding' style='padding-left: 150px;'><img class='diagram__image' alt='Web page with several HTML form elements, including a checkbox' src='./img/htmlforms/adding-a-checkbox.png' width='386' height='529'/></div></div></figure>         
+    </div>
+</div>
+
+<!--Summary-->
+
+<div class="comprehensive-style">
+
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                SUMMARY
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+    </div>
+
+    <div>
+        <p>In this chapter, we introduced the most common HTML form elements. We now
+            have all these tools for collecting input from our website visitors:</p>
+            
+            <ul>
+              <li><code>&lt;input type='text'/&gt;</code></li>
+              <li><code>&lt;input type='email'/&gt;</code></li>
+              <li><code>&lt;input type='radio'/&gt;</code></li>
+              <li><code>&lt;select&gt;</code> and <code>&lt;option&gt;</code></li>
+              <li><code>&lt;textarea&gt;</code></li>
+              <li><code>&lt;input type='checkbox'/&gt;</code></li>
+              <li><code>&lt;button&gt;</code></li>
+            </ul>
+            
+            <p>You should be pretty comfortable with the HTML and CSS required to build
+            beautiful forms, but actually making these forms functional requires some
+            skills we don’t have yet. That stuff is out of scope for this tutorial,
+            but it might help to have some context. Generally speaking, there are two ways
+            to process forms:</p>
+            
+            <ul>
+              <li>Use the <code>action</code> attribute to send the form data to a backend
+                URL, which then redirects to a success or error page. We got a little
+                glimpse of this in the previous section, and it doesn’t require any
+              JavaScript.</li>
+              <li>Use AJAX queries to submit the form without leaving the page. Success or
+                error messages are displayed on the same page by manipulating the HTML with
+                JavaScript.</li>
+            </ul>
+            
+            <p>Depending on how your organization is structured, form processing may not be
+            part of your job role as a frontend web developer. If that’s the case,
+            you’ll need to coordinate closely with a backend developer on your team
+            to make sure the <code>&lt;form&gt;</code> submits the correct name-value
+            pairs. Otherwise, it’ll be up to you to make sure the frontend and
+            backend of your forms fit neatly together.</p>
+            
+            
+            
+            <p>Next, we have our final chapter in <a href='/html-and-css/'><em>HTML &amp;
+                CSS Is Hard</em></a>. We’ll round out our frontend skills with a thorough
+            discussion of web fonts and practical typographic principles that every web
+            developer should know about.</p>
+            
+            <div class='next-chapter'>
+              <a href='./webtypography.html'>Next Chapter &gt;</a>
+            </div>           
+    </div>
+</div>
+
+<footer style="font-style: normal;">
+    <div class="comprehensive-style">
+        <div class="line-rule">
+            <div class="rule-line-before"> </div>
+            <div class="comprehensive-curriculum">
+                <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+            </div>
+            <div class="rule-line-after"> </div>
+        </div>
+
+        <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+            <div class="beautiful-diagrams-column" style="width: 50%;">
+                <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+            </div>
+            <div class="beautiful-diagrams-column" style="width:50%;">
+                <div>
+                    <p
+                        style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                        InternetingIsHard.com is an independent publisher of premium
+                        web development tutorials. All content is authored and maintained by Oliver James.
+                        He loves hearing from readers, so come say hello!
+                    </p>
+                </div>
+
+                <div class="beautiful-diagrams-row">
+                    <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                    <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                </div>
+
+                <div class="beautiful-diagrams-column" style="width:100%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                            when they get here.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content" style="font-size: 13px;">
+        <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+        <a href="/">CONTACT</a>
+        <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+        <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

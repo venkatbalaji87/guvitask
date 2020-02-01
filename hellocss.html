@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
 </head>
+
 <body>
 
     <nav class="navigation-bar">
@@ -29,7 +31,7 @@
     <div class="home-style" style="margin-top: 100px; margin-bottom: 30px;">
         <div class="home-panel">
             <div>
-                <h1 id="introh1">HELLO, CSS</h1>
+                <h1 style="padding-left: 250px;">HELLO, CSS</h1>
             </div>
             <div class="line-rule">
                 <div class="rule-line-before"> </div>
@@ -42,8 +44,847 @@
                 <h4>A friendly HTML tutorial about connecting web pages to each other</h4>
             </div>
         </div>
-        <hr></hr>
+        <hr>
+        </hr>
     </div>
-    
+
+    <div class="comprehensive-style">
+
+        <div class="html-content-comprehensive">
+            <p style="padding-left: 10px">
+                The first few chapters of this tutorial focused exclusively on HTML. Now, it’s time to
+                make things pretty (sort of) with Cascading Style Sheets (CSS). You can think of CSS as
+                defining the “design” of a web page. It determines things like font size, margins, and colors
+                using a language entirely separate from HTML.
+            </p>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; text-align: justify; padding-left: 60px">
+                Why is it a separate language? Well, it serves a completely different purpose. HTML represents
+                the content of your web page, while CSS defines how that content is presented to the user. This
+                is a fundamental distinction central to modern web development.
+            </p>
+        </div>
+
+        <div style="padding-left: 240px; margin-top: 50px;">
+            <img src="./img/hellocss/css-vs-html.png" alt="htmlmarkup" />
+        </div>
+
+        <div>
+            <p style="white-space: pre; text-align: justify;">
+                CSS provides the vocabulary to tell a web browser things like, “I want my headings to be really big
+                and my sidebar to appear on the left of the main article.” HTML doesn’t have the terminology to make
+                those kinds of layout decisions—all it can say is, “that’s a heading and that’s a sidebar.”
+            </p>
+        </div>
+        <div>
+            <p style="white-space: pre; text-align: justify;">
+                In this chapter, we’ll explore the basic syntax of CSS, as well as how to connect it to our HTML
+                documents.
+                The goal isn’t so much to become a CSS expert or memorize all the available styles, but rather to
+                understand
+                how CSS and HTML interact. CSS typically lives in its own file, so as in the previous chapter, good file
+                organization will be paramount.
+            </p>
+        </div>
+
+    </div>
+
+    <!--Setup-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETUP
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div style="padding-top: 30px;">
+            <p>
+                To keep things simple, we’ll store the example for each chapter of this tutorial in a separate folder.
+                Using
+                Atom, create a new project called hello-css. We’re going to be styling an existing page called
+                hello-css.html, so
+                go ahead and create that, then add the following markup:
+            </p>
+        </div>
+
+        <div>
+
+            <pre><code><span>&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+                  <span >&lt;<span >head</span>&gt;</span>
+                    <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span>/&gt;</span>
+                    <span >&lt;<span >title</span>&gt;</span>Hello, CSS<span >&lt;/<span >title</span>&gt;</span>
+                  <span >&lt;/<span >head</span>&gt;</span>
+                  <span >&lt;<span >body</span>&gt;</span>
+                    <span >&lt;<span >h1</span>&gt;</span>Hello, CSS<span >&lt;/<span >h1</span>&gt;</span>
+                
+                    <span >&lt;<span >p</span>&gt;</span>CSS lets us style HTML elements. There’s also
+                       <span >&lt;<span >a</span> <span >href</span>=<span >'dummy.html'</span>&gt;</span>another page<span >&lt;/<span >a</span>&gt;</span> associated with this example.<span >&lt;/<span >p</span>&gt;</span>
+                
+                    <span >&lt;<span >h2</span>&gt;</span>List Styles<span >&lt;/<span >h2</span>&gt;</span>
+                
+                    <span >&lt;<span >p</span>&gt;</span>You can style unordered lists with the following bullets:<span >&lt;/<span >p</span>&gt;</span>
+                
+                    <span >&lt;<span >ul</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>disc<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>circle<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>square<span >&lt;/<span >li</span>&gt;</span>
+                    <span >&lt;/<span >ul</span>&gt;</span>
+                
+                    <span >&lt;<span >p</span>&gt;</span>And you can number ordered lists with the following:<span >&lt;/<span >p</span>&gt;</span>
+                
+                    <span >&lt;<span >ol</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>decimal<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>lower-roman<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>upper-roman<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>lower-alpha<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>upper-alpha<span >&lt;/<span >li</span>&gt;</span>
+                      <span >&lt;<span >li</span>&gt;</span>(and many more!)<span >&lt;/<span >li</span>&gt;</span>
+                    <span >&lt;/<span >ol</span>&gt;</span>
+                  <span >&lt;/<span >body</span>&gt;</span>
+                <span >&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+
+            <p>In addition, we’ll need a small dummy page to learn how CSS styles can be
+                applied to multiple web pages. Create <code>dummy.html</code> and add the
+                following:</p>
+
+            <pre><code><span >&lt;!DOCTYPE html&gt;</span>
+                <span >&lt;<span >html</span> <span >lang</span>=<span >'en'</span>&gt;</span>
+                  <span >&lt;<span >head</span>&gt;</span>
+                    <span >&lt;<span >meta</span> <span >charset</span>=<span >'UTF-8'</span>/&gt;</span>
+                    <span >&lt;<span >title</span>&gt;</span>Dummy<span >&lt;/<span >title</span>&gt;</span>
+                  <span >&lt;/<span >head</span>&gt;</span>
+                  <span >&lt;<span >body</span>&gt;</span>
+                    <span >&lt;<span >h1</span>&gt;</span>Dummy<span >&lt;/<span >h1</span>&gt;</span>
+                
+                    <span >&lt;<span >p</span>&gt;</span>This is a dummy page that helps us demonstrate reusable CSS
+                       stylesheets. <span >&lt;<span >a</span> <span >href</span>=<span >'hello-css.html'</span>&gt;</span>Go back<span >&lt;/<span >a</span>&gt;</span>.<span >&lt;/<span >p</span>&gt;</span>
+                
+                    <span >&lt;<span >p</span>&gt;</span>Want to try crossing out an <span >&lt;<span >a</span> <span >href</span>=<span >'nowhere.html'</span>&gt;</span>obsolete link<span >&lt;/<span >a</span>&gt;</span>? This
+                       is your chance!<span >&lt;/<span >p</span>&gt;</span>
+                  <span >&lt;/<span >body</span>&gt;</span>
+                <span >&lt;/<span >html</span>&gt;</span>
+                </code></pre>
+        </div>
+    </div>
+
+    <!--CSS Stylesheets-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CSS STYLESHEETS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">CSS stylesheets reside in plaintext files with a
+                <code>.css</code>
+                extension. Create a new file called <code>styles.css</code> in our
+                <code>hello-css</code> folder. This will house all our example snippets for
+                this chapter. Let’s add one CSS rule so that we can tell if our
+                stylesheet is hooked up to our HTML pages properly.</p>
+
+            <pre><code><span >body</span> {
+                  <span >color</span>: <span >#FF0000</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">A CSS “rule” always start with a “selector” that defines which HTML elements
+                it applies to. In this case, we’re trying to style the
+                <code>&lt;body&gt;</code> element. After the selector, we have the
+                “declarations block” inside of some curly braces. Any “properties” we set in
+                here will affect the <code>&lt;body&gt;</code> element.</p>
+
+            <img style="padding-top:30px;" src="./img/hellocss/css-rule-terminology.png" alt="css rule terminology" />
+
+            <p style="padding-top:30px;">
+                color is a built-in property defined by the CSS specification that determines the text color of whatever
+                HTML elements
+                have been selected. It accepts a hexadecimal value representing a color. #FF0000 means bright red.
+            </p>
+
+            <p style="padding-top:30px;">
+                CSS properties are kind of like <a href="./linksandimages.html">HTML attributes </a> in that they both
+                deal with key-value
+                pairs. Except, here we’re defining presentational information instead of contributing to the semantic
+                meaning of the underlying
+                content.
+            </p>
+        </div>
+    </div>
+
+    <!--Linking Stylesheet-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    LINKING A CSS STYLESHEETS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">If you try loading either of the HTML pages in a
+                browser, you won’t
+                see our stylesheet in action. That’s because we didn’t link them
+                together yet. This is what the HTML <code>&lt;link/&gt;</code> element is for.
+                In <code>hello-css.html</code>, change <code>&lt;head&gt;</code> to the
+                following:</p>
+
+            <pre><code><span >&lt;<span >head</span>&gt;</span>
+                  <span >&lt;<span >meta</span> <span>charset</span>=<span>'UTF-8'</span>/&gt;</span>
+                  <span >&lt;<span >title</span>&gt;</span>Hello, CSS<span >&lt;/<span >title</span>&gt;</span>
+                  <span >&lt;<span >link</span> <span>rel</span>=<span >'stylesheet'</span> <span>href</span>=<span>'styles.css'</span>/&gt;</span>
+                <span >&lt;/<span >head</span>&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">
+                This <code>&lt;link&gt;</code> element is how browsers know they need to load styles.css when they try
+                to render our hello-css.html
+                page. We should now see blindingly red text everywhere:
+            </p>
+
+            <img style="padding-top: 30px; padding-left: 150px;" src="./img/hellocss/linking-a-css-stylesheet.png"
+                alt="linking a css stylesheet" />
+
+            <p style="padding-top: 30px;">The <code>&lt;link/&gt;</code> element is just like the
+                <code>&lt;a&gt;</code> element, but it’s only meant to be used inside of
+                <code>&lt;head&gt;</code>. Since it’s in the head of the document,
+                <code>&lt;link/&gt;</code> connects to <em>metadata</em> that’s defined
+                outside of the current document. Also notice that it’s an <a
+                    href='/html-and-css/basic-web-pages/#empty-html-elements'>empty element</a>, so
+                it doesn’t need a closing tag.</code>
+
+                <p style="padding-top: 30px;">The <code>rel</code> attribute defines the relationship between the
+                    resource
+                    and the HTML document. By far the most common value is <code>stylesheet</code>,
+                    but there are a <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types'>few
+                        other options</a>. The <code>href</code> attribute works the same as in the
+                    previous chapter, only it should point to a <code>.css</code> file instead of
+                    another web page. The value for <code>href</code> can be an <a
+                        href='/html-and-css/links-and-images/#absolute-relative-and-root-relative-links'>absolute,
+                        relative, or root-relative link</a>.</p>
+
+                <figure>
+                    <div style='max-width: 470px'>
+                        <div style='padding-bottom: 30px; padding-left: 150px;'><img
+                                alt='Diagram: HTML &lt;link&gt; element directing the browser to a CSS stylesheet'
+                                src="./img/hellocss/link-element.png" width='470' height='413' /></div>
+                    </div>
+                </figure>
+
+                <p style="padding-top: 30px;">Note that there’s no <em>direct</em> connection between the browser and
+                    our
+                    stylesheet. It’s only through the HTML markup that the browser can find it.
+                    CSS, images, and even JavaScript all rely on an HTML page to glue everything
+                    together, making HTML the heart of most websites.</p>
+        </div>
+    </div>
+
+    <!--CSS Comments-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    CSS COMMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">Now that our stylesheet is hooked up, let’s play with it
+                a little bit.
+                That red is horrible. Let’s tone it down to a nice gray:</p>
+
+            <pre><code><span>body</span> {
+                  <span>color</span>: <span >#414141</span>;    <span>/* Dark gray */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">Notice that comments in CSS are a little different than their HTML
+                counterparts. Instead of the <code>&lt;!-- --&gt;</code> syntax, CSS ignores
+                everything between <code>/*</code> and <code>*/</code> characters.</p>
+        </div>
+
+    </div>
+
+    <!--Setting multiple properties-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SETTING MULTIPLE PROPERTIES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">You can stick as many properties as you want in the
+                declarations block of a
+                CSS rule. Try setting the background color of the entire web page by changing
+                our rule to the following:</p>
+
+            <pre><code><span>body</span> {
+                  <span >color</span>: <span>#414141</span>;<span >/* Dark gray */</span>
+                  <span >background-color</span>: <span>#EEEEEE</span>;<span>/* Light gray */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">The <code>background-color</code> property is very similar to the
+                <code>color</code> property, but it defines the background color of whatever
+                element you selected. Take a second to admire those semicolons at the end of
+                each declaration. Removing them will break the CSS rule, so <em>always mind
+                    your semicolons!</em></p>
+
+            <p style="padding-top: 30px;">Why did we pick shades of grays instead of black and white? Using a
+                <code>#000000</code> background with a <code>#FFFFFF</code> text color is too
+                high of a contrast. It makes it look like the page is vibrating, which can be
+                very distracting for readers.</p>
+
+        </div>
+    </div>
+
+    <!--Selecting Different elements-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SELECTING DIFFERENT ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>Of course, you’ll want to apply styles to elements other than
+                <code>&lt;body&gt;</code>. For that, simply add more CSS rules with different
+                selectors. We can change the font size of our <code>&lt;h1&gt;</code> headings
+                like so:</p>
+
+            <pre><code><span >body</span> {
+                  <span >color</span>: <span >#414141</span>;               <span >/* Dark gray */</span>
+                  <span >background-color</span>: <span >#EEEEEE</span>;    <span >/* Light gray */</span>
+                }
+                
+                <span >h1</span> {
+                  <span >font-size</span>: <span >36px</span>;
+                }
+                </code></pre>
+
+            <p>And, if you want to alter <code>h2</code> headings, add another rule:</p>
+
+            <pre><code><span >h2</span> {
+                  <span >font-size</span>: <span >28px</span>;
+                }
+                </code></pre>
+        </div>
+    </div>
+
+    <!--units of measurement-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SELECTING DIFFERENT ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top:30px;">Many CSS properties require a unit of measurement. There’s <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/CSS/length'>a lot of
+                    units</a> available, but the most common ones you’ll encounter are
+                <code>px</code> (pixel) and <code>em</code> (pronounced like the letter
+                <em>m</em>). The former is what you would intuitively call a pixel, regardless
+                of whether the user has a retina display or not, and the latter is the current
+                font size of the element in question.</p>
+
+            <img style="padding-left: 150px;" src="./img/hellocss/em-units.png" alt="em-units" />
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">The <code>em</code> unit is very useful for defining
+                sizes relative to some
+                base font. In the above diagram, you can see <code>em</code> units scaling to
+                match a base font size of <code>12px</code>, <code>16px</code>, and
+                <code>20px</code>. For a concrete example, consider the following alternative
+                to the previous code snippet:</p>
+
+            <pre><code><span>body</span> {
+                  <span >color</span>: <span >#414141</span>;               <span >/* Dark gray */</span>
+                  <span >background-color</span>: <span >#EEEEEE</span>;    <span >/* Light gray */</span>
+                  <span >font-size</span>: <span >18px</span>;
+                }
+                
+                <span >h1</span> {
+                  <span >font-size</span>: <span >2em</span>;
+                }
+                
+                <span >h2</span> {
+                  <span >font-size</span>: <span >1.6em</span>;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">This sets our base font size for the document to <code>18px</code>, then
+                says that our <code>&lt;h1&gt;</code> elements should be twice that size and
+                our <code>&lt;h2&gt;</code>’s should be 1.6 times bigger. If we (or the
+                user) ever wanted to make the base font bigger or smaller, <code>em</code>
+                units would allow our entire page to scale accordingly.</p>
+
+        </div>
+
+    </div>
+
+    <!--Selecting Multiple Elements-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SELECTING MULTIPLE ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-bottom: 30px;">What if we want to add some styles to <em>all</em> our headings? We
+                don’t want to have redundant rules, since that would eventually become a
+                nightmare to maintain:</p>
+
+            <pre><code><span >/* (You'll regret creating redundant styles like this) */</span>
+                <span >h1</span> {
+                  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Helvetica"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+                }
+                
+                <span >h2</span> {
+                  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Helvetica"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+                }
+                
+                <span >h3</span> {
+                  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Helvetica"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+                }
+                <span >/* (etc) */</span>
+                </code></pre>
+
+            <p>Instead, we can select multiple HTML elements in the same CSS rule by
+                separating them with commas. Add this to our <code>styles.css</code> file:</p>
+
+            <pre><code><span >h1</span>, <span >h2</span>, <span >h3</span>, <span >h4</span>, <span >h5</span>, <span >h6</span> {
+                  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Helvetica"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+                }
+                </code></pre>
+
+            <p>This defines the font to use for all of our headings with a single rule.
+                That’s great, ’cause if we ever want to change it, we only have to do so in one
+                place. Copying and pasting code is usually a bad idea for web developers, and
+                multiple selectors can help reduce that kind of behavior quite a bit.</p>
+
+            <figure>
+                <div style='max-width: 404px'>
+                    <div style='padding-bottom: 30px; padding-right: 30px;'><img
+                            alt='Web page showing &lt;h1&gt; and &lt;h2&gt; headings in a different font'
+                            src='./img/hellocss/linking-a-css-stylesheet.png' width='404' height='400' /></div>
+                </div>
+            </figure>
+
+
+            <h3 style="padding-bottom: 30px;">Defining Fonts</h3>
+
+            <p style="padding-bottom: 30px;"><code>font-family</code> is another built-in CSS property that defines the
+                typeface for whatever element you selected. It accepts multiple values because
+                not all users will have the same fonts installed. With the above snippet, the
+                browser tries to load the left-most one first (<code>Helvetica</code>), falls
+                back to <code>Arial</code> if the user doesn’t have it, and finally chooses the
+                system’s default sans serif font.</pstyle="padding-bottom: 30px;">
+
+                <div style="padding-bottom: 30px;" class='diagram__wrapper' style='max-width: 600px'>
+                    <div class='diagram__padding' style='padding-bottom: 30px; padding-right: 150px;'><img
+                            class='diagram__image'
+                            alt='Diagram: Helvetica falling back to Arial falling back to any sans serif font'
+                            src='./img/hellocss/system-fonts.png' width='600' height='84' /></div>
+                </div>
+
+                <p>Relying on the user’s built-in fonts has historically been incredibly
+                    limiting for web designers. Nowadays, system fonts have been largely superseded
+                    by web fonts. You can read more about this in the <a href='/html-and-css/web-typography/'>Web
+                        Typography</a> chapter of this
+                    tutorial.</p>
+        </div>
+
+    </div>
+
+    <!--List Styles-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SELECTING MULTIPLE ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">The <code>list-style-type</code> property lets you alter the bullet icon
+                used for <code>&lt;li&gt;</code> elements. You’ll typically want to
+                define it on the parent <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>
+                element:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">ul</span> {
+                  <span class="hljs-attribute">list-style-type</span>: circle;
+                }
+                
+                <span class="hljs-selector-tag">ol</span> {
+                  <span class="hljs-attribute">list-style-type</span>: lower-roman;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">You can find other common values in the <code>hello-css.html</code> example
+                page. Of particular interest is <code>none</code>, which is commonly used when
+                marking up menu navigation with a <code>&lt;ul&gt;</code> list. The
+                <code>none</code> value allows the menu’s list items to be styled more like
+                buttons. In the <a href='/html-and-css/advanced-positioning/'>Advanced
+                    Positioning</a> chapter, we’ll actually use this technique to create the
+                navigation menu shown below.</p>
+
+            <figure style="padding-top: 30px;">
+                <div style='max-width: 266px'>
+                    <div class='diagram__padding' style='padding-bottom: 30px;padding-left: 150px;'><img
+                            class='diagram__image'
+                            alt='Web page showing &lt;ul&gt; and &lt;li&gt; elements without list item bullets'
+                            src='./img/hellocss/list-styles.png' width='266' height='251' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">This is good example of the separation of content from presentation. A
+                navigation menu <em>is</em> an unordered list, but it also makes sense to
+                display them as buttons instead of a typical bulleted list. Intelligently
+                designed HTML allows search engines to infer the structure of our content,
+                while CSS lets us display it to humans in beautiful ways.</p>
+
+            <p style="padding-top: 30px;">You can even create custom bullets for <code>&lt;li&gt;</code> elements with
+                the <code>list-style-image</code> property (see MDN <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image'>for
+                    details</a>).</p>
+
+            <p style="padding-top: 30px;">Defining the color of your text and the appearance of your bullets might
+                seem trivial, and it kind of is. But, look at the bigger picture: this is about
+                gaining <em>complete</em> control over the appearance of an HTML document.
+                Alone, a single CSS property is silly. Put them all together, and you’re
+                able to create a totally customized web page.</p>
+        </div>
+    </div>
+
+    <!--Reusable Stylesheets-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SELECTING MULTIPLE ELEMENTS
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px; padding-bottom: 30px;">So, we just defined some basic styles for one of our web
+                pages. It would be
+                really convenient if we could reuse them on our other page, too. For this, all
+                we need to do is add the same <code>&lt;link/&gt;</code> element to any other
+                pages we want to style. Try adding the following line to the
+                <code>&lt;head&gt;</code> of <code>dummy.html</code>:</p>
+
+            <pre class='highlight'><code><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'stylesheet'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'styles.css'</span>/&gt;</span>
+                </code></pre>
+
+            <p style="padding-top: 30px;">Now, our <code>dummy.html</code> pages should match our
+                <code>hello-css.html</code> styles. Whenever we change a style in
+                <code>styles.css</code>, those changes will automatically be reflected in both
+                of our web pages. This is how you get a consistent look and feel across an
+                entire website.</p>
+
+            <figure>
+                <div style='max-width: 490px'>
+                    <div style='padding-bottom: 30px; padding-left:150px;'><img class='diagram__image'
+                            alt='Diagram: Three HTML files pointing to the same global CSS stylesheet'
+                            src='./img/hellocss/reusable-css-stylesheets.png' width='490' height='413' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">You’ll almost always have at least one stylesheet that’s applied
+                to the entire site. It’s usually a good idea to use <a
+                    href='/html-and-css/links-and-images/#root-relative-links'>root-relative
+                    paths</a> when linking global stylesheets to avoid problems in nested pages.
+                For example, <code>some-folder/page.html</code> would need to use
+                <code>../styles.css</code> to reference our <code>styles.css</code> file, and
+                this can get real confusing real quick.</p>
+        </div>
+    </div>
+
+    <!--More Text Styles-->
+
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    MORE TEXT STYLES
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-top: 30px;">There’s a whole bunch of different CSS properties that we’ll be
+                introducing over the course of this tutorial, but for now, let’s finish
+                up with some of the most common ways to format text.</p>
+
+
+            <h3 style="padding-top: 30px;">Underlines</h3>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">The <code>text-decoration</code> property determines
+                whether text is
+                underlined or not. By setting it to <code>none</code>, we can remove the
+                default underline from all of our links. We’ll discuss link styles
+                in-depth <a href='/html-and-css/css-selectors#pseudo-classes-for-links'>later
+                    on</a>.</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">a</span> {
+                  <span class="hljs-attribute">text-decoration</span>: none;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">The other common value for <code>text-decoration</code> is
+                <code>line-through</code> to strike out “deleted” text. But,
+                remember that <em>meaning</em> should always be conveyed through
+                HTML&mdash;not CSS. It’s better to use the <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins'><code>&lt;ins&gt;</code></a>
+                and <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del'><code>&lt;del&gt;</code></a>
+                elements instead of adding a <code>line-through</code> style to, say, an
+                ordinary <code>&lt;p&gt;</code> element.</p>
+
+
+            <h3>Text Alignment</h3>
+
+            <p style="padding-top: 30px; padding-bottom: 30px;">The aptly named <code>text-align</code> property defines
+                the alignment of
+                the text in an HTML element.</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">p</span> {
+                  <span class="hljs-attribute">text-align</span>: left;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">Other accepted values are <code>right</code>, <code>center</code>, or
+                <code>justify</code>, but notice how it always aligns to the entire page:</p>
+
+            <figure>
+                <div style='max-width: 564px'>
+                    <div class='diagram__padding' style='padding-bottom: 30px; padding-left: 150px;'><img
+                            class='diagram__image' alt='Web page with right-aligned text'
+                            src='./img/hellocss/more-text-styles-1.png' width='564' height='189' /></div>
+                </div>
+            </figure>
+
+            <p style="padding-top: 30px;">This isn’t what you want for most websites. We’ll learn why this is the case
+                in the <a href='/html-and-css/css-box-model/'>next chapter</a> when we start
+                talking about CSS boxes.</p>
+
+
+            <h3>Font Weight and Styles</h3>
+
+            <p style="padding-top: 30px;">The <code>font-weight</code> property defines the “boldness” of
+                the text in an element, and the <code>font-style</code> property indicates
+                whether it’s italicized or not.</p>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">Let’s say we don’t want our headings to be bold. Update
+                our heading font
+                rule in <code>styles.css</code> to match the following:</p>
+
+            <pre class='highlight'><code><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span>, <span class="hljs-selector-tag">h4</span>, <span class="hljs-selector-tag">h5</span>, <span class="hljs-selector-tag">h6</span> {
+                  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Helvetica"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+                  <span class="hljs-attribute">font-weight</span>: normal;                              <span class="hljs-comment">/* Add this */</span>
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;padding-bottom: 30px;">These properties clearly demonstrate the separation of
+                content (HTML) from
+                presentation (CSS). The following rules swap the appearance of the
+                <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> elements:</p>
+
+            <pre class='highlight'><code><span class="hljs-comment">/* (You probably shouldn't do this) */</span>
+                <span class="hljs-selector-tag">em</span> {
+                  <span class="hljs-attribute">font-weight</span>: bold;
+                  <span class="hljs-attribute">font-style</span>: normal;
+                }
+                
+                <span class="hljs-selector-tag">strong</span> {
+                  <span class="hljs-attribute">font-weight</span>: normal;
+                  <span class="hljs-attribute">font-style</span>: italic;
+                }
+                </code></pre>
+
+            <p style="padding-top: 30px;">We don’t suggest doing this for real websites though. Font weights and
+                styles will, however, become a lot more important once we start playing with
+                custom fonts in the <a href='#'>Web Typography</a>
+                chapter.</p>
+        </div>
+    </div>
+
+    <!--Summary-->
+
+    <div class="comprehensive-style">
+
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    SUMMARY
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+        </div>
+
+        <div>
+            <p>We talked a lot about separating content from presentation in this chapter.
+                This not only allows us to reuse the same CSS stylesheet in multiple HTML
+                documents, but also lets us conditionally apply <em>different</em> CSS rules to
+                the <em>same</em> HTML content, depending on whether the user is on a mobile
+                phone, tablet, or desktop computer. This latter part is called <a
+                    href='/html-and-css/responsive-design/'>Responsive Design</a>.</p>
+
+            <figure>
+                <div style='max-width: 470px'>
+                    <div style='padding-bottom: 30px; padding-left: 150px;'><img class='diagram__image'
+                            alt='Diagram: single HTML file rendered with separate mobile and desktop CSS styles'
+                            src='./img/hellocss/summary.png' width='470' height='575' /></div>
+                </div>
+            </figure>
+
+            <p>As a web developer, you’ll (hopefully) be given a polished design to work
+                off of. Your job is to turn that mockup into a real web page leveraging your
+                knowledge of CSS. As we mentioned earlier, setting individual CSS properties is
+                actually quite simple. The hard part is combining the overwhelming number of
+                built-in properties to create exactly what your web designer asked
+                for&mdash;and do it quickly.</p>
+
+            <p>This chapter focused mostly on text formatting, but the Cascading Style
+                Sheet language can do a whole lot more. In the next chapter, we’ll start
+                exploring how CSS defines the layout of our web pages. On a final note,
+                remember that you can always refer to <a
+                    href='https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'>MDN’s CSS
+                    Reference</a> when you’re not sure how a particular property works.</p>
+
+            <div class='next-chapter'>
+                <a href='/html-and-css/css-box-model/'>Next Chapter &gt;</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+
+    <footer style="font-style: normal;">
+        <div class="comprehensive-style">
+            <div class="line-rule">
+                <div class="rule-line-before"> </div>
+                <div class="comprehensive-curriculum">
+                    <img src="img/wifi-icon-resize.png" alt="wifi-icon-resize" />
+                </div>
+                <div class="rule-line-after"> </div>
+            </div>
+
+            <div class="beautiful-diagrams-row" style="margin-top: 10px;">
+                <div class="beautiful-diagrams-column" style="width: 50%;">
+                    <ul style="list-style-type:none; text-decoration: none; text-align: right; margin-right: 40px;">
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="#" class="social-icon icon-gray"><i class="fa fa-google-plus-square"></i></a></li>
+                </div>
+                <div class="beautiful-diagrams-column" style="width:50%;">
+                    <div>
+                        <p
+                            style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                            InternetingIsHard.com is an independent publisher of premium
+                            web development tutorials. All content is authored and maintained by Oliver James.
+                            He loves hearing from readers, so come say hello!
+                        </p>
+                    </div>
+
+                    <div class="beautiful-diagrams-row">
+                        <input type="text" id="fname" name="fname" placeholder="You@example.com" style="width: 50%;">
+                        <!-- <a style="width:50%" href="#" class="button">SUBSCRIBE</a> -->
+                    </div>
+
+                    <div class="beautiful-diagrams-column" style="width:100%;">
+                        <div>
+                            <p
+                                style="text-align: justify; font-size: 11px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">
+                                More tutorials are coming. (Lots more.)Enter your email above, and we’ll let you know
+                                when they get here.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content" style="font-size: 13px; padding-top: 20px; border-color: antiquewhite;">
+            <a href="/" style="padding-right: 20px;">&copy;2017 INTERNETINGISHARD</a>
+            <a href="/">CONTACT</a>
+            <a href="/" style="text-align: right;padding-left: 790px;">LICENSING</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">PRIVACY</a>
+            <a href="/" style="text-align: right;margin-left: 30px;">TERMS</a>
+        </div>
+    </footer>
+
+
 </body>
+
 </html>
